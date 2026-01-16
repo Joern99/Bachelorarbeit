@@ -1,0 +1,16 @@
+llama-index-core
+llama-index-readers-file
+pymupdf
+llama-index-vector-stores-postgres
+sqlalchemy[asyncio]
+psycopg2-binary
+pgvector
+asyncpg
+greenlet
+llama-index-embeddings-huggingface
+llama-index-llms-openai
+openai
+rank-bm25
+python-dotenv
+bert-score 
+numpy

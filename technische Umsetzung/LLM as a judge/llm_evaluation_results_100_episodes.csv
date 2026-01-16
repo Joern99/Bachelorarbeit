@@ -1,0 +1,801 @@
+Episode,Frage_Nr,Frage,Kontextverständnis_Score,Kohärenz_Score,Angemessenheit_Score,Gesamtplausibilität_Score
+1,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.93,5.0,5.0,3.0
+1,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.69,5.0,4.62,3.0
+1,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.8,5.0,5.0,3.17
+1,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.54,5.0,5.0,3.29
+1,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.12
+1,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.53,5.0,5.0,3.16
+1,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.72
+1,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.63,5.0,5.0,3.46
+2,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.99,5.0,5.0,3.0
+2,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.72,5.0,4.62,3.0
+2,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.73,5.0,5.0,3.0
+2,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.54,5.0,5.0,3.21
+2,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,5.0,5.0,3.37
+2,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.53,5.0,5.0,3.19
+2,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.57
+2,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,5.0,3.03
+3,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.04
+3,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.68,5.0,4.62,3.0
+3,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.69,5.0,5.0,3.03
+3,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.59,5.0,5.0,3.22
+3,5,Welche Rolle spielt die Position eines Tieres inne...,4.78,5.0,5.0,4.0
+3,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.55,5.0,5.0,3.0
+3,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.89
+3,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,5.0,3.1
+4,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.03
+4,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.7,5.0,4.62,3.0
+4,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.87,5.0,5.0,3.12
+4,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,5.0,3.34
+4,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,4.19
+4,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.51,5.0,5.0,3.18
+4,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.66
+4,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,5.0,3.22
+5,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.0
+5,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.7,5.0,4.61,3.0
+5,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.8,5.0,5.0,3.06
+5,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.58,5.0,5.0,3.21
+5,5,Welche Rolle spielt die Position eines Tieres inne...,4.78,5.0,5.0,4.06
+5,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.55,5.0,5.0,3.68
+5,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.73
+5,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,5.0,3.13
+6,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.96,5.0,5.0,3.03
+6,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.7,5.0,4.61,3.02
+6,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.82,5.0,5.0,3.06
+6,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.49,5.0,5.0,3.0
+6,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,4.09
+6,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.14,5.0,5.0,4.3
+6,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.6
+6,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,5.0,3.26
+7,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.02,5.0,5.0,3.05
+7,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.7,5.0,4.62,3.0
+7,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.82,5.0,5.0,3.09
+7,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.59,5.0,5.0,3.06
+7,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,5.0,5.0,3.19
+7,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.52,5.0,5.0,3.79
+7,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.73
+7,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.63,5.0,5.0,3.48
+8,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.99,5.0,5.0,3.04
+8,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.69,5.0,4.62,3.0
+8,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.8,5.0,5.0,3.17
+8,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.59,5.0,5.0,3.27
+8,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,5.0,5.0,3.86
+8,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.12,5.0,5.0,3.48
+8,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.82
+8,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,5.0,3.13
+9,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.03,5.0,5.0,3.08
+9,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.69,5.0,4.62,3.0
+9,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.69,5.0,5.0,3.0
+9,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.5,5.0,5.0,3.06
+9,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.54
+9,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.47,5.0,5.0,4.04
+9,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.73
+9,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.63,5.0,5.0,3.13
+10,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.98,5.0,5.0,3.0
+10,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.73,5.0,4.62,3.0
+10,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,5.0,5.0,3.19
+10,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.58,5.0,5.0,3.03
+10,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,5.0,5.0,3.21
+10,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.53,5.0,5.0,3.0
+10,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.38
+10,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,5.0,3.13
+11,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.07
+11,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.7,5.0,4.62,3.0
+11,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.71,5.0,5.0,3.15
+11,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.6,5.0,5.0,3.06
+11,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.03
+11,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.49,5.0,5.0,3.19
+11,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.73
+11,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,5.0,3.12
+12,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.98,5.0,5.0,3.07
+12,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.69,5.0,4.61,3.0
+12,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.8,5.0,5.0,3.06
+12,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.51,5.0,5.0,3.17
+12,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,3.07
+12,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.12,5.0,5.0,3.7
+12,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.32
+12,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.63,5.0,5.0,3.02
+13,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.99,5.0,5.0,3.04
+13,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.69,5.0,4.62,3.0
+13,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.82,5.0,5.0,3.06
+13,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,5.0,3.0
+13,5,Welche Rolle spielt die Position eines Tieres inne...,4.78,5.0,5.0,3.14
+13,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.12,5.0,4.98,3.0
+13,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.68
+13,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,5.0,3.47
+14,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.93,5.0,5.0,3.18
+14,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.7,5.0,4.62,3.0
+14,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.73,5.0,5.0,3.0
+14,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.61,5.0,5.0,3.02
+14,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,4.0
+14,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.47,5.0,5.0,3.19
+14,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.38
+14,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.63,5.0,5.0,3.39
+15,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.99,5.0,5.0,3.08
+15,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.69,5.0,4.62,3.0
+15,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.71,5.0,5.0,3.07
+15,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.58,5.0,5.0,3.0
+15,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.14
+15,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.12,5.0,5.0,3.02
+15,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,4.99,5.0,4.32
+15,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,5.0,3.13
+16,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.03,5.0,5.0,3.0
+16,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.69,5.0,4.62,3.0
+16,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.73,5.0,5.0,3.0
+16,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,5.0,3.0
+16,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.14
+16,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.12,5.0,5.0,3.39
+16,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,4.99,5.0,3.66
+16,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,5.0,3.0
+17,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.99,5.0,5.0,3.0
+17,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.69,5.0,4.62,3.0
+17,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.73,5.0,5.0,3.0
+17,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.5,5.0,5.0,3.0
+17,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.07
+17,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.49,5.0,5.0,3.02
+17,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.58
+17,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,4.98,3.27
+18,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.03
+18,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.7,5.0,4.61,3.0
+18,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.71,5.0,5.0,3.15
+18,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.62,5.0,5.0,3.0
+18,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,3.11
+18,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.53,5.0,5.0,3.85
+18,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,4.99,5.0,4.73
+18,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,4.97,3.59
+19,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.92,5.0,5.0,3.04
+19,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.69,5.0,4.62,3.0
+19,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.71,5.0,5.0,3.05
+19,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,5.0,3.16
+19,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,3.0
+19,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.55,5.0,4.99,3.27
+19,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.32
+19,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.63,5.0,4.99,3.52
+20,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.96,5.0,5.0,3.0
+20,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.7,5.0,4.62,3.0
+20,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.8,5.0,5.0,3.03
+20,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.62,5.0,5.0,3.0
+20,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,5.0,5.0,3.1
+20,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.53,5.0,5.0,3.23
+20,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.11
+20,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,4.98,3.0
+21,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.96,5.0,5.0,3.0
+21,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.7,5.0,4.61,3.0
+21,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.8,5.0,5.0,3.03
+21,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,5.0,3.14
+21,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,3.0
+21,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.53,5.0,4.99,3.44
+21,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.57
+21,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.63,5.0,4.99,3.06
+22,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.05
+22,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.69,5.0,4.61,3.0
+22,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.8,5.0,5.0,3.03
+22,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.62,5.0,5.0,3.0
+22,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,5.0,5.0,3.27
+22,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.12,5.0,5.0,3.04
+22,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.38
+22,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,4.99,3.06
+23,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.96,5.0,5.0,3.0
+23,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.71,5.0,4.62,3.03
+23,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.8,5.0,5.0,3.07
+23,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,5.0,3.3
+23,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,3.94
+23,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.55,5.0,5.0,3.62
+23,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.58
+23,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,4.98,3.0
+24,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.99,5.0,5.0,3.03
+24,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.7,5.0,4.62,3.0
+24,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.87,5.0,5.0,3.14
+24,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.63,5.0,5.0,3.21
+24,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,3.14
+24,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.49,5.0,5.0,3.19
+24,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.76
+24,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.63,5.0,4.99,3.27
+25,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.03,5.0,5.0,3.11
+25,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.72,5.0,4.62,3.0
+25,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.73,5.0,5.0,3.04
+25,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,5.0,3.3
+25,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.62
+25,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.55,5.0,5.0,4.3
+25,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.73
+25,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,4.98,3.3
+26,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.04
+26,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.7,5.0,4.62,3.0
+26,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.71,5.0,5.0,3.13
+26,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.62,5.0,5.0,3.07
+26,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,4.06
+26,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.14,5.0,5.0,4.05
+26,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,4.99,5.0,4.82
+26,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,4.96,3.24
+27,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.96,5.0,5.0,3.04
+27,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.69,5.0,4.62,3.0
+27,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.71,5.0,5.0,3.05
+27,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,5.0,3.0
+27,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.15
+27,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.53,5.0,5.0,3.66
+27,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.12
+27,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.63,5.0,4.98,3.15
+28,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.96,5.0,5.0,3.0
+28,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.69,5.0,4.62,3.0
+28,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.73,5.0,5.0,3.09
+28,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,5.0,3.02
+28,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.06
+28,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.47,5.0,5.0,3.78
+28,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.12
+28,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.63,5.0,4.98,3.12
+29,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.0
+29,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.7,5.0,4.62,3.0
+29,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.87,5.0,5.0,3.24
+29,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,5.0,3.0
+29,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.08
+29,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.46,5.0,4.99,3.66
+29,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.0
+29,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.63,5.0,4.99,3.12
+30,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.03,5.0,5.0,3.0
+30,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.7,5.0,4.62,3.0
+30,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.8,5.0,5.0,3.06
+30,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,5.0,3.0
+30,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,3.07
+30,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.53,5.0,5.0,3.66
+30,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.24
+30,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,4.99,3.15
+31,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.07
+31,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.72,5.0,4.68,3.0
+31,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.0
+31,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.62,5.0,5.0,3.21
+31,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.0
+31,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.47,5.0,5.0,3.03
+31,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.7
+31,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.23,5.0,5.0,3.09
+32,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.16
+32,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.69,5.0,4.68,3.0
+32,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.75,5.0,5.0,3.04
+32,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.63,5.0,5.0,3.39
+32,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,3.03
+32,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.5,5.0,5.0,3.21
+32,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.53
+32,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,5.0,3.77
+33,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.0
+33,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.69,5.0,4.65,3.0
+33,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.31
+33,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.62,5.0,5.0,3.13
+33,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.0
+33,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.42,5.0,5.0,3.02
+33,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.59
+33,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,5.0,3.06
+34,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.98,5.0,5.0,3.0
+34,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.67,5.0,4.66,3.0
+34,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.09
+34,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.62,5.0,5.0,3.39
+34,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.14
+34,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.66,5.0,5.0,3.02
+34,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.27
+34,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,5.0,3.0
+35,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.22
+35,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.68,5.0,4.65,3.0
+35,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.05
+35,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,5.0,3.0
+35,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.0
+35,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.47,5.0,5.0,3.05
+35,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.18
+35,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,5.0,3.0
+36,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.99,5.0,5.0,3.0
+36,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.7,5.0,4.73,3.0
+36,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.12
+36,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.62,5.0,5.0,3.04
+36,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,5.0,5.0,3.03
+36,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.02
+36,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.27
+36,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.2,5.0,5.0,3.03
+37,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.0
+37,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.67,5.0,4.73,2.99
+37,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.48
+37,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.63,5.0,5.0,3.39
+37,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.0
+37,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.51,5.0,5.0,3.0
+37,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.67
+37,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,5.0,3.0
+38,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.0
+38,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.66,5.0,4.64,3.0
+38,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.11
+38,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,5.0,3.21
+38,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,3.0
+38,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.52,5.0,5.0,3.03
+38,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.67
+38,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.2,5.0,5.0,3.06
+39,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.0
+39,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.68,5.0,4.65,3.0
+39,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.04
+39,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.63,5.0,5.0,3.17
+39,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.0
+39,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.22
+39,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.44
+39,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,5.0,3.04
+40,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.39
+40,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.67,5.0,4.73,3.0
+40,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.48
+40,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.61,5.0,5.0,3.03
+40,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,3.1
+40,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.5,5.0,5.0,3.23
+40,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.27
+40,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,5.0,3.0
+41,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.96,5.0,5.0,3.09
+41,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.66,5.0,4.64,3.0
+41,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.04
+41,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,5.0,3.0
+41,5,Welche Rolle spielt die Position eines Tieres inne...,4.75,5.0,5.0,3.0
+41,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.52,5.0,5.0,3.02
+41,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.52
+41,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,5.0,3.03
+42,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.03,5.0,5.0,3.16
+42,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.68,5.0,4.73,3.0
+42,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.75,5.0,5.0,3.03
+42,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.65,5.0,5.0,3.02
+42,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,3.1
+42,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.52,5.0,5.0,3.0
+42,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.46
+42,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,5.0,3.05
+43,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.03,5.0,5.0,3.0
+43,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.66,5.0,4.65,3.0
+43,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.8,5.0,5.0,3.25
+43,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,5.0,3.15
+43,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.0
+43,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.51,5.0,5.0,3.0
+43,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.73
+43,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.2,5.0,5.0,3.0
+44,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.03,5.0,5.0,3.0
+44,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.7,5.0,4.65,3.0
+44,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.42
+44,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,4.99,3.03
+44,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,5.0,5.0,3.0
+44,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.66,5.0,5.0,3.06
+44,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.46
+44,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,5.0,3.04
+45,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.39
+45,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.67,5.0,4.67,3.0
+45,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.09
+45,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,4.98,3.0
+45,5,Welche Rolle spielt die Position eines Tieres inne...,4.75,5.0,5.0,3.0
+45,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.04
+45,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.36
+45,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,5.0,3.04
+46,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.24
+46,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.66,5.0,4.67,3.0
+46,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.09
+46,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.63,5.0,4.99,3.0
+46,5,Welche Rolle spielt die Position eines Tieres inne...,4.78,5.0,5.0,3.0
+46,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.52,5.0,5.0,3.06
+46,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.7
+46,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,5.0,3.06
+47,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.96,5.0,5.0,3.14
+47,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.67,5.0,4.67,3.0
+47,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.09
+47,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,4.99,3.0
+47,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,5.0,5.0,3.03
+47,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.52,5.0,5.0,3.09
+47,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.64
+47,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.62,5.0,5.0,3.04
+48,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.96,5.0,5.0,3.28
+48,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.65,5.0,4.73,3.0
+48,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.12
+48,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.64,5.0,4.98,3.0
+48,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.0
+48,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.07
+48,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.24
+48,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,5.0,3.06
+49,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.43
+49,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.64,5.0,4.67,3.0
+49,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.12
+49,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.63,5.0,4.99,3.0
+49,5,Welche Rolle spielt die Position eines Tieres inne...,4.78,5.0,5.0,3.0
+49,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.52,5.0,5.0,3.05
+49,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,4.99,5.0,4.55
+49,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.49,5.0,5.0,3.04
+50,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.35
+50,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.67,5.0,4.73,3.0
+50,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.07
+50,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.62,5.0,4.99,3.0
+50,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,5.0,5.0,3.0
+50,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.51,5.0,5.0,3.05
+50,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.36
+50,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,5.0,3.06
+51,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.28
+51,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.67,5.0,4.65,3.0
+51,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,5.0,3.06
+51,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.62,5.0,5.0,3.0
+51,5,Welche Rolle spielt die Position eines Tieres inne...,4.58,5.0,5.0,3.0
+51,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.56,4.71,5.0,3.0
+51,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.22
+51,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.63,5.0,5.0,3.0
+52,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.96,5.0,5.0,3.21
+52,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.76,3.0
+52,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,4.99,3.33
+52,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.53,5.0,5.0,3.76
+52,5,Welche Rolle spielt die Position eines Tieres inne...,4.78,4.99,5.0,3.06
+52,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.64,5.0,5.0,3.21
+52,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.74
+52,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,4.98,3.21
+53,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.0
+53,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.62,5.0,4.68,3.0
+53,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,5.0,5.0,4.76
+53,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,5.0,3.05
+53,5,Welche Rolle spielt die Position eines Tieres inne...,4.69,4.99,5.0,3.25
+53,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.33
+53,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.22
+53,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.98,3.17
+54,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.03,5.0,5.0,3.18
+54,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.67,3.0
+54,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,4.99,3.2
+54,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.52,5.0,5.0,3.2
+54,5,Welche Rolle spielt die Position eines Tieres inne...,4.78,5.0,5.0,3.06
+54,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.64,5.0,5.0,3.09
+54,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,4.99,5.0,4.9
+54,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,4.98,3.48
+55,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.03,5.0,5.0,3.22
+55,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.75,3.0
+55,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,4.99,3.1
+55,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,5.0,3.96
+55,5,Welche Rolle spielt die Position eines Tieres inne...,4.78,5.0,5.0,4.0
+55,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.82
+55,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.83
+55,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.99,3.35
+56,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.0
+56,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.68,3.0
+56,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,5.0,3.23
+56,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,5.0,3.14
+56,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,4.06
+56,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.47,5.0,5.0,3.82
+56,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.73
+56,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,4.98,3.1
+57,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.0
+57,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.62,5.0,4.73,3.0
+57,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,5.0,3.21
+57,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.53,5.0,5.0,3.1
+57,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,4.97,5.0,3.0
+57,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.21
+57,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.73
+57,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.99,3.17
+58,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.99,5.0,5.0,3.02
+58,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.62,5.0,4.67,3.14
+58,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,4.99,4.76
+58,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,5.0,3.07
+58,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,4.98,5.0,4.06
+58,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.21
+58,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.9
+58,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.49,5.0,4.96,3.1
+59,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.0
+59,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.62,5.0,4.73,3.28
+59,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,5.0,3.23
+59,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,5.0,3.12
+59,5,Welche Rolle spielt die Position eines Tieres inne...,4.78,5.0,5.0,3.21
+59,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.82
+59,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,4.99,5.0,4.9
+59,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.35,5.0,4.98,3.17
+60,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.02,5.0,5.0,3.0
+60,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.62,5.0,4.64,3.07
+60,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,5.0,3.23
+60,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.5,5.0,5.0,3.96
+60,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.07
+60,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.52,5.0,5.0,3.18
+60,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.9
+60,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.96,3.1
+61,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.93,5.0,5.0,3.02
+61,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.73,3.0
+61,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,5.0,3.23
+61,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.49,5.0,5.0,3.14
+61,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.0
+61,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.51,5.0,5.0,3.21
+61,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,4.99,5.0,4.93
+61,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.51,5.0,4.97,3.08
+62,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.28
+62,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.73,3.0
+62,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,4.99,4.76
+62,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,4.99,3.14
+62,5,Welche Rolle spielt die Position eines Tieres inne...,4.75,5.0,5.0,3.0
+62,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.21
+62,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,4.99,5.0,4.62
+62,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,4.98,3.11
+63,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.98,5.0,5.0,3.18
+63,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.62,5.0,4.73,3.0
+63,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,4.99,3.23
+63,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,5.0,3.12
+63,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,4.98,5.0,3.0
+63,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.51,5.0,5.0,3.21
+63,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.62
+63,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,4.96,4.05
+64,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.98,5.0,5.0,3.02
+64,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.62,5.0,4.73,3.07
+64,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,5.0,3.21
+64,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,4.99,3.96
+64,5,Welche Rolle spielt die Position eines Tieres inne...,4.78,5.0,5.0,3.25
+64,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.51,5.0,5.0,3.09
+64,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.93
+64,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.99,3.08
+65,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.02
+65,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.73,3.0
+65,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,4.99,3.63
+65,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.51,5.0,5.0,3.14
+65,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,4.99,5.0,3.21
+65,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.04
+65,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.62
+65,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.42,5.0,4.96,3.29
+66,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.0,5.0,5.0,3.0
+66,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.73,3.0
+66,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,4.99,3.21
+66,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.5,5.0,4.99,3.12
+66,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,4.06
+66,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.51,5.0,5.0,3.21
+66,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.66
+66,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.95,3.1
+67,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.28
+67,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.73,3.07
+67,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,5.0,3.21
+67,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.49,5.0,5.0,3.14
+67,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,4.99,5.0,3.07
+67,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.21
+67,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.66
+67,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.98,3.06
+68,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.03,5.0,5.0,3.02
+68,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.67,3.0
+68,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,4.99,4.76
+68,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,5.0,3.07
+68,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,4.99,5.0,4.06
+68,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.36
+68,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.93
+68,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,4.98,4.06
+69,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.99,5.0,5.0,3.0
+69,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.62,5.0,4.67,3.0
+69,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,5.0,3.23
+69,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.54,5.0,4.99,3.14
+69,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,4.99,5.0,3.0
+69,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.52,5.0,5.0,3.18
+69,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.93
+69,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.98,3.08
+70,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.0
+70,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.64,5.0,4.64,3.0
+70,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,4.99,3.23
+70,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,5.0,3.96
+70,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,4.99,5.0,3.0
+70,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.21
+70,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.93
+70,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,4.99,3.08
+71,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.18
+71,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.73,3.0
+71,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,5.0,3.21
+71,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.5,5.0,5.0,3.14
+71,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,4.98,5.0,3.21
+71,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.51,5.0,5.0,3.82
+71,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,4.99,5.0,4.93
+71,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.6,5.0,4.98,4.05
+72,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.03,5.0,5.0,3.0
+72,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.73,3.06
+72,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,4.99,3.18
+72,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,4.99,3.14
+72,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,4.98,5.0,3.54
+72,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.5,5.0,5.0,3.09
+72,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.62
+72,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.99,3.08
+73,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.18
+73,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.62,5.0,4.67,3.0
+73,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,5.0,3.21
+73,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,4.99,3.07
+73,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,4.99,5.0,3.25
+73,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.09
+73,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.73
+73,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.6,5.0,4.98,4.06
+74,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.01,5.0,5.0,3.0
+74,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.62,5.0,4.67,3.0
+74,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,4.99,3.29
+74,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,4.99,3.96
+74,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,3.54
+74,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.04
+74,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.9
+74,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,4.94,4.06
+75,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.95,5.0,5.0,3.04
+75,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.73,3.0
+75,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,5.0,3.21
+75,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.5,5.0,5.0,3.14
+75,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,4.98,5.0,3.0
+75,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.52,5.0,5.0,3.09
+75,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.9
+75,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.98,3.17
+76,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.99,5.0,5.0,3.18
+76,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.65,3.07
+76,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,4.99,3.18
+76,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.5,5.0,4.99,3.96
+76,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,4.97,5.0,3.0
+76,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.21
+76,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.93
+76,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.98,3.17
+77,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.93,5.0,5.0,3.28
+77,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.62,5.0,4.7,3.28
+77,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,5.0,3.21
+77,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.5,5.0,4.99,3.12
+77,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,3.0
+77,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.82
+77,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.59
+77,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.99,3.29
+78,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.03,5.0,5.0,3.0
+78,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.62,5.0,4.73,3.0
+78,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,4.99,3.18
+78,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.55,5.0,4.99,3.14
+78,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,4.99,5.0,4.06
+78,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.52,5.0,5.0,3.09
+78,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.62
+78,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,4.96,3.07
+79,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.09
+79,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.73,3.0
+79,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,4.99,3.21
+79,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.5,5.0,5.0,3.14
+79,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,4.99,5.0,3.25
+79,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.52,5.0,5.0,3.21
+79,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.62
+79,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,4.98,3.35
+80,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.04
+80,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.73,3.0
+80,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,5.0,3.23
+80,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.51,5.0,5.0,3.14
+80,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,4.98,5.0,3.25
+80,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.82
+80,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.83
+80,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.99,3.17
+81,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.98,5.0,5.0,3.04
+81,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.63,5.0,4.73,3.0
+81,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,4.99,3.23
+81,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.5,5.0,5.0,3.85
+81,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,4.99,5.0,3.0
+81,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.51,5.0,5.0,3.04
+81,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.9
+81,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.98,3.1
+82,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.99,5.0,5.0,3.0
+82,2,Warum kann der Kaffernbüffel auch in relativ trock...,5.0,5.0,4.75,3.0
+82,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,4.99,3.23
+82,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.44,5.0,4.99,3.12
+82,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,4.99,5.0,3.25
+82,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.09
+82,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.93
+82,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.42,5.0,4.99,3.1
+83,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.18
+83,2,Warum kann der Kaffernbüffel auch in relativ trock...,5.0,5.0,4.75,3.28
+83,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,5.0,3.18
+83,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.5,5.0,5.0,3.14
+83,5,Welche Rolle spielt die Position eines Tieres inne...,4.78,5.0,5.0,3.54
+83,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.04
+83,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.9
+83,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,4.99,3.09
+84,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.96,5.0,5.0,3.02
+84,2,Warum kann der Kaffernbüffel auch in relativ trock...,5.0,5.0,4.73,3.0
+84,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,4.99,3.23
+84,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,4.99,3.96
+84,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,4.99,5.0,3.54
+84,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.82
+84,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.93
+84,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,4.99,3.08
+85,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.0
+85,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.6,5.0,4.64,3.07
+85,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,4.99,3.23
+85,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,5.0,3.14
+85,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,4.98,5.0,3.21
+85,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.52,5.0,5.0,3.21
+85,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.73
+85,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.96,3.1
+86,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.98,5.0,5.0,3.28
+86,2,Warum kann der Kaffernbüffel auch in relativ trock...,5.0,5.0,4.73,3.0
+86,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,4.99,3.21
+86,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.49,5.0,5.0,3.14
+86,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,5.0,5.0,3.21
+86,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.51,5.0,5.0,3.82
+86,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.9
+86,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,5.0,3.35
+87,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.28
+87,2,Warum kann der Kaffernbüffel auch in relativ trock...,5.0,5.0,4.73,3.07
+87,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,5.0,3.23
+87,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.53,5.0,4.99,3.14
+87,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,4.98,5.0,3.25
+87,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.21
+87,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.9
+87,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.96,3.17
+88,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.98,5.0,5.0,3.04
+88,2,Warum kann der Kaffernbüffel auch in relativ trock...,5.0,5.0,4.73,3.28
+88,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,4.99,3.18
+88,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.49,5.0,5.0,3.14
+88,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,5.0,5.0,4.06
+88,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.09
+88,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.66
+88,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,5.0,4.98,4.05
+89,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.03,5.0,5.0,3.0
+89,2,Warum kann der Kaffernbüffel auch in relativ trock...,5.0,5.0,4.73,3.0
+89,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,5.0,3.22
+89,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,4.99,3.14
+89,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.0
+89,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.09
+89,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.93
+89,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,5.0,4.99,3.09
+90,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.09
+90,2,Warum kann der Kaffernbüffel auch in relativ trock...,5.0,5.0,4.67,3.07
+90,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.75,4.99,4.99,3.63
+90,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,5.0,3.14
+90,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,4.99,5.0,3.21
+90,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.04
+90,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,3.73
+90,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,4.99,4.99,4.05
+91,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.96,5.0,5.0,3.09
+91,2,Warum kann der Kaffernbüffel auch in relativ trock...,5.0,5.0,4.62,3.28
+91,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,5.0,3.07
+91,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.5,5.0,4.99,3.0
+91,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,5.0,5.0,3.0
+91,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.07
+91,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.46
+91,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,4.99,4.98,3.04
+92,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.01,5.0,5.0,3.17
+92,2,Warum kann der Kaffernbüffel auch in relativ trock...,5.0,5.0,4.61,3.0
+92,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,5.0,4.76
+92,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.5,5.0,4.99,3.0
+92,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,4.99,5.0,3.0
+92,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.04
+92,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.36
+92,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.59,4.99,4.99,3.06
+93,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.03,5.0,5.0,3.14
+93,2,Warum kann der Kaffernbüffel auch in relativ trock...,5.0,5.0,4.62,3.0
+93,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,5.0,3.09
+93,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.49,5.0,4.99,3.0
+93,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,4.99,5.0,3.0
+93,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.06
+93,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.55
+93,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,4.97,4.98,3.05
+94,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,3.03,5.0,5.0,3.14
+94,2,Warum kann der Kaffernbüffel auch in relativ trock...,5.0,5.0,4.61,3.0
+94,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,5.0,3.05
+94,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.51,5.0,4.99,3.0
+94,5,Welche Rolle spielt die Position eines Tieres inne...,4.61,4.98,5.0,3.0
+94,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.04
+94,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.55
+94,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.4,4.99,4.98,3.04
+95,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.11
+95,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.64,5.0,4.62,3.0
+95,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,5.0,4.99,3.04
+95,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,4.99,3.0
+95,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,5.0,5.0,3.0
+95,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.04
+95,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.55
+95,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,4.99,4.99,3.04
+96,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.98,5.0,5.0,3.09
+96,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.6,5.0,4.62,3.0
+96,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,4.99,3.06
+96,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.52,5.0,4.99,3.0
+96,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,4.99,5.0,3.0
+96,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.09
+96,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.76
+96,8,Weshalb sind große Herden in bestimmten Jahreszeit...,5.0,4.98,4.99,3.05
+97,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.99,5.0,5.0,3.35
+97,2,Warum kann der Kaffernbüffel auch in relativ trock...,5.0,5.0,4.62,3.0
+97,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,5.0,3.09
+97,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,5.0,3.0
+97,5,Welche Rolle spielt die Position eines Tieres inne...,4.6,5.0,5.0,3.0
+97,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.52,5.0,5.0,3.06
+97,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.24
+97,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,4.98,4.99,3.02
+98,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.97,5.0,5.0,3.36
+98,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.6,5.0,4.62,3.0
+98,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.75,4.99,5.0,3.09
+98,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.48,5.0,4.99,3.0
+98,5,Welche Rolle spielt die Position eines Tieres inne...,4.62,4.98,5.0,3.0
+98,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.65,5.0,5.0,3.02
+98,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.36
+98,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.47,4.99,4.99,3.04
+99,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.99,5.0,5.0,3.58
+99,2,Warum kann der Kaffernbüffel auch in relativ trock...,5.0,5.0,4.62,3.0
+99,3,Wie verändert sich das Verhalten des Kaffernbüffel...,5.0,4.99,4.99,3.07
+99,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.5,5.0,4.99,3.0
+99,5,Welche Rolle spielt die Position eines Tieres inne...,4.78,5.0,5.0,3.0
+99,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.67,5.0,5.0,3.07
+99,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.55
+99,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.22,4.99,4.98,3.43
+100,1,Welche Vorteile könnte der Kaffernbüffel aus Leben...,2.99,5.0,5.0,3.36
+100,2,Warum kann der Kaffernbüffel auch in relativ trock...,4.65,5.0,4.61,3.0
+100,3,Wie verändert sich das Verhalten des Kaffernbüffel...,4.78,4.99,5.0,3.07
+100,4,Weshalb sind Bullen nicht Teil des inneren Sozialg...,4.52,5.0,5.0,3.0
+100,5,Welche Rolle spielt die Position eines Tieres inne...,4.73,5.0,5.0,3.0
+100,6,Aus welchen Gründen könnten weibliche Kaffernbüffe...,4.52,5.0,5.0,3.09
+100,7,Welche Auswirkungen kann die Stellung eines Tieres...,5.0,5.0,5.0,4.24
+100,8,Weshalb sind große Herden in bestimmten Jahreszeit...,4.61,4.99,4.99,3.04

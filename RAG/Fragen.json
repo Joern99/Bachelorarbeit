@@ -1,0 +1,142 @@
+[
+  {
+    "Nr": 1,
+    "Prüfhinweis (P)": "P1, P3",
+    "Frage": "Beschreibe die hierarchische Struktur einer Kaffernbüffel-Herde: Wer führt, wie ordnen sich die übrigen Gruppen ein, und was sagt die Position eines Tiers über dessen soziale Stellung und Nahrungsqualität aus?",
+    "Musterantwort": "Dominante Weibchen führen die Herde an; es folgen Kühe mit sehr jungen Kälbern, danach Jungtiere im mittleren Teil. Den Abschluss bilden Tiere mit untergeordnetem Status. Die Position eines Tiers spiegelt seine soziale Stellung wider und beeinflusst zudem die Qualität der aufgenommenen Nahrung sowie die allgemeine körperliche Kondition der Kuh.",
+    "Relevant-Index": [[0]]
+  },
+  {
+    "Nr": 2,
+    "Prüfhinweis (P)": "P1",
+    "Frage": "Gib die im Kontext genannten Spannweiten für die Herdengröße von Kaffernbüffeln an und erkläre kurz, unter welchen Bedingungen extrem große Gruppen entstehen und welche Eigenschaften sie haben.",
+    "Musterantwort": "Herdengrößen variieren von einigen Dutzend bis zu mehreren Tausend Individuen. Extrem große Gruppen entstehen abhängig von Jahreszeit sowie dem Angebot an Nahrung und Wasser; sie sind vermutlich nur temporäre Herdenverbände ohne innere Hierarchie.",
+    "Relevant-Index": [[0]]
+  },
+  {
+    "Nr": 3,
+    "Prüfhinweis (P)": "P1, P2",
+    "Frage": "Erläutere die jahreszeitliche Variation der Herdengrößen in nordöstlichem/südlichem Afrika im Vergleich zum Okavango-Delta. Welche logische Begründung wird im Kontext für die Abweichung im Okavango-Delta angedeutet?",
+    "Musterantwort": "Im nordöstlichen und südlichen Afrika sind die Gruppen in der feuchten Jahreszeit größer und in der trockenen kleiner. Im Okavango-Delta ist es umgekehrt, was möglicherweise mit den besonderen örtlichen Bedingungen und den regelmäßigen Überflutungen zusammenhängt.",
+    "Relevant-Index": [[0]]
+  },
+  {
+    "Nr": 4,
+    "Prüfhinweis (P)": "P1",
+    "Frage": "Nenne die im Kontext angegebenen Schädelmaße des Kaffernbüffels (Länge und Breite am Warzenfortsatz) sowie zwei charakteristische Merkmale des Gebisses, einschließlich eines spezifischen Altersbezugs zum Eckzahn-Durchbruch.",
+    "Musterantwort": "Der Schädel ist 44,8–57,5 cm lang und 24,1–31,6 cm breit (am Warzenfortsatz). Im Oberkiefer befindet sich anstelle der Schneidezähne eine Hornplatte; die Backenzähne sind stark hochkronig (hypsodont) mit etwa 5 cm Kronenhöhe bei jungadulten Tieren. Der Unterkiefer-Eckzahn bricht mit etwa 4,5–5,5 Jahren durch.",
+    "Relevant-Index": [[3]]
+  },
+  {
+    "Nr": 5,
+    "Prüfhinweis (P)": "P1, P3",
+    "Frage": "Vergleiche die durchschnittlich zurückgelegten Tagesdistanzen von Herden im Kruger-Nationalpark und in der Serengeti und erkläre, wovon die tägliche Wanderungsintensität typischerweise abhängt.",
+    "Musterantwort": "Im Kruger-Nationalpark werden durchschnittlich 3,35 km pro Tag zurückgelegt; in der Serengeti bis zu 30 km. Die tägliche Wanderungsintensität ist größer, je weiter zugängliches Wasser verstreut liegt, da typische Wanderungen zu Wasser- und Weidestellen führen.",
+    "Relevant-Index": [[2]]
+  },
+  {
+    "Nr": 6,
+    "Prüfhinweis (P)": "P1",
+    "Frage": "Wie groß sind laut Kontext die Territorien einzelner Bullen und von Junggesellengruppen, und in welchem Verhältnis stehen sie zu den Aktionsräumen der Herden?",
+    "Musterantwort": "Einzelne Bullen und Junggesellengruppen nutzen wesentlich kleinere Territorien von 3 bis 4 km², während Herden in Aktionsräumen von 100 bis über 1000km² verbleiben.",
+    "Relevant-Index": [[2]]
+  },
+  {
+    "Nr": 7,
+    "Prüfhinweis (P)": "P1, P3",
+    "Frage": "Beschreibe den typischen Tagesablauf des Kaffernbüffels am Lake Manyara: Zeitfenster der Nahrungsaufnahme, Spannweite und Durchschnitt der Dauer, sowie die beiden Ruhephasen und deren Anteil am Tageszeitbudget.",
+    "Musterantwort": "Am Lake Manyara fressen die Tiere zwischen 10:00 und 14:00 Uhr; die Fressdauer beträgt je nach Intensität 1,5–4,5 Stunden und macht durchschnittlich etwa 37% der Tagesaktivität aus. Die Nahrungsaufnahme trennt zwei Ruheperioden (meist mit Wiederkäuen, oft mit dem Körper im Wasser), die jeweils mehrere Stunden dauern und zusammen etwa 11–49% (durchschnittlich 31%) des Zeitbudgets einnehmen. Insgesamt verbringt der Kaffernbüffel dort jährlich etwa zwei Drittel seiner Tageszeit mit Fressen und Verdauen.",
+    "Relevant-Index": [[2]]
+  },
+  {
+    "Nr": 8,
+    "Prüfhinweis (P)": "P1, P2",
+    "Frage": "Erläutere die gegenläufige Beziehung zwischen Dauer der Nahrungsaufnahme und Dauer der Verdauung zwischen Regenzeit und Trockenzeit. Begründe die Logik mit den im Kontext genannten Nahrungsqualitäten.",
+    "Musterantwort": "In der Regenzeit ist das Nahrungsangebot üppig und qualitativ hochwertig; daher kann in kürzerer Zeit mehr gefressen werden, jedoch ist die Verdauungs-/Wiederkäuzeit länger. In der Trockenzeit mit qualitativ minderwertigerem Futter wird länger gefressen, aber kürzer verdaut.",
+    "Relevant-Index": [[2]]
+  },
+  {
+    "Nr": 9,
+    "Prüfhinweis (P)": "P1, P3",
+    "Frage": "Fasse die wichtigsten Aspekte des Komfort- und Kommunikationsverhaltens zusammen: Schlammbäder, Ruheplätze, Lautäußerungen (inkl. Situationen), das Vorhandensein/Nichtvorhandensein eines Warnrufs sowie das ritualisierte Dominanz-/Unterwerfungsverhalten.",
+    "Musterantwort": "Zum Komfortverhalten gehören Schlammbäder (u. a. gegen Insektenbisse) und Ruhephasen an erhöhten Landmarken (vermutlich, um kühle Brisen zu nutzen, da hitzeempfindlich). Der Kaffernbüffel ist generell still; bekannte Laute sind Grunzen und Schnaufen (z. B. bei Alarm/Beginn des Laufens) sowie ein „Bellen“ bei starken Verletzungen, das Artgenossen zur Hilfe animiert. Ein spezifischer Warnruf besteht nicht; nachts kann die Herde sehr still werden. Dominante Tiere präsentieren erhobenen Kopf/Schultern und nach unten gerichtete Nase; Unterwürfige halten den Kopf tief, teils zwischen die Hinterbeine des dominanten Tieres, mit bellendem Laut.",
+    "Relevant-Index": [[1]]
+  },
+  {
+    "Nr": 10,
+    "Prüfhinweis (P)": "P1",
+    "Frage": "Welche Regionen und Landschaftstypen bewohnt der Kaffernbüffel, inklusive Höhenangaben und konkreter Populationsdichten an drei genannten Orten? Nenne mindestens drei Dichtewerte mit Ortsbezug.",
+    "Musterantwort": "Verbreitung: weite Teile Ost- und Südafrikas (u. a. südliches Äthiopien, Somalia, Kenia, Tansania, Uganda, Osten/Südosten DR Kongo, Sambia, Simbabwe, Mosambik, Südafrika, Nordosten Namibias, Süden Botswanas). Lebensräume: gut durchfeuchtete Savannen, Sümpfe, Überflutungsebenen, außerdem trockenere Savannen und Auwälder (bei Wasser), dazu montane Wälder bis 3000 m; Extremnachweise bis 4700 m am Mount Kenya. Populationsdichten: Lake-Manyara-Nationalpark ca. 20 Individuen/km², Ngorongoro-Krater ca. 11/km², Serengeti ca. 8/km²; im Lowveld bis auf 2/km².",
+    "Relevant-Index": [[5]]
+  },
+  {
+    "Nr": 11,
+    "Prüfhinweis (P)": "P1, P3",
+    "Frage": "Welche Ernährungsstrategie verfolgt der Kaffernbüffel in der Serengeti zwischen Regen- und Trockenzeit, und wie ändert sich die Habitatnutzung (z. B. Rückzug in Flussniederungen)?",
+    "Musterantwort": "In der Serengeti frisst er in der Regenzeit weitgehend Grashalme; in der Trockenzeit, wenn Gräser verschwinden, zieht er sich in Flussniederungen mit umfangreicherem Nahrungsangebot zurück.",
+    "Relevant-Index": [[6]]
+  },
+  {
+    "Nr": 12,
+    "Prüfhinweis (P)": "P1",
+    "Frage": "Nenne die im Kontext angegebenen bevorzugten und gemiedenen Pflanzen(-typen) sowie konkrete Gattungen und Artenbeispiele. Welche Unterschiede werden für Sukkulent-Karoo vs. Nama-Karoo beschrieben (inkl. Prozentanteile bzw. dominierende Grasgattungen je Saison)?",
+    "Musterantwort": "Bevorzugt werden langhalmige Gräser (toleriert hoher Faseranteil); gemieden werden Gräser mit niedrigem Nährstoffgehalt sowie Pflanzen mit ätherischen Ölen. Häufig verzehrt: Hundszahngräser, Fingerhirsen, Rispenhirsen sowie die Gattungen Sporobolus und Heteropogon. Sukkulent-Karoo: Anteil weicher Pflanzen in der Trockenzeit bis 33%, in der feuchteren Phase etwa 28% (u. a. Akaziengewächse, Sternbüsche, Rautengewächse, Kap-Bleiwurz). Nama-Karoo: Gräser ca. 95% der Nahrung; saisonal dominieren Sporobolus-Gräser (feuchte Abschnitte) bzw. Themada-Gräser (trockene Abschnitte).",
+    "Relevant-Index": [[6]]
+  },
+  {
+    "Nr": 13,
+    "Prüfhinweis (P)": "P1",
+    "Frage": "Gib die im Kontext genannten Werte zum täglichen Nahrungsbedarf relativ zur Körpermasse und als absolute Kilogramm-Angabe an und nenne die maximale Entfernung zu offenen Wasserstellen, die der Kaffernbüffel typischerweise nicht überschreitet.",
+    "Musterantwort": "Täglich etwa 2,2% der Körpermasse, entsprechend rund 14–15 kg. Er entfernt sich selten weiter als 8 bis 20 km von offenen Wasserstellen.",
+    "Relevant-Index": [[6]]
+  },
+  {
+    "Nr": 14,
+    "Prüfhinweis (P)": "P1, P2",
+    "Frage": "Beschreibe das Sozialsystem der Bullen: Lebensweise (einzeln/Junggesellengruppen), Gruppengröße, Wechsel zwischen Gruppen und Herden, Einbindung in das Herdengefüge und der Grund, warum Bullen Herden nach kürzerer Zeit wieder verlassen.",
+    "Musterantwort": "Bullen leben einzeln oder in Junggesellengruppen von 5 bis 10 Individuen (zeitlich begrenzt) und können kurzfristig zwischen Junggesellengruppen und Herden wechseln. In Herden sind sie nicht in das dortige Sozialgefüge eingebunden. Bei längerem Herdenaufenthalt verlieren sie regelmäßig an Gewicht (durchschnittlich weniger Futteraufnahme); vermutlich führen die hohen energetischen Kosten der Fortpflanzung dazu, dass Bullen Herden nach kürzerer Zeit wieder verlassen.",
+    "Relevant-Index": [[0]]
+  },
+  {
+    "Nr": 15,
+    "Prüfhinweis (P)": "P1",
+    "Frage": "Welche Merkmale des Schädels (Formen/Gruben) und der Zähne (z. B. Hypsodontie, Kronenhöhe, Zahnschmelzleisten) werden genannt, und welche Funktion hat das Durchbruchsmuster für die Altersbestimmung?",
+    "Musterantwort": "Der Schädel ist kurz, breit und im Profil deutlich gerundet; Voraugengrube (Fossa praeorbitalis) und Siebgrube (Fossa ethmoidalis) sind nicht ausgebildet. Die Backenzähne sind stark hochkronig (hypsodont) mit etwa 5 cm Kronenhöhe; auf der Kaufläche liegen scharfe Zahnschmelzleisten. Das Durchbruchsmuster der Zähne wird zur Altersbestimmung genutzt (der Unterkiefer-Eckzahn ist der letzte Zahn des Dauergebisses).",
+    "Relevant-Index": [[3]]
+  },
+  {
+    "Nr": 16,
+    "Prüfhinweis (P)": "P1, P3",
+    "Frage": "Nenne die im Kontext angegebenen Angaben zu Paarung und Fortpflanzung: saisonale Abhängigkeiten in unterschiedlichen Regionen, Indikator für Paarung/Geburt, Alter der Erstgeburt bei Kühen, Alter der vollen Geschlechtsreife bei Bullen.",
+    "Musterantwort": "Paarung ist prinzipiell ganzjährig möglich, in Regionen mit stark schwankendem Nahrungsangebot jedoch saisonal beschränkt: In der Serengeti von etwa November und zunehmend bis Juli; in Limpopo abhängig von Regenfällen und Nahrungsangebot. Die körperliche Kondition der weiblichen Tiere gilt als ausschlaggebend für Paarung und Geburt. Kühe gebären ihr erstes Kalb mit 4–5 Jahren, Bullen sind mit 8–9 Jahren voll geschlechtsreif.",
+    "Relevant-Index": [[4]]
+  },
+  {
+    "Nr": 17,
+    "Prüfhinweis (P)": "P1, P2",
+    "Frage": "Erläutere den Ablauf der Dominanz- und Paarungswettkämpfe der Bullen: Ausgangsposen, Distanz des Beginns, Abfolge bis zum Angriff, Mechanismus der Krafteinleitung über die Hornbasis und Kriterien für Sieg/Niederlage inklusive typischem Verhalten des Verlierers.",
+    "Musterantwort": "Die Wettkämpfe bestehen u. a. aus Kopf- und Körperrammen. Zunächst steht ein Tier mit erhobenem Kopf und nach unten weisender Nase still; der Kopf wird auf- und abwärts geführt, oft mit tiefem Grummeln. Die Prozedur kann bereits in etwa 30 m Entfernung beginnen. Beim Angriff wird der Kopf so weit abgesenkt, dass die Aufprallenergie auf die verstärkte Basis der Hörner geleitet wird. Über Sieg/Niederlage entscheiden Kraft und Geschwindigkeit; der Verlierer flieht, teils bis zu 100 m verfolgt.",
+    "Relevant-Index": [[4]]
+  },
+  {
+    "Nr": 18,
+    "Prüfhinweis (P)": "P1, P3",
+    "Frage": "Ist der Kaffernbüffel laut Kontext migratorisch oder nicht? Beschreibe dennoch sein jährliches Wanderungsmuster innerhalb des Aktionsraums und den ökologischen Effekt dieser Pfadnutzung auf die Vegetation.",
+    "Musterantwort": "Er ist nicht migratorisch und bleibt in Aktionsräumen von etwa 100 bis über 1000 km². Innerhalb dieser Räume folgt er einem regelmäßigen, durch Niederschlag und Pflanzenwachstum bestimmten Jahresmuster auf festgelegten Pfaden. Diese Pfadnutzung arbeitet den Boden auf und regt neues Pflanzenwachstum an, was wiederholtes Weiden ermöglicht.",
+    "Relevant-Index": [[2]]
+  },
+  {
+    "Nr": 19,
+    "Prüfhinweis (P)": "P1, P3, P4",
+    "Frage": "Formuliere eine prägnante Zusammenfassung der Artbeschreibung (Name, Verbreitung, Lebensräume, markante Morphologie/Sozialstruktur, Reproduktions- und Ernährungsstrategie, Bestandssituation historisch vs. heute), ausschließlich auf Basis des Kontextes.",
+    "Musterantwort": "Der Kaffernbüffel (Syncerus caffer) ist ein sehr großer Hornträger mit robustem Körperbau und großen, abwärts geschwungenen Hörnern. Er kommt in weiten Teilen des östlichen und südlichen Afrikas vor und bewohnt offene Savannen sowie bewaldete Flussgebiete in Tiefland und Hochland. Das Sozialsystem umfasst Herden aus verwandten Kühen mit Jungtieren (mit gelegentlichen Bullen), Junggesellengruppen und einzelne Männchen; Herden spalten und vereinen sich dynamisch in räumlich begrenzten Aktionsgebieten. Kühe gebären in der Regel ein einzelnes Jungtier, das rund ein bis anderthalb Jahre gesäugt wird; weiblicher Nachwuchs bleibt meist in der Herde, männlicher verlässt sie später. Die Nahrung besteht überwiegend aus harten Gräsern, in Trockenzeiten steigt der Anteil weicherer Pflanzen. Die Bestände brachen um den Übergang vom 19. zum 20. Jahrhundert infolge einer Rinderpest-Epidemie ein; heute ist die Art weitgehend auf Schutzgebiete beschränkt, gilt jedoch als häufig und nicht bedroht; beschrieben wurde sie 1779.",
+    "Relevant-Index": [[7]]
+  },
+  {
+    "Nr": 20,
+    "Prüfhinweis (P)": "P1, P4",
+    "Frage": "Welche externen Schutzstatus-Klassifikationen (z. B. IUCN-Kategorie) werden im Kontext genannt? Antworte ausschließlich mit den im Kontext enthaltenen Angaben und weise explizit darauf hin, falls eine solche konkrete Klassifikation nicht genannt ist.",
+    "Musterantwort": "Es wird angegeben, dass der Kaffernbüffel als häufig und nicht bedroht gilt. Eine konkrete externe Schutzstatus-Klassifikation (z. B. IUCN-Kategorie) wird im Kontext nicht genannt.",
+    "Relevant-Index": [[7]]
+  }
+]

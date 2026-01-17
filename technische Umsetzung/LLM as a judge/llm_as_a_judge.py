@@ -21,7 +21,7 @@ MODEL_NAME = "gpt-4.1"
 NUM_EPISODES = 100
 
 # Temperatur für den Judge
-TEMPERATURE = 0.0
+TEMPERATURE = 1.0
 
 # Output-Dateiname mit Temperatur
 OUTPUT_CSV = os.path.join(SCRIPT_DIR, f"llm_evaluation_results_100_episodes_temp{TEMPERATURE}.csv")

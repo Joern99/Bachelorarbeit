@@ -1,0 +1,2116 @@
+\documentclass[11pt]{article}
+
+% Deutsche Sprache und Umlaute für pdfLaTeX
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{pifont}
+\usepackage{booktabs}
+\usepackage[ngerman]{babel}
+\usepackage[autostyle=true,german=quotes]{csquotes}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[nohyperlinks, printonlyused]{acronym}
+\usepackage{pdfpages}
+
+% Abkürzungsbefehle mit korrektem Spacing
+\newcommand{\zB}{z.\,B.\@}
+\newcommand{\dahe}{d.\,h.\@}
+\newcommand{\ua}{u.\,a.\@}
+\newcommand{\usw}{usw.\@}
+\newcommand{\etc}{etc.\@}
+\newcommand{\vgl}{vgl.\@}
+
+% Problematische unsichtbare Unicode-Zeichen (falls aus Copy&Paste) neutralisieren
+\DeclareUnicodeCharacter{200B}{} % Zero Width Space
+\DeclareUnicodeCharacter{00AD}{} % Soft Hyphen (bedingter Trennstrich)
+\DeclareUnicodeCharacter{FEFF}{} % Zero Width No‑Break Space (BOM)
+\DeclareUnicodeCharacter{200C}{} % ZWNJ
+\DeclareUnicodeCharacter{200D}{} % ZWJ
+
+% Times-ähnliche Schriften (pdfLaTeX-kompatibel)
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\usepackage{tabularx}
+\usepackage{subcaption}
+\usepackage{todonotes}
+
+% Layout
+\usepackage{geometry}
+\geometry{a4paper,left=4cm,right=2cm,top=2cm,bottom=2cm}
+\usepackage{setspace}
+\onehalfspacing
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+
+% Blocksatz (Richtlinie: Textformat Blocksatz)
+\usepackage{ragged2e}
+\justifying
+
+% Silbentrennung einschalten (Richtlinie: Textkörper)
+\usepackage[ngerman]{babel}
+\hyphenation{}
+
+% Seitenzahlen: Times New Roman, 11 Punkte, zentriert (Richtlinie 4.2)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\fontfamily{ptm}\fontsize{11pt}{13pt}\selectfont\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Überschriften formatieren (Richtlinie: 11pt, Fettdruck, 1.5-facher Zeilenabstand, 6pt vor/nach)
+\usepackage{titlesec}
+% Neue Seite vor jeder Section (Hauptkapitel) - mit page=new Option
+\titleformat{\section}{\clearpage\normalfont\fontsize{11pt}{16.5pt}\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{6pt}{6pt}
+\titleformat{\subsection}{\normalfont\fontsize{11pt}{16.5pt}\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{6pt}{6pt}
+\titleformat{\subsubsection}{\normalfont\fontsize{11pt}{16.5pt}\bfseries}{\thesubsubsection}{1em}{}
+\titlespacing*{\subsubsection}{0pt}{6pt}{6pt}
+\titleformat{\paragraph}{\normalfont\fontsize{11pt}{16.5pt}\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{6pt}{6pt}
+
+% Fußnoten formatieren (Richtlinie: 9pt, hängender Einzug 0.7cm, 1-facher Zeilenabstand, 1pt vor/nach)
+\usepackage[hang]{footmisc}
+\setlength{\footnotemargin}{0.7cm}
+\renewcommand{\footnotelayout}{\fontsize{9pt}{9pt}\selectfont}
+\setlength{\skip\footins}{1pt}
+\addtolength{\footnotesep}{1pt}
+
+% Inhaltsverzeichnis: Gliederungsebenen einrücken (Richtlinie 4.4)
+\usepackage{tocloft}
+\setlength{\cftsecindent}{0em}        % Section nicht einrücken
+\setlength{\cftsubsecindent}{1.5em}   % Subsection 1.5em einrücken
+\setlength{\cftsubsubsecindent}{3em}  % Subsubsection 3em einrücken
+
+% Formelverzeichnis automatisch erstellen
+\newlistof{formulas}{for}{Formelverzeichnis}
+\renewcommand{\cftfortitlefont}{\normalfont\Large\bfseries}  % Gleiche Formatierung wie Inhaltsverzeichnis
+\newcommand{\formula}[2]{%
+  \addcontentsline{for}{formulas}{\protect\numberline{\ref{#1}}#2}%
+}
+
+% Quellen
+
+\usepackage[backend=biber,style=authoryear,language=ngerman]{biblatex}
+% "u. a." statt "et al." für deutsche Texte
+\DefineBibliographyStrings{ngerman}{
+  andothers = {u\adddot\addabbrvspace a\adddot},
+}
+% Autoren in Kapitälchen (Small Caps) im Literaturverzeichnis (Richtlinie)
+\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
+\renewcommand*{\mkbibnamegiven}[1]{\textsc{#1}}
+\renewcommand*{\mkbibnameprefix}[1]{\textsc{#1}}
+\renewcommand*{\mkbibnamesuffix}[1]{\textsc{#1}}
+
+
+% Hyperref-Paket für klickbare Links (NACH biblatex, VOR addbibresource)
+\usepackage[hidelinks]{hyperref}
+
+
+\addbibresource{Bachelorarbeit.bib}
+
+%Pfad für die Grafiken 
+\graphicspath{{Diagramme/}} 
+
+\begin{document}
+
+% Deckblatt
+\begin{titlepage}
+\centering
+\large\textbf{Hochschule für Angewandte Wissenschaft Kiel}\\
+Fakultät für Wirtschaft\\
+Studiengang Wirtschaftsinformatik
+
+\vspace{2cm}
+\LARGE\textbf{Komparative Analyse von\\
+Evaluationsmetriken im Abgleich mit der\\
+menschlichen Plausibilitätsbewertung von Large\\
+Language Models}
+
+\vspace{1.5cm}
+\Large Bachelorarbeit
+
+\vspace{1.8cm}
+\large vorgelegt von\\[0.3em]
+\textbf{Joern Ahlert}\\
+Matrikelnr.: 941462\\[0.6em]
+Rossdahl 25, 24794 Borgstedt\\
+joern.ahlert@stu.haw-kiel.de\\
++49 176 41529024
+
+\vspace{1.5cm}
+Betreuung:\\[0.2em]
+\textbf{Prof. Dr. Stephan Schneider}\\
+Zweitgutachter: Prof. Dr. Christian Krauss
+
+\vspace{1.5cm}
+Abgabe: 7. Februar 2026\\
+Ort: Kiel
+\end{titlepage}
+\tableofcontents
+\clearpage
+
+% Abkürzungsverzeichnis
+{\Large\bfseries Abkürzungsverzeichnis}
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+
+\begin{acronym}[RLHF]
+\acro{rlhf}[RLHF]{Reinforcement Learning from Human Feedback}
+\acro{llm}[LLM]{Large Language Model}
+\acro{nlp}[NLP]{Natural Language Processing}
+\acro{oci}[OCI]{Ordinal Common-Sense Inference}
+\end{acronym}
+
+\clearpage
+
+% Formelverzeichnis
+\listofformulas
+\clearpage
+
+% Tabellenverzeichnis
+\listoftables
+\clearpage
+
+% Abbildungsverzeichnis 
+\listoffigures
+\clearpage
+
+\section{Einleitung}
+\label{sec:einleitung}
+
+Große Sprachmodelle haben in den vergangenen Jahren erhebliche Fortschritte in der 
+Generierung natürlichsprachlicher Texte erzielt und werden zunehmend in 
+wissensintensiven und entscheidungsrelevanten Kontexten eingesetzt 
+(vgl. \parencite{ brown_language_2020, touvron_llama_2023}). Mit der wachsenden Verbreitung 
+dieser Systeme gewinnt die Frage nach einer verlässlichen Bewertung ihrer Antworten 
+an Bedeutung. Neben etablierten Qualitätskriterien wie Faktentreue oder semantischer 
+Angemessenheit ist Plausibilität eine besonders charakteristische Dimension für 
+Sprachmodelle (vgl. \parencite{li_rethinking_2025}). Plausibilität beschreibt die subjektive 
+Nachvollziehbarkeit und argumentative Stimmigkeit einer Antwort und erfasst, ob 
+diese für Rezipientinnen und Rezipienten schlüssig wirkt, unabhängig von ihrer 
+faktischen Korrektheit (vgl. \parencite{klein_plausibility_2023, connell_what_2004}). 
+Dies ist gerade bei großen Sprachmodellen zentral, da sie häufig 
+sprachlich überzeugende, jedoch nicht zwingend inhaltlich belastbare Antworten 
+erzeugen (vgl. \parencite{farquhar_detecting_2024}).
+
+Zentral stellt sich daher die Frage, wie Plausibilität als eigenständige 
+Qualitätsdimension zuverlässig gemessen werden kann und inwiefern menschliche 
+Plausibilitätsurteile und automatische Evaluationsmetriken diese Dimension 
+unterschiedlich bewerten. Zu diesem Zweck werden zwei konkrete Bewertungsansätze 
+parallel eingesetzt. Zum einen erfolgt eine menschliche Plausibilitätsbewertung, 
+bei der mehrere Personen die vom Sprachmodell generierten Antworten beurteilen. Zum anderen wird eine automatische Evaluationsmetrik 
+verwendet, die Plausibilität auf Basis textueller Eigenschaften und modellinterner 
+Bewertungsmechanismen quantifizier. Beide Ansätze 
+werden bewusst parallel angewendet, um systematisch zu identifizieren, in welchen 
+Fällen und Dimensionen die automatische Bewertung von menschlichen Urteilen 
+divergiert.
+
+Automatische Evaluationsmetriken haben sich von lexikalischen Verfahren wie BLEU 
+(vgl. \parencite{papineni_bleu_2002}) über semantische Ansätze wie BERTScore 
+(vgl. \parencite{zhang_bertscore_2020}) zu LLM-as-a-Judge-Metriken entwickelt, bei 
+denen Sprachmodelle selbst als Evaluatoren fungieren (vgl. \parencite{liu_g-eval_2023}). 
+Diese modernen Ansätze ermöglichen mehrdimensionale Qualitätsbewertungen, weisen 
+jedoch systematische Verzerrungen auf und erfordern Validierung gegen menschliche 
+Urteile (vgl. \parencite{zheng_judging_2023}).
+
+Die theoretische Grundlage der Untersuchung bildet ein an kognitionspsychologischen 
+Ansätzen orientiertes Verständnis von Plausibilität, das diese nicht als 
+eindimensionale Eigenschaft, sondern als mehrdimensionales Konstrukt begreift. 
+Plausibilität wird in die drei Dimensionen Kontextverständnis, Kohärenz und 
+Angemessenheit unterteilt. Kontextverständnis beschreibt, inwieweit eine Antwort 
+die gegebenen Informationen korrekt aufgreift und integriert. Kohärenz erfasst 
+die innere logische Stimmigkeit und Nachvollziehbarkeit der Argumentation. 
+Angemessenheit bewertet, ob Umfang, Detailtiefe und Schwerpunktsetzung der 
+Antwort zur jeweiligen Fragestellung passen. Diese Operationalisierung 
+orientiert sich an der \textit{Knowledge-Fitting Theory} von \textcite{connell_model_2006}, die 
+Plausibilität durch die Faktoren \textit{Corroboration} (Bestätigung durch vorhandenes 
+Wissen), \textit{Complexity} (Komplexität der erforderlichen Annahmen) und \textit{Conjecture} 
+(Spekulativität der Schlussfolgerungen) erklärt.
+
+Diese drei Dimensionen dienen sowohl als Bewertungsrahmen für die menschlichen 
+Raterinnen und Rater als auch als Strukturierungsgrundlage für die automatische 
+Evaluationsmetrik. Auf einer festgelegten Menge von Frage-Antwort-Paaren werden 
+zunächst menschliche Bewertungen auf einer mehrstufigen Skala erhoben 
+(vgl. \parencite{moosbrugger_testtheorie_2020}). Anschließend werden dieselben Antworten 
+automatisiert entlang identischer Dimensionen bewertet. Die resultierenden 
+Datensätze werden sowohl quantitativ als auch qualitativ analysiert. Die 
+quantitative Analyse erfolgt über Rangkorrelationen (Kendall \(\tau\)), um die 
+dimensionsspezifische Übereinstimmung und Abweichung zwischen menschlichen und 
+automatischen Urteilen zu bestimmen. Ergänzend werden ausgewählte Fälle qualitativ 
+untersucht, um typische Muster in den Divergenzen zu identifizieren und zu 
+interpretieren, in welchen Situationen und Kontexten die automatische Metrik 
+systematisch von menschlichen Urteilen abweicht.
+
+Ziel ist es zu bestimmen, inwiefern eine moderne automatische Evaluationsmetrik 
+die Plausibilität von \ac{llm}-generierten Antworten auf Weise bewertet, die mit 
+menschlichen Plausibilitätsurteilen konvergiert oder divergiert. Dies leistet 
+einen Beitrag zur Einschätzung, für welche Aspekte der Plausibilitätsbewertung 
+automatische Verfahren zuverlässig einsetzbar sind und in welchen Bereichen 
+menschliche Bewertung weiterhin notwendig bleibt.
+
+\section{Theoretische Grundlagen}
+
+Es werden zunächst die Funktionsweise und Architektur von Large Language Models erläutert, um die systematischen Eigenschaften ihrer Outputs nachzuvollziehen. Anschließend wird das Konzept der Plausibilität als Bewertungskriterium definiert, von verwandten Konzepten wie Faktentreue abgegrenzt und in konkrete Bewertungsdimensionen operationalisiert. Automatische Evaluationsmetriken werden separat dargestellt, ihre historische Entwicklung erläutert und verschiedene Kategorien unterschieden. Ergänzend werden rangbasierte statistische Verfahren zur Messung von Konkordanz eingeführt, da diese für die Korrelationsanalyse zwischen menschlichen und automatischen Bewertungen erforderlich sind.
+
+
+\subsection{Large Language Models: Grundlagen und Funktionsweise}
+
+\ac{llm}s stellen die zentrale Technologie dieser Untersuchung dar. 
+Ihre Funktionsweise bestimmt, welche Antworten sie generieren und welche 
+systematischen Limitierungen dabei auftreten. Die historische Entwicklung zeigt, 
+wie sich \ac{llm}s von regelbasierten Systemen zu statistischen Sprachmodellen mit 
+emergenten Fähigkeiten entwickelt haben (vgl. \parencite{brown_language_2020}). Die 
+Unterscheidung zwischen Open- und Closed-Source-Modellen beeinflusst wesentliche 
+methodische Rahmenbedingungen wie Reproduzierbarkeit, Datenschutz und lokale 
+Kontrollierbarkeit (vgl. \parencite{zhang_opt_2022, touvron_llama_2023}).
+
+
+\subsubsection{Historischer Kontext und gesellschaftliche Relevanz}
+
+Die maschinelle Verarbeitung natürlicher Sprache (\ac{nlp}) ist ein Forschungsfeld, das bereits seit den 1950er Jahren existiert. Frühe Ansätze der maschinellen Übersetzung wurden unter anderem im Georgetown-IBM-Experiment demonstriert (vgl. \parencite{locke_machine_1955}). Die ELIZA-Demo von Joseph Weizenbaum in den 1960er Jahren zeigte grundlegende Möglichkeiten und Limitierungen regelbasierter Verarbeitung (vgl. \parencite{weizenbaum_elizacomputer_1966}). In der Folge dominierten zunächst linguistisch motivierte und später statistische Methoden. Neuronale Verfahren etablierten sich als weiterer Entwicklungsstrang und reduzierten die Abhängigkeit von manuell konstruierten Merkmalen (vgl. \parencite{collobert_natural_2011}).
+
+Ein Paradigmenwechsel in der Modellarchitektur setzte mit der Transformer-Architektur ein (vgl. \parencite{vaswani_attention_2017}). Darauf aufbauende Sprachmodelle wie GPT-2 und GPT-3 zeigten, dass Skalierung und vortrainierte Transformer breite Fähigkeiten in der Textgenerierung ermöglichen (vgl. \parencite{radford_language_nodate,brown_language_2020}). Mit diesen Entwicklungen erreichten KI-Systeme in Benchmarks wie SuperGLUE oder MMLU Leistungen, die sich an menschlichen Referenzwerten orientieren (vgl. \parencite{brown_language_2020, chowdhery_palm_2022}). Das BERT-Modell und Open-Source-Modelle wie LLaMA trugen zur breiten Adoption dieser Technologie bei (vgl. \parencite{devlin_bert_2019,touvron_llama_2023}). Mit der Veröffentlichung von ChatGPT im November 2022 erreichten konversationelle Sprachmodelle erstmals eine breite Nutzerbasis außerhalb der Forschungsgemeinschaft (vgl. \parencite{noauthor_introducing_2022}).
+
+
+Die gesellschaftliche Relevanz großer Sprachmodelle ergibt sich aus ihrem Potenzial, wissensintensive Tätigkeiten in vielen Branchen zu unterstützen und damit Produktivitätsgewinne zu ermöglichen. Große Sprachmodelle werden in der Praxis vor allem für textbasierte Aufgaben eingesetzt, insbesondere für das Erstellen, Überarbeiten und Zusammenfassen von Inhalten sowie für die Unterstützung wissensbasierter Entscheidungsprozesse. In Unternehmen dient ihr Einsatz typischerweise der Beschleunigung von Arbeitsabläufen, der Senkung von Prozesskosten und der Skalierung von Kommunikations und Analyseaufgaben, wodurch sie Arbeitsorganisation und Wertschöpfungsprozesse messbar beeinflussen können. (vgl. \parencite{chui_economic_2023}).
+
+
+
+\subsubsection{Definition und Funktionsprinzip}
+
+\ac{llm}s bezeichnen Transformer-basierte Sprachmodelle mit 
+typischerweise mehreren zehn bis hunderten Milliarden Parametern, die auf 
+umfangreichen Textkorpora trainiert werden (vgl. \parencite{touvron_llama_2023}). Sie unterscheiden sich von kleineren Sprachmodellen (Small 
+Language Models, SLMs) sowohl quantitativ durch ihre Größe als auch qualitativ 
+durch emergente Fähigkeiten. Diese Fähigkeiten entstehen erst ab bestimmten 
+Skalierungsschwellen und ermöglichen es dem Modell, neue Aufgaben mit wenigen 
+Beispielen zu lösen (\textit{Few-Shot-Learning}) oder komplexe logische Schlussfolgerungen 
+zu ziehen (\textit{Reasoning}), ohne dass es explizit darauf trainiert wurde 
+(vgl. \parencite{brown_language_2020, wei_emergent_2022}). Während ursprünglich rein 
+textuelle Modelle dominierten, entstehen zunehmend multimodale Large Language Models, 
+die neben Text auch Bilder, Audio oder Video verarbeiten (vgl. \parencite{openai_gpt-4_2024}). 
+Diese Arbeit konzentriert sich auf textuelle Sprachmodelle und nutzt das Verständnis 
+ihrer Funktionsweise als Grundlage für die Bewertung ihrer Ausgaben.
+
+Ihr Funktionsprinzip basiert auf der statistischen Modellierung von Textsequenzen. 
+Das Modell berechnet die Wahrscheinlichkeitsverteilung für das nächste Token gegeben 
+einer Eingabesequenz (vgl. \parencite{brown_language_2020}). Das Modell wiederholt diese 
+Vorhersage iterativ, um zusammenhängenden Text zu erzeugen. Es operiert dabei auf 
+statistischen Mustern, nicht auf explizitem Verständnis oder Bedeutung.
+
+Die Transformer-Architektur bildet den technologischen Kern moderner Large Language 
+Models. Sie enthält einen Attention-Mechanismus, 
+der berechnet, welche Positionen in der Eingabesequenz für die aktuelle Position 
+relevant sind. Dies ermöglicht dem Modell, Abhängigkeiten über längere Textabschnitte 
+hinweg zu erfassen. Der Attention-Mechanismus gewichtet die Relevanz einzelner Wörter 
+dynamisch in Abhängigkeit vom Gesamtkontext, wodurch das Modell flexibel auf 
+verschiedene Eingaben reagiert.(vgl. \parencite{vaswani_attention_2017})
+
+Das Training erfolgt durch Language Modeling, ein selbst-überwachtes Lernverfahren 
+(vgl. \parencite{radford_language_nodate}). Das Modell wird auf großen Textmengen trainiert, 
+um das nächste Token vorherzusagen. Das Verfahren benötigt keine manuellen Annotationen, 
+da die Zielwerte direkt aus den Trainingsdaten extrahiert werden. Der Trainingsprozess 
+minimiert die Differenz zwischen der vorhergesagten Wahrscheinlichkeitsverteilung und 
+dem tatsächlichen nächsten Token. Aus diesem einfachen Trainingsziel entstehen emergente 
+Fähigkeiten, die es dem Modell ermöglichen, verschiedene 
+Sprachaufgaben zu bewältigen, ohne dass es spezifisch darauf trainiert wurde.(vgl. \parencite{brown_language_2020})
+
+\subsubsection{Open- und Closed-Source}
+
+\ac{llm}s unterscheiden sich fundamental in ihrer Verfügbarkeit und den daraus 
+resultierenden Implikationen für Forschung und Datenschutz. Geschlossene Modelle  sind ausschließlich über APIs zugänglich. Die Modellgewichte, 
+Trainingsdetails und interne Verarbeitungsmechanismen bleiben proprietär. Bei 
+API-basierter Nutzung werden Eingabedaten an externe Server übermittelt, was 
+potenzielle Datenschutzrisiken birgt (vgl. \parencite{zhang_opt_2022}).
+
+Offene Modelle lassen sich nach dem Grad ihrer Zugänglichkeit differenzieren. 
+Open-Weight-Modelle stellen die trainierten Modellgewichte unter Lizenzen wie 
+Apache 2.0 oder MIT öffentlich bereit. 
+Dies ermöglicht die lokale Ausführung und Anpassung des Modells durch Fine-Tuning, 
+während Trainingscode und Trainingsdaten nicht zwingend verfügbar sind. Vollständig 
+offene Modelle veröffentlichen zusätzlich den Trainingscode, die Trainingspipeline 
+und im Idealfall auch die Trainingsdaten, was maximale Transparenz und 
+Reproduzierbarkeit gewährleistet (vgl. \parencite{liesenfeld_opening_2023}).
+
+Die lokale Ausführung offener Modelle bietet insbesondere für datensensitive 
+Anwendungen einen grundlegenden Vorteil. Eingabedaten verlassen nicht die 
+kontrollierte Umgebung der nutzenden Institution. Dies ist in regulierten Bereichen 
+wie dem Gesundheitswesen, der öffentlichen Verwaltung und der Forschung mit 
+personenbezogenen Daten von zentraler Bedeutung, weil Datenschutzverordnungen 
+wie die DSGVO die Übermittlung sensibler Daten an Drittanbieter stark einschränken. 
+Für den produktiven Betrieb wird GPU-beschleunigte Hardware mit ausreichendem 
+Grafikspeicher benötigt, um Inferenz und gegebenenfalls Fine-Tuning effizient 
+zu ermöglichen (vgl. \parencite{zhang_opt_2022, touvron_llama_2023}).
+
+Im direkten Vergleich zeigen proprietäre cloudbasierte Modelle und offene Modelle 
+unterschiedliche Stärkenprofile. Führende Closed-Source-Modelle erreichen in vielen 
+generalistischen Benchmarks häufig höhere Durchschnittswerte und bieten konsistente 
+Leistung über verschiedene Aufgaben hinweg. Dies 
+lässt sich auf großskalige Trainingspipelines, regelmäßige Modellupdates und 
+zuverlässige Bereitstellung über gemanagte Infrastrukturen zurückführen. Offene 
+Modelle ermöglichen volle Kontrolle über Datenflüsse und Betrieb sowie gezielte 
+Feinabstimmung auf spezifische Domänen, was in klar umrissenen Aufgaben zu 
+Leistungsparität führen kann. Dieser Vorteil setzt jedoch eigene GPU-Ressourcen, 
+MLOps-Kompetenzen und kontinuierliche Wartung voraus. Hinsichtlich Datenschutz 
+und Nachvollziehbarkeit erlauben offene Modelle eine vollständig lokale Verarbeitung 
+und detaillierte Audits. Cloudangebote reduzieren den operativen Aufwand und 
+skalieren zuverlässig, erfordern aber die Übermittlung von Eingabedaten an externe 
+Dienste. Insgesamt ergibt sich ein Trade-off zwischen Leistung und sofortiger 
+Skalierbarkeit auf Seiten proprietärer Modelle und Souveränität sowie Prüfbarkeit 
+offener Modelle (vgl. \parencite{zhao_survey_2023}).
+
+\subsubsection{GPT-4.1}
+\label{subsec:gpt-4-1}
+
+GPT-4.1 ist ein proprietäres \ac{llm}, das im April 2025 von 
+OpenAI veröffentlicht wurde und ausschließlich über eine API-Schnittstelle 
+verfügbar ist. Das Modell gehört zur GPT-4.1-
+Familie und stellt eine Weiterentwicklung früherer GPT-4-Modelle dar, mit 
+verbesserten Leistungen in Instruktionsbefolgung, logischem Schlussfolgern und 
+Codegenerierung(vgl. \parencite{openai_introducing_2025}).
+
+Ein zentrales Merkmal von GPT-4.1 ist die Unterstützung sehr großer 
+Kontextfenster von bis zu einer Million Token, wodurch auch umfangreiche 
+Dokumente und komplexe Aufgaben konsistent verarbeitet werden können. In 
+etablierten Benchmarks wie SWE-bench Verified, IFEval und MultiChallenge erzielt 
+das Modell konkurrenzfähige Ergebnisse und zeigt eine hohe Übereinstimmung mit 
+menschlichen Bewertungen (vgl. \parencite{openai_introducing_2025}).
+
+Als Closed-Source-Modell veröffentlicht OpenAI keine Details zur internen 
+Architektur oder zu Trainingsdaten. Die Nutzung erfolgt ausschließlich über eine 
+abstrahierte API, die lediglich Text-Ein- und Ausgaben bereitstellt. Zwar sieht 
+das Response-Schema der OpenAI Responses API optional ein Feld für 
+Log-Wahrscheinlichkeiten vor, dieses wird für GPT-4.1 jedoch nicht mit 
+probabilistischen Werten befüllt. Ein Zugriff auf Token-Logits oder nutzbare 
+Log-Wahrscheinlichkeiten des Modells ist daher über die API nicht möglich 
+(vgl. \parencite{openai_predicted_nodate}).
+
+
+\subsubsection{GPT-OSS-120B}
+\label{subsec:gpt-oss-120b}
+GPT-OSS-120B ist ein Open-Weight-Sprachmodell mit 117 Milliarden Parametern, 
+das im August 2025 von OpenAI veröffentlicht wurde. 
+Das Modell zeigt starke Leistungen in standardisierten Benchmarks zu Mathematik, 
+Codegenerierung und Sicherheit und positioniert sich damit im Spitzenfeld der 
+aktuell verfügbaren Open-Weight-Modelle (vgl. \parencite{openai_gpt-oss-120b_2025}).
+
+Das Modell nutzt eine Mixture-of-Experts (MoE) Architektur. Das Netzwerk besteht 
+aus spezialisierten Teilmodellen (Experten), von denen für jede Eingabe nur ein 
+kleiner Teil aktiviert wird. Das Modell 
+berechnet dabei nicht alle Parameter gleichzeitig, sondern nur die für die aktuelle 
+Eingabe relevanten Experten, was die Ausführung effizienter gestaltet. Für die 
+Verarbeitung von Textsequenzen kommen moderne Varianten des Attention-Mechanismus 
+zum Einsatz, die Eingaben mit bis zu 128.000 Token unterstützen 
+(vgl. \parencite{openai_gpt-oss-120b_2025}).
+
+GPT-OSS-120B gehört zur GPT-OSS-Familie, die neben der 120B-Variante auch ein 
+kompakteres 20B-Modell umfasst. Die 
+Veröffentlichung markiert OpenAIs ersten Schritt zu offenen Modellgewichten und 
+ergänzt das bestehende Portfolio proprietärer Modelle wie GPT-4. Durch die effiziente 
+Parameternutzung kann GPT-OSS-120B auf einer einzelnen GPU mit 80 GB Speicher 
+betrieben werden, was den Einsatz in akademischen und institutionellen Umgebungen 
+ohne große GPU-Cluster ermöglicht (vgl. \parencite{openai_gpt-oss-120b_2025}).
+
+Das Modell wird unter der Apache-2.0-Lizenz bereitgestellt und ermöglicht lokale 
+Ausführung, was Datenschutz und Reproduzierbarkeit empirischer Studien 
+gewährleistet (vgl. \parencite{openai_gpt-oss-120b_2025}).
+
+
+
+\subsection{Plausibilität}
+
+Plausibilität bezeichnet die Eigenschaft einer Aussage, Erklärung oder eines Ereignisses, als nachvollziehbar, glaubhaft und in sich schlüssig wahrgenommen zu werden (vgl. \parencite{klein_plausibility_2023}). Im Gegensatz zu objektivierbaren Qualitätsmerkmalen beschreibt Plausibilität die subjektive Einschätzung, dass etwas \textit{Sinn ergibt} und mit bisherigen Erfahrungen, Erwartungen und dem Weltwissen der Rezipientinnen und Rezipienten im Einklang steht. Eine Aussage wirkt plausibel, wenn ihre innere Logik überzeugend ist und keine offensichtlichen Widersprüche enthält (vgl. \parencite{klein_plausibility_2023,luhmann_okologische_1986}). Plausibilität entsteht dabei nicht als feste Eigenschaft des Textes selbst. Sie ergibt sich ausschließlich in der Wechselwirkung zwischen der vermittelten Information und der Verstehensumgebung des Rezipienten. Diese Verstehensumgebung umfasst insbesondere das vorhandene Vorwissen, bestehende Überzeugungen und die jeweilige Situation. Identische Aussagen können daher je nach individuellem Wissen und Bezugsrahmen als überzeugend oder unglaubwürdig wahrgenommen werden. Plausibilität ist somit ein relationales und subjektives Konstrukt (vgl. \parencite{klein_plausibility_2023}).
+
+Der Begriff Plausibilität geht auf das lateinische Wort \textit{plausibilis} zurück, das sich mit „beifallswürdig'' übersetzen lässt. Bereits in der antiken Rhetorik wurde zwischen logischer Wahrheit und dem „Wahrscheinlichen'' (\textit{eikos}) unterschieden, das bei einem Publikum Überzeugungskraft entfaltet (vgl. \parencite{aristoteles_rhetorik_2002}). In der Kognitionspsychologie wurde Plausibilität später als zentraler Aspekt des Textverständnisses und der Inferenzbildung beschrieben. Empirische Arbeiten zeigen, dass Urteile über die Plausibilität eines Szenarios eng mit der Einbettung in bestehendes Weltwissen und mit der Qualität inferentieller Verknüpfungen verbunden sind (vgl. \parencite{connell_model_2006}). In der modernen KI-Forschung gewinnt das Konzept erneut an Bedeutung. Es dient unter anderem als Bewertungskriterium für generierte Texte sowie für \textit{Common Sense Reasoning}, also für Schlussfolgerungen, die auf alltagsweltlichem Hintergrundwissen beruhen (vgl. \parencite{davis_commonsense_2015,klein_plausibility_2023}).
+
+Plausibilität unterscheidet sich von mehreren verwandten Konzepten. Strukturelle Kohärenz ist dabei eine notwendige, aber keine hinreichende Bedingung für Plausibilität (vgl. \parencite{connell_what_2004}). Kohärenz beschreibt vor allem den logischen Zusammenhang eines Textes, während Plausibilität bewertet, ob die dargebotenen Inhalte als stimmig und akzeptabel wahrgenommen werden (vgl. \parencite{connell_what_2004}). Ein Text kann daher formal kohärent sein, während seine Inhalte trotzdem als implausibel gelten. Zusätzlich ist Plausibilität von der Faktentreue zu unterscheiden. Faktentreue überprüft die objektive Übereinstimmung einer Aussage mit der Realität. Plausibilität bewertet dagegen, ob eine Aussage subjektiv schlüssig erscheint (vgl. \parencite{agarwal_faithfulness_2024}). Diese beiden Dimensionen können deutlich voneinander abweichen. Eine Aussage kann intern kohärent strukturiert sein und dennoch faktisch falsch sein, während umgekehrt eine kontraintuitive, aber korrekte wissenschaftliche Aussage für Laien als wenig plausibel erscheinen kann. Diese mögliche Divergenz zwischen Plausibilität und Faktentreue ist für die Evaluation von Sprachmodellen besonders relevant, da sie das Phänomen der Halluzinationen erklärt. Halluzinationen bezeichnen generierte Inhalte, die sprachlich kohärent erscheinen, aber nicht durch die Eingabe gestützt werden oder faktisch inkorrekt sind (vgl. \parencite{maynez_faithfulness_2020}).
+
+
+
+
+
+\subsubsection{Plausibilität im Kontext von Large Language Models}
+
+Das Konzept der Plausibilität nimmt in der Forschung zu \ac{llm}n eine 
+kritische, paradoxe Rolle ein. Einerseits bildet es ein Zielkriterium für 
+flüssige und akzeptable Interaktionen. Andererseits wirkt es als zentraler Treiber 
+für täuschende Fehlinformationen. Moderne \ac{llm}s sind gezielt darauf optimiert, 
+statistisch wahrscheinliche und rhetorisch überzeugende Texte zu generieren. 
+Wie oben dargelegt, sind Plausibilität und faktische Korrektheit konzeptuell 
+distinkte Dimensionen. In der Praxis besteht jedoch häufig empirisches Zusammenfallen, 
+da Trainingsdaten überwiegend korrekte Informationen enthalten und \ac{llm}s diese 
+statistischen Muster reproduzieren (vgl. \parencite{agarwal_faithfulness_2024}). 
+Dies erzeugt ein charakteristisches Erkenntnisproblem: Nutzerinnen und Nutzer 
+können nicht zuverlässig zwischen plausiblen falschen und plausiblen korrekten 
+Antworten unterscheiden, da beide rhetorisch identisch überzeugend präsentiert werden.
+
+Die Entwicklung moderner Trainingsmethoden hat dieses Problem teilweise, aber nicht 
+vollständig adressiert. Techniken wie \ac{rlhf} ermöglichen es, Halluzinationen 
+signifikant zu reduzieren (vgl. \parencite{ouyang_training_2022}), und neuere Generationen 
+produzieren kohärenteren Text mit besserer Faktizitätsleistung 
+(vgl. \parencite{openai_gpt-4_2024, naismith_automated_2023}). Allerdings zeigen empirische 
+Studien zwei Grenzen dieser Fortschritte: Erstens reduzieren verbesserte Trainingsmethoden 
+Halluzinationen nicht vollständig, sondern verschieben das Problem teilweise in andere 
+Kontexte. Zweitens bleibt die konzeptuelle Divergenz 
+zwischen Plausibilität und Faktentreue selbst bei technologischen Verbesserungen bestehen. 
+Skalierung adressiert die zugrundeliegende strukturelle Mismatch nicht.(vgl. \parencite{anh-hoang_survey_2025})
+
+Ein kritischer Mechanismus dieser persistenten Divergenz liegt in der 
+Optimierungslogik von \ac{rlhf} selbst. Menschliche Bewerter präferieren intuitive 
+Plausibilität und selbstsichere Formulierungen, häufig unabhängig vom faktischen 
+Gehalt (vgl. \parencite{ouyang_training_2022}). \ac{llm}s erlernen folglich eine systematische 
+Priorisierung von Plausibilität über Genauigkeit, ein Phänomen, das als \textit{Sycophancy} 
+bekannt ist (vgl. \parencite{sharma_towards_2023}). Dies verstärkt das Risiko, dass 
+Plausibilität als Proxy für Wahrheit missbraucht wird.
+
+Empirische Befunde dokumentieren die Persistenz dieser Divergenz. Der 
+PRobELM-Benchmark zeigt häufig fehlende Korrelation 
+zwischen Plausibilitätsbewertungen und faktischer Akkuratesse(vgl. \parencite{yuan_probelm_2024}).\Textcite{farquhar_detecting_2024} weisen einen diagnostisch relevanten Befund nach: 
+\ac{llm}s zeigen bei manchen Fehlantworten auf Token-Ebene messbare Unsicherheit, 
+die jedoch durch kohärente Oberflächenformulierungen systematisch maskiert wird. 
+Im Gegensatz dazu manifestiert sich echte Halluzination durch hohe Token-Level-Sicherheit 
+bei faktisch falschen Aussagen, ein Muster, das die Täuschung verstärkt.
+
+Ein besonders problematisches Phänomen stellen \textit{Confabulations} dar: 
+semantisch kohärente Antworten, die jeder Grundlage in den Trainingsdaten oder 
+dem gegebenen Kontext entbehren. Generierte Begründungen verschärfen dieses Problem 
+weiter. \textcite{afolabi_faithful_nodate} zeigen, dass logisch strukturierte, aber 
+inhaltlich falsche Erklärungen die Akzeptanz falscher Antworten signifikant erhöhen.
+
+Plausibilität kann daher in der Evaluation nicht als Indikator für Wahrheit fungieren. 
+Sie muss als eigenständige, kritisch zu validierende Dimension konzeptualisiert werden, 
+die in ihrer Relation zur Faktentreue explizit kontrolliert werden muss.
+
+\subsubsection{Das Plausibility Analysis Model (PAM)}
+\label{subsec:pam}
+
+Als formaler theoretischer Rahmen für die Erklärung von Plausibilitätsurteilen dient das Plausibility Analysis Model (PAM) nach \textcite{connell_model_2006}. Dieses Modell beschreibt Plausibilität nicht als intuitiven Prozess, sondern spezifiziert die kognitiven Mechanismen, die der menschlichen Bewertung von Szenarien zugrunde liegen. Es basiert auf empirischen Befunden, die eine fundamentale Unterscheidung zwischen sprachlicher und inhaltlicher Kohärenz treffen (vgl. \parencite{connell_what_2004}).
+
+Die erste Ebene, \textit{Word-Coherence} (Wortverteilungs-Kohärenz), betrifft die sprachliche Oberflächenstruktur. Ein Text wirkt auf dieser Ebene plausibel, wenn Wortkombinationen statistisch häufig und vertraut erscheinen (z.\,B. „Der Hund bellt“). Empirische Untersuchungen zeigen jedoch, dass diese oberflächliche Vertrautheit für das menschliche Plausibilitätsurteil nachrangig ist; selbst statistisch unvertraute Aussagen werden als plausibel bewertet, sofern sie inhaltlich Sinn ergeben (vgl. \parencite{connell_what_2004}).
+
+Die zweite und entscheidende Ebene ist die \textit{Concept-Coherence} (konzeptuelle Kohärenz). Sie misst die inhaltliche Stimmigkeit eines Szenarios mit dem bestehenden Weltwissen. Connell und Keane (2004) wiesen nach, dass Concept-Coherence der zentrale Prädiktor für Plausibilität ist. Ein Szenario wird als plausibel bewertet, wenn es sich nahtlos in das mentale Modell des Rezipienten integrieren lässt. Dies erfordert, dass das Szenario konsistent mit Vorwissen ist (externe Konsistenz) und in sich widerspruchsfrei bleibt (interne Konsistenz). PAM modelliert auf dieser Basis ausschließlich die inhaltliche Dimension der Plausibilität (vgl. \parencite{connell_model_2006}).
+
+Zur theoretischen Fundierung der \textit{Concept-Coherence} entwickeln Connell und 
+Keane die \textit{Knowledge-Fitting Theory} (vgl. \parencite{connell_model_2006}). Diese Theorie postuliert, dass Plausibilität aus dem Grad der Passung (\textit{Fitting}) zwischen einer neuen Information und dem existierenden Vorwissen resultiert.
+
+Im formalen PAM-Modell werden diese Annahmen technisch operationalisiert. In einer ersten Phase, der \textit{Comprehension Stage}, überführt das Modell ein Szenario in eine propositionale Repräsentation und generiert mögliche Erklärungswege („Paths") im Wissensnetz. In der darauf folgenden \textit{Assessment Stage} werden diese Wege anhand von drei Parametern bewertet, die direkt aus der Knowledge-Fitting Theory abgeleitet sind (vgl. \parencite{connell_model_2006}):
+
+\begin{table}[H]
+\centering
+\caption{PAM-Parameter und ihre Entsprechung zur Knowledge-Fitting Theory}
+\label{tab:pam_parameter}
+\begin{tabular}{p{1cm}p{4cm}p{5cm}}
+\toprule
+\textbf{Param.} & \textbf{Messgröße} & \textbf{Kognitives Prinzip} \\
+\midrule
+$P$ & Stützende Wissenswege & \textit{Corroboration}: Bestätigung durch Vorwissen \\
+$L$ & Durchschn. Pfadlänge & \textit{Complexity}: Kognitive Einfachheit \\
+$N$ & Hypothesenfreie Wege & \textit{Conjecture}: Spekulationsfreiheit \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Ein Szenario erreicht somit eine hohe Plausibilität, wenn es vielfach gestützt wird (hohes $P$), einfach strukturiert ist (niedriges $L$) und wenig Spekulation erfordert (hohes $N$).
+
+
+
+\subsubsection{Der Prozess der Plausibilitätsbeurteilung}
+\label{subsec:Prozess Plausibilitätsbeurteilung}
+Ergänzend zur strukturellen Betrachtung durch PAM, welches die notwendigen Eigenschaften eines plausiblen Szenarios definiert, fokussiert \textcite{klein_plausibility_2023} auf die dynamische Seite der Bewertung. Es beantwortet die Frage, wie menschliche Bewerter diese strukturellen Merkmale kognitiv verarbeiten, um zu einem Urteil zu gelangen. Dieser Ansatz erklärt Plausibilität nicht als statische Eigenschaft eines Textes, sondern als das Ergebnis eines aktiven Konstruktionsprozesses. Plausibilität entsteht demnach, wenn es einem Rezipienten gelingt, eine Information (z. B. eine KI-Antwort) widerspruchsfrei in eine kausale Erzählstruktur (\textit{Story-Building}) zu integrieren. (vgl. \parencite{klein_plausibility_2023})
+
+Der Bewertungsprozess beginnt mit einem Trigger, der Erklärungsbedarf auslöst. Der Rezipient prüft dabei Schritt für Schritt die kausalen Übergänge (\textit{State Transitions}) innerhalb der Argumentation. Entscheidend für das Urteil ist die mentale Simulation: Eine Erklärung wird als plausibel bewertet, wenn sich der Weg von der Ursache zur Wirkung mental mühelos nachvollziehen lässt. Je geringer der kognitive Widerstand bei dieser Simulation ist, desto höher fällt die wahrgenommene Plausibilität aus. (vgl. \parencite{klein_plausibility_2023})
+
+Beeinflusst wird dieser Prozess maßgeblich durch das Auftreten und die Handhabung von Plausibilitätslücken (\textit{Plausibility Gaps}). Solche Lücken entstehen, wenn Informationen fehlen, logische Brüche auftreten oder Aussagen dem Weltwissen widersprechen. Der Rezipient versucht intuitiv, diese Lücken durch Annahmen oder Schlussfolgerungen zu schließen. Gelingt dies mit geringem kognitiven Aufwand (\textit{Cognitive Strain}), bleibt das Plausibilitätsurteil positiv. Erfordert die Lückenschließung jedoch komplexe Hilfskonstruktionen oder widerspricht sie gefestigtem Vorwissen, bricht die mentale Simulation zusammen, und die Aussage wird als unplausibel verworfen. (vgl. \parencite{klein_plausibility_2023})
+
+Das Urteil wird folglich von drei Hauptfaktoren determiniert: der Qualität der kausalen Verknüpfungen im Text, der Passung zum individuellen Weltwissen des Rezipienten und der Leichtigkeit der mentalen Simulation. Dies erklärt auch die Subjektivität von Plausibilität: Ein Experte entdeckt aufgrund seines detaillierten Weltwissens Lücken, die ein Laie gar nicht wahrnimmt, weshalb identische Antworten von unterschiedlichen Personen gegensätzlich bewertet werden können. (vgl. \parencite{klein_plausibility_2023})
+
+\subsubsection{Operationalisierung von Plausibilität für die Evaluation von LLMs}
+\label{subsec:operationalisierung-plausibilitaet}
+
+Während Plausibilität in der kognitiven Psychologie und Linguistik theoretisch fundiert untersucht wurde, zeigt sich in der aktuellen Evaluationsforschung zu \ac{llm}s ein heterogenes Bild bei der praktischen Messung. Surveys wie \textcite{chang_survey_2023} und \textcite{sai_survey_2023} zeigen, dass bestehende Ansätze Plausibilität häufig ad-hoc operationalisieren oder auf isolierte Teilaspekte wie faktische Konsistenz fokussieren.
+
+Zwar existieren Ansätze zur Erfassung von Plausibilität, diese fokussieren jedoch meist auf eine globale Gesamteinschätzung. Ein prominentes Beispiel ist die \ac{oci}-Skala nach \textcite{zhang_ordinal_2017}, die auch in aktuellen LLM-as-a-Judge-Studien wie (vgl. \parencite{palta_everything_2025}) Anwendung findet. Um jedoch der in Abschnitt~\ref{subsec:pam} beschriebenen Komplexität des Plausibilitätsbegriffs gerecht zu werden, bedarf es einer differenzierten Betrachtung, die über eine einzelne Messgröße hinausgeht und die zugrunde liegenden kognitiven Dimensionen explizit erfasst.
+
+Diese Arbeit entwickelt daher ein mehrdimensionales Dimensionsmodell, das systematisch aus etablierten kognitiven Theorien abgeleitet ist. Die \ac{oci}-Skala dient als etablierter Validierungs- und Vergleichsparameter zur numerischen Grundlage der mehrdimensionalen Bewertung.
+Als theoretischer Rahmen dienen das \textit{Plausibility Analysis Model} (PAM) und die \textit{Knowledge-Fitting Theory} (siehe Abschnitt~\ref{subsec:pam}).
+
+Für die Bewertung natürlichsprachlicher Antworten von Large Language Models ist eine direkte Übernahme der PAM-Parameter ($P, L, N$) jedoch nicht geeignet. Das Modell wurde für die Simulation kognitiver Prozesse entwickelt und nicht für die Analyse textueller Produkte. Da bei natürlichsprachlichen Texten von \ac{llm}s keine formale Wissensrepräsentation vorliegt, ist die direkte Berechnung von PAM-Parametern aus Textdaten methodisch nicht umsetzbar.
+
+Vor diesem Hintergrund werden drei qualitative Dimensionen definiert, die sich an den kognitiven Prinzipien der \textit{Knowledge-Fitting Theory} orientieren und diese für die Bewertung von Modellantworten adaptieren. Die Dimensionen Kontextverständnis, Kohärenz und Angemessenheit greifen zentrale Aspekte der drei theoretischen Faktoren auf und überführen sie in beobachtbare Merkmale von \ac{llm}-Antworten.
+
+
+\textbf{Kontextverständnis}
+
+Diese Dimension operationalisiert den theoretischen Faktor der Stützung durch Vorwissen (\textit{Corroboration}, siehe Abschnitt~\ref{subsec:pam}). Während sich im PAM diese Stützung auf das individuelle Weltwissen bezieht, wird in der vorliegenden Evaluation dieses individuelle Vorwissen durch den bereitgestellten Kontext ersetzt, der als standardisierte Wissensbasis dient. Diese Vorgehensweise erhöht die intersubjektive Vergleichbarkeit, weil alle Bewertenden auf dieselbe Informationsgrundlage zurückgreifen. Gleichzeitig bleibt die zentrale Annahme erhalten, dass Plausibilität aus der Passung zwischen neuer Information und einer verfügbaren Wissensbasis resultiert.
+
+Kontextverständnis misst folglich, ob die Antwort mit den gegebenen Informationen konsistent ist und diese in angemessener Weise integriert. Bewertet wird damit, in welchem Ausmaß das Modell den bereitgestellten Kontext als Wissensgrundlage nutzt, um seine Antwort zu begründen, anstatt sich auf unspezifiziertes allgemeines Wissen zu stützen.
+
+
+\textbf{Kohärenz}
+
+Diese Dimension basiert auf dem Faktor der Einfachheit der Erklärung (\textit{Complexity}, siehe Abschnitt~\ref{subsec:pam}) und dem empirischen Befund, dass Plausibilität steigt, wenn logische Verknüpfungen direkt und kausal sind. Im theoretischen Modell erhöhen kürzere inferentielle Wege die Plausibilität, da sie kognitiv leichter zu verarbeiten sind.
+
+Für die textuelle Evaluation wird dieser Faktor als \textit{Kohärenz} operationalisiert. Der Begriff wird gewählt, weil er im modernen \ac{nlp}-Kontext, insbesondere in Frameworks wie G-Eval (vgl. \parencite{liu_g-eval_2023}), als zentrale Metrik für logischen Zusammenhalt etabliert ist und die Eigenschaft des Complexity-Faktors präzise erfasst. Eine kohärente Antwort weist eine klare und gut nachvollziehbare Argumentationsstruktur auf. Die Schlussfolgerungen ergeben sich direkt aus den vorangehenden Prämissen, und die einzelnen Aussagen bleiben widerspruchsfrei miteinander verknüpft. Kohärenz bewertet folglich die interne logische Struktur einer Antwort.
+
+
+\textbf{Angemessenheit}
+
+Diese Dimension adaptiert den Faktor der Vermeidung von Spekulation (\textit{Conjecture}, siehe Abschnitt~\ref{subsec:pam}). Im PAM sinkt Plausibilität, wenn hypothetische Zusatzannahmen nötig sind.
+Übertragen auf die Textebene spiegelt sich dieses Prinzip in zwei eng verbundenen Aspekten wider. Zum einen mindert die Einführung irrelevanter oder unbegründeter Informationen die Plausibilität, weil sie den Eindruck von Spekulation erzeugt. Zum anderen kann auch eine unpassende Informationsmenge die wahrgenommene Plausibilität beeinträchtigen. Sehr knappe Antworten zwingen Leserinnen und Leser dazu, Lücken eigenständig zu schließen. Übermäßig ausführliche Antworten wecken dagegen den Verdacht, dass Unsicherheit durch Füllmaterial verdeckt wird.
+
+Angemessenheit operationalisiert diese Überlegungen als Bewertung der Passung zwischen Antwort und Fragestellung. Die Dimension erfasst, ob eine Antwort in Umfang, Fokussierung und Relevanz so gestaltet ist, dass sie ohne zusätzliche spekulative Ergänzungen und ohne nachträgliche Filterung durch die Lesenden als stimmige Beantwortung wahrgenommen werden kann. Damit erweitert diese Dimension den ursprünglichen \textit{Conjecture}-Faktor um pragmatische Aspekte der Informationsangemessenheit, die für die Evaluation von \ac{llm}-Antworten besonders relevant sind. Zugleich bleibt sie dem theoretischen Kernprinzip der Spekulationsvermeidung verpflichtet.
+
+\subsubsection{Ordinal Common-Sense Inference}
+\label{subsec:oci-skala}
+
+\ac{oci} ist ein Ansatz zur Bewertung von
+Sprachinferenzen, der an klassische Textinferenzaufgaben anschließt.
+Im Recognizing Textual Entailment (RTE) wird typischerweise entschieden, ob eine
+Hypothese aus einem gegebenen Text (Premise) folgt; das wird häufig als diskrete
+Entscheidung modelliert (z.\,B. „folgernd“ vs. „nicht folgernd“). OCI erweitert
+dies, indem nicht nur gefragt wird, \emph{ob} eine Aussage folgt, sondern
+\emph{wie plausibel} sie im gegebenen Kontext erscheint. \textcite{zhang_ordinal_2017}
+messen diese bedingte Plausibilität über eine fünfstufige Ordinalskala, die die
+subjektive Wahrscheinlichkeit („Likelihood“) einer Aussage im Kontext abbildet.
+
+Die Skala ist so gestaltet, dass sie Zwischenstufen explizit unterscheidet.
+Besonders wichtig ist dabei der Unterschied zwischen \textit{plausibel}
+(naheliegend im Alltag) und \textit{technisch möglich} (nicht naheliegend, aber
+nicht ausgeschlossen). Dadurch lassen sich Fälle erfassen, in denen eine Aussage
+nicht klar „richtig“ oder „falsch“ wirkt, sondern unterschiedlich stark
+naheliegend ist. (vgl. \parencite{zhang_ordinal_2017})
+
+\begin{enumerate}
+    \item \textit{Sehr wahrscheinlich}
+    \item \textit{Wahrscheinlich}
+    \item \textit{Plausibel}
+    \item \textit{Technisch möglich}
+    \item \textit{Unmöglich}
+\end{enumerate}
+
+Zur Erstellung geeigneter Kontext–Aussage-Paare beschreiben \textcite{zhang_ordinal_2017}
+zwei komplementäre Wege: (a) ein wissensbasiertes Verfahren, das aus großen Textmengen
+typische Muster (z.\,B. „Akteur–Handlung“) ableitet und daraus Kandidaten in
+Kontexte einbettet, sowie (b) ein neuronales Verfahren, das aus Beispielen lernt,
+aus gegebenem Kontext passende Kandidatenaussagen zu erzeugen bzw. umzuschreiben.
+
+Die Skala wird anschließend durch menschliche Annotation angewendet: Bewertende
+ordnen jedem Kontext–Aussage-Paar eine der fünf Kategorien zu und beurteilen
+damit, wie wahrscheinlich die Aussage während oder unmittelbar nach dem
+beschriebenen Kontext zutrifft. \textcite{zhang_ordinal_2017} führen diese
+Annotation mit mehreren Bewertenden pro Item durch; als Datengrundlage entsteht
+der JOCI-Korpus.
+
+\subsubsection{Aggregation und Gewichtung der Dimensionen}
+\label{subsec:aggregation-gewichtung}
+
+Die drei in Abschnitt~\ref{subsec:operationalisierung-plausibilitaet} definierten Dimensionen werden zu einem Gesamtplausibilitätswert aggregiert. Dieser repräsentiert die holistische Bewertung der Antwortqualität unter Berücksichtigung der drei kognitiven Faktoren der Knowledge-Fitting Theory (siehe Abschnitt~\ref{subsec:pam}).
+
+Die Aggregation erfolgt mittels einer theoriegeleiteten Gewichtung, bei der Kohärenz mit einem Anteil von 40\,\% am stärksten gewichtet wird. Wie in Abschnitt~\ref{subsec:pam} dargelegt, zeigen \textcite{connell_what_2004}, dass logische Konsistenz und inferentielle Direktheit (Faktor \textit{Complexity}) den signifikantesten Einfluss auf das menschliche Plausibilitätsurteil haben. Logische Inkonsistenzen wiegen in der Wahrnehmung schwerer als kontextuelle Lücken, weshalb dieser Dimension das höchste Gewicht zukommt.
+
+
+Kontextverständnis und Angemessenheit gehen jeweils mit 30\,\% in die Bewertung ein. Diese Dimensionen operationalisieren die Faktoren \textit{Corroboration} und \textit{Conjecture}. Sie stellen notwendige Voraussetzungen für Plausibilität dar, da eine Antwort ohne Kontextbezug oder mit spekulativer Detailtiefe unplausibel wirkt. Ihre Auswirkung auf das Gesamturteil ist im Vergleich zur logischen Struktur jedoch sekundär.
+
+Die Berechnung des Gesamtscores erfolgt nach folgender Formel:
+
+\begin{equation}
+\label{eq:plausibilitaet_gesamt}
+\text{Plausibilität}_{gesamt} = 0.30 \times \overline{D_1} + 0.40 \times \overline{D_2} + 0.30 \times \overline{D_3}
+\end{equation}
+\formula{eq:plausibilitaet_gesamt}{Gewichtete Gesamtplausibilität}
+
+wobei $\overline{D_1}$ Kontextverständnis, $\overline{D_2}$ Kohärenz und $\overline{D_3}$ Angemessenheit darstellen. Der resultierende Wert liegt im Intervall $[1, 5]$ und quantifiziert die theoretisch fundierte Gesamtplausibilität.
+
+\subsection{Evaluationsmetriken}
+Es werden zunächst Funktionsweise und grundlegende Architektur von Evaluationsmetriken erläutert, um nachvollziehbar zu machen, wie textbasierte Qualität in berechenbare Scores übersetzt wird. Darauf aufbauend wird ihre historische Entwicklung von frühen, overlap-basierten Verfahren hin zu semantischen und modellbasierten Ansätzen beschrieben, und es werden zentrale Kategorien (u.a. referenzbasiert vs. referenzfrei sowie lexikalisch vs. latent-semantisch) systematisch abgegrenzt. Anschließend werden aktuelle \ac{llm}-basierte Ansätze (LLM-as-a-Judge) als jüngere Entwicklung eingeordnet und zentrale Herausforderungen wie Robustheit und Verzerrungen kurz erläutert.
+
+\subsubsection{Definition, Funktionen und historische Entwicklung}
+
+Evaluationsmetriken sind quantitative Verfahren zur systematischen Messung der Qualität von Modellantworten im Bereich der natürlichen Sprachgenerierung sowie der Analyse von \ac{llm}. Sie stellen numerische Bewertungen auf Basis expliziter, nachvollziehbarer Berechnungsregeln bereit und unterscheiden sich dadurch von subjektiven Urteilen. Die Reproduzierbarkeit dieser Verfahren ermöglicht es verschiedenen Forscherteams, mit derselben Implementierung unter gleichen Bedingungen konsistente Ergebnisse zu erzielen, was im Gegensatz zu menschlichen Evaluationen steht, die durch Variabilität zwischen Annotatoren gekennzeichnet sind. Jede Evaluationsmetrik operationalisiert ein oder mehrere Qualitätskriterien wie semantische Ähnlichkeit, lexikalische Übereinstimmung oder Faktentreue in eine berechenbare Form (vgl. \parencite{sai_survey_2023,chang_survey_2023}).
+
+Die Entwicklung automatischer Evaluationsmetriken ist eng mit der Geschichte der maschinellen Übersetzung verknüpft. Die ersten Ansätze entstanden in den 1960er bis 1970er Jahren mit regelbasierten Übersetzungssystemen. Ein Wendepunkt war die Einführung von BLEU durch \textcite{papineni_bleu_2002}, das sich schnell als De-facto-Standard etablierte und N-Gramm-Überlappung als Kernkonzept operationalisierte. In der gleichen Ära entstanden ROUGE für Textzusammenfassung und METEOR. Diese frühen Metriken dominierten die 2000er Jahre, obwohl ihre fundamentale Limitation in der Blindheit gegenüber semantischen Äquivalenzen bestand (vgl. \parencite{sai_survey_2023}).
+
+Die 2010er Jahre brachten eine konzeptuelle Neuausrichtung mit dem Aufstieg von Deep Learning. Forscher erkannten, dass vektorbasierte Ansätze durch die Nutzung von Embeddings und semantischen Repräsentationen oberflächliche N-Gramm-Metriken überwinden könnten. Dies führte zu einer neuen Generation von Metriken, die semantische Ähnlichkeit statt lexikalischer Übereinstimmung messen und bessere Korrelationen mit menschlichen Urteilen erreichen. Mit der Verfügbarkeit großer vortrainierter Sprachmodelle wie BERT ab 2018 entstanden lernbasierte Metriken, die direkt auf menschlichen Qualitätsurteilen trainiert wurden (vgl. \parencite{sai_survey_2023}).
+
+Der gegenwärtige Wendepunkt liegt in der Verwendung von LLM-as-a-Judge-Ansätzen, bei denen leistungsstarke Sprachmodelle selbst als flexible Evaluatoren fungieren. Diese Entwicklung markiert einen Paradigmenwechsel, da Forscher statt spezialisierte Metriken zu entwickeln die Fähigkeit moderner Sprachmodelle nutzen, komplexe Qualitätsurteile zu treffen. Dies eröffnet neue Möglichkeiten für mehrdimensionale und kontextabhängige Bewertung. Jedoch bringt diese Entwicklung auch neue Herausforderungen mit sich, da die Anfälligkeit für Modell-Bias und Prompt-Sensitivität neue Validierungsfragen aufwerfen, die bei der Anwendung solcher Metriken berücksichtigt werden müssen (vgl. \parencite{chang_survey_2023,zheng_judging_2023}).
+
+Evaluationsmetriken erfüllen mehrere zentrale Funktionen im Forschungs- und Produktentwicklungsprozess. Erstens ermöglichen sie systematischen Vergleich von verschiedenen Modellen, Trainingsmethoden oder Systemvarianten auf standardisierte Weise, was eine grundlegende Voraussetzung für reproduzierbare Forschung und Publikation darstellt. Zweitens fungieren Metriken als Optimierungssignale im maschinellen Lernen, besonders im \ac{rlhf}, wo Modelle darauf trainiert werden, höhere Metrik-Werte zu erreichen. Drittens ermöglichen sie quantitative Diagnose, indem untersucht werden kann, wie Modelle auf verschiedene Eingaben reagieren. Viertens ermöglicht die bereits genannte Reproduzierbarkeit objektiven Methodenvergleich und transparente Dokumentation von Forschungsergebnissen (vgl. \parencite{chang_survey_2023}).
+
+\subsubsection{Klassifikation von Evaluationsmetriken}
+\label{subsec:klassifikation-metriken}
+
+Evaluationsmetriken für natürliche Sprachgenerierung lassen sich anhand mehrerer systematischer Dimensionen klassifizieren. Die fundamentalste Unterscheidung betrifft die zugrundeliegende Repräsentationsebene. Sie differenziert zwischen lexikalischen und latent-semantischen Ansätzen. Diese Dimension bildet den historischen Entwicklungspfad der Evaluationsmethodik ab. Sie bestimmt grundlegend, welche Textaspekte eine Metrik erfassen kann. Komplementär dazu unterscheiden sich Metriken nach ihrer Abhängigkeit von Referenztexten sowie nach der fokussierten Qualitätsdimension (vgl. \parencite{sai_survey_2023,gao_llm-based_2025}).
+
+
+Lexikalische Metriken operieren auf der Oberflächenform von Texten. Sie messen direkte Übereinstimmungen zwischen Wortformen, Zeichenketten oder N-Grammen. Diese Metriken analysieren ausschließlich die explizit vorhandenen sprachlichen Einheiten ohne Zugriff auf semantische Repräsentationen. Sie prägten die klassische \ac{nlp}-Ära der 1990er und frühen 2000er Jahre und umfassen BLEU, ROUGE sowie METEOR (vgl. \parencite{papineni_bleu_2002, lin_rouge_2004, banerjee_meteor_2005}). Ihre zentrale Stärke liegt in der geringen Rechenkomplexität und hohen Transparenz. Die Bewertungslogik ist vollständig nachvollziehbar und effizient berechenbar. Die fundamentale Limitation besteht darin, dass semantisch äquivalente, aber lexikalisch unterschiedliche Formulierungen nicht erkannt werden. Ein Text, der dieselbe Bedeutung mit synonymen Ausdrücken vermittelt, erhält eine niedrige Bewertung (vgl. \parencite{sai_survey_2023}).
+
+Latent-semantische Metriken überwinden diese Limitation durch Projektion von Texten in einen kontinuierlichen Vektorraum. In diesem Raum wird semantische Ähnlichkeit durch geometrische Nähe gemessen (vgl. \parencite{mikolov_efficient_2013}). Der Latent Space bezeichnet dabei einen niedrigdimensionalen Repräsentationsraum, in dem semantisch verwandte Konzepte nahe beieinander liegen, unabhängig von ihrer lexikalischen Form. Diese Dimensionsreduktion stellt einen fundamentalen Vorteil gegenüber traditionellen regelbasierten Systemen dar. Embeddings erlauben die automatisierte Erfassung semantischer Ähnlichkeiten während des Trainings (vgl. \parencite{mikolov_efficient_2013, devlin_bert_2019}). Die Metriken greifen auf gelernte Repräsentationen aus neuronalen Sprachmodellen zurück. Diese erfassen semantische Relationen zwischen sprachlichen Einheiten. Dadurch identifizieren sie Paraphrasen, Synonyme und konzeptuelle Ähnlichkeiten ohne lexikalische Überlappung. Zu dieser Kategorie gehören vektorbasierte Metriken wie BERTScore (vgl. \parencite{zhang_bertscore_2020}), lernbasierte Ansätze wie COMET (vgl. \parencite{rei_comet_2020}) und LLM-as-a-Judge-Verfahren wie G-Eval (vgl. \parencite{liu_g-eval_2023}). Der Preis für diese erhöhte semantische Sensitivität besteht in deutlich höherer Rechenkomplexität und reduzierter Interpretierbarkeit.
+
+
+Diese fundamentale Unterscheidung ist orthogonal zu weiteren Klassifikationsdimensionen. Innerhalb beider Kategorien lassen sich Metriken nach ihrer Abhängigkeit von Referenztexten differenzieren. Referenzbasierte Metriken benötigen einen oder mehrere menschlich erstellte Referenztexte als Vergleichsgrundlage. Dieser Ansatz charakterisiert sowohl lexikalische Metriken wie BLEU, ROUGE und METEOR (vgl. \parencite{papineni_bleu_2002, lin_rouge_2004, banerjee_meteor_2005}) als auch latent-semantische Verfahren wie BERTScore (vgl. \parencite{zhang_bertscore_2020}). Diese Metriken bieten klare Vergleichbarkeit und hohe Reproduzierbarkeit. Sie bewerten jedoch primär Ähnlichkeit zur Referenz. Alternative Formulierungen mit identischer Bedeutung werden benachteiligt. Diese Limitation wird besonders bei offenen Generierungsaufgaben problematisch, bei denen verschiedene valide Antworten mit unterschiedlichem Wortlaut möglich sind (vgl. \parencite{sai_survey_2023,gao_llm-based_2025}).
+
+Referenzfreie Metriken bewerten Outputs ohne explizite Referenzen. Sie nutzen stattdessen intrinsische Qualitätskriterien wie Grammatikalität und Kohärenz oder setzen große Sprachmodelle als Evaluatoren ein (vgl. \parencite{zheng_judging_2023}). Der wesentliche Vorteil liegt in der Flexibilität und breiten Anwendbarkeit. Diese referenzfreien Ansätze gehören typischerweise zur Kategorie der latent-semantischen Metriken, da sie auf komplexen Sprachrepräsentationen basieren. Gleichzeitig sind sie schwerer zu validieren und anfälliger für systematische Verzerrungen (vgl. \parencite{sai_survey_2023,gao_llm-based_2025}).
+
+
+Innerhalb der lexikalischen Metriken bilden Overlap-basierte Verfahren die zentrale technische Bewertungsmethode. Sie messen die Übereinstimmung zwischen generiertem Text und Referenz durch Zählung gemeinsamer N-Gramme, Wörter oder Sequenzen. Die mathematische Struktur basiert typischerweise auf Precision und Recall verschiedener N-Gramm-Ordnungen (vgl. \parencite{sai_survey_2023}). BLEU (vgl. \parencite{papineni_bleu_2002}) nutzt modifizierte N-Gramm-Precision mit Brevity Penalty. Der finale Score ergibt sich als geometrisches Mittel über verschiedene N-Gramm-Längen. Diese multiplikative Aggregation führt zu einer kritischen Eigenschaft. Fehlt die Übereinstimmung bei einer N-Gramm-Ordnung vollständig, wird der gesamte Score zu null. Bei semantischer Äquivalenz mit lexikalischem Unterschied resultiert dies in einer Bewertung von null, obwohl der Text inhaltlich korrekt sein kann (vgl. \parencite{sai_survey_2023}). ROUGE (vgl. \parencite{lin_rouge_2004}) betont Recall und längste gemeinsame Teilfolgen. METEOR (vgl. \parencite{banerjee_meteor_2005}) erweitert dies um Synonyme und Wortstämme. Dadurch entsteht eine begrenzte semantische Flexibilität. Diese Metriken sind rechnerisch effizient und einfach interpretierbar. Sie bleiben jedoch fundamental unempfindlich gegenüber semantischer Äquivalenz und Paraphrasen (vgl. \parencite{sai_survey_2023}).
+
+
+Innerhalb der latent-semantischen Metriken lassen sich mehrere technische Bewertungsmethoden unterscheiden. Vektorbasierte Metriken bewerten die Bedeutungsähnlichkeit statt der oberflächlichen Textform. Dazu nutzen sie kontextualisierte Embeddings aus vortrainierten Sprachmodellen. Diese projizieren Wörter oder Sätze in einen Latent Space (vgl. \parencite{mikolov_efficient_2013}). In diesem hochdimensionalen Vektorraum wird semantische Nähe durch metrische Distanzen wie Kosinusähnlichkeit quantifiziert (vgl. \parencite{zhang_bertscore_2020}). BERTScore (vgl. \parencite{zhang_bertscore_2020}) berechnet Token-zu-Token-Ähnlichkeit mittels BERT-Embeddings. Sentence-BERT (vgl. \parencite{reimers_sentence-bert_2019}) und SimCSE (vgl. \parencite{gao_simcse_2021}) erzeugen Satzrepräsentationen für direkten Kosinus-Vergleich. MoverScore (vgl. \parencite{zhao_moverscore_2019}) modelliert die optimale Zuordnung zwischen Embeddings als Transportproblem. Diese Metriken erfassen Paraphrasen und synonyme Ausdrücke signifikant besser als Overlap-Verfahren. Der Preis dafür besteht in höherer Rechenintensität und der Abhängigkeit von der Qualität der zugrunde liegenden Embeddings (vgl. \parencite{sai_survey_2023}).
+
+
+Lernbasierte Metriken wie COMET (vgl. \parencite{rei_comet_2020}) verfolgen einen anderen Ansatz. Sie trainieren neuronale Netzwerke direkt auf menschliche Qualitätsurteile. Implizit erkennen sie, welche Merkmale gute von schlechten Outputs unterscheiden. Diese Metriken erreichen typischerweise hohe Korrelationen mit menschlichen Präferenzen. Sie können komplexe Muster erfassen. Die gelernten Muster sind jedoch oft nicht transparent. Dies schränkt die Interpretierbarkeit ein. Ein weiteres Risiko besteht in der potenziellen Überanpassung an spezifische Domänen oder Aufgabentypen sowie in der starken Abhängigkeit von der Qualität und Quantität der Trainingsdaten (vgl. \parencite{sai_survey_2023}).
+
+
+LLM-as-a-Judge-Metriken stellen die neueste Kategorie latent-semantischer Verfahren dar. Sie unterscheiden sich grundlegend von bisherigen Ansätzen (vgl. \parencite{zheng_judging_2023}). Bei diesem Verfahren bewertet ein leistungsstarkes Sprachmodell die Outputs entlang frei definierbarer Dimensionen wie Plausibilität, Hilfreichkeit oder Faktentreue. Zusätzlich liefert das Modell natürlichsprachliche Begründungen für seine Bewertungen. Ein prominentes Beispiel ist G-Eval (vgl. \parencite{liu_g-eval_2023}), das \textit{Chain-of-Thought-Prompting} einsetzt. Diese Technik simuliert \textit{Reasoning}-Prozesse. Das Modell verbalisiert Zwischenschritte und Überlegungen explizit, bevor es eine finale Bewertung abgibt. Dies verbessert die Qualität der Bewertungen, da das Modell strukturiert argumentiert. Dieser Ansatz bietet hohe Flexibilität, kommt ohne Referenzen aus und kann pragmatische Aspekte erfassen, die andere Metriken nicht abdecken (vgl. \parencite{zheng_judging_2023}).
+
+
+Spezialisierte Ansätze fokussieren auf spezifische Qualitätsaspekte. Faktentreue-Metriken bewerten, ob generierte Inhalte mit Quellmaterial oder Weltwissen übereinstimmen. Diese Metriken sind besonders relevant für die Erkennung von Halluzinationen. Darunter versteht man plausibel klingende, aber faktisch falsche Aussagen, die bei \ac{llm}s ein zentrales Problem darstellen (vgl. \parencite{ji_survey_2023}). FactCC (vgl. \parencite{kryscinski_evaluating_2019}) nutzt Natural Language Inference. Die Metrik trainiert ein BERT-basiertes Klassifikationsmodell, das prüft, ob eine generierte Zusammenfassung logisch aus dem Quelldokument folgt. Das Modell klassifiziert Satzpaare in die Kategorien Entailment, Contradiction oder Neutral. QAEval (vgl. \parencite{deutsch_towards_2021}) und QAFactEval (vgl. \parencite{fabbri_qafacteval_2022}) verfolgen einen question-answering-basierten Ansatz. Sie extrahieren automatisch Fragen aus Referenztexten, beantworten diese mit dem generierten Output und vergleichen die Antworten. QAFactEval erweitert dies um ein trainiertes Modell, das explizit zwischen korrekten Fakten und Halluzinationen unterscheidet. Der State-of-the-Art hat sich von regelbasierten NLI-Ansätzen zu spezialisierten neuronalen Modellen entwickelt. Diese wurden direkt auf Faktenkonsistenz-Datensätzen trainiert und erkennen feinere Inkonsistenzen (vgl. \parencite{min_factscore_2023}).
+
+Kohärenz- und Konsistenz-Metriken bilden eine weitere Spezialisierung. Sie bewerten, ob ein Text intern widerspruchsfrei ist und logische Übergänge aufweist. Diese Dimension wird typischerweise durch NLI-basierte Verfahren oder spezialisierte Modelle operationalisiert. Diese analysieren Diskurs-Relationen und Textstruktur. Diskurs-Relationen bezeichnen dabei die Beziehungen zwischen Sätzen und Textabschnitten (vgl. \parencite{sai_survey_2023}). Fluenz-Metriken ergänzen das Spektrum. Sie messen grammatikalische Korrektheit und stilistische Angemessenheit. Dies geschieht häufig durch Sprachmodell-Perplexität oder trainierte Klassifikatoren. Perplexität ist ein Maß für die Vorhersagbarkeit von Text (vgl. \parencite{gao_llm-based_2025}).
+
+
+
+\subsubsection{Limitationen und systematische Verzerrungen von LLM-as-a-Judge-Metriken}
+\label{subsec:limitationen-llm-judge}
+
+\ac{llm}-basierte Evaluationsmetriken sind anfällig für verschiedene systematische Verzerrungen. Diese beeinträchtigen ihre Zuverlässigkeit. \textit{Modell-Bias} bezeichnet die Bevorzugung eigener Outputs gegenüber menschlich oder von anderen Modellen generierten Texten. Diese Verzerrung entsteht, weil das Evaluationsmodell während des Trainings auf \textit{Reasoning}-Pfaden optimiert wurde, die seiner eigenen Generierungslogik ähneln. Outputs mit alternativen \textit{Reasoning}-Strukturen weisen höhere Entropie in der Log-Likelihood-Verteilung auf. Sie werden systematisch niedriger bewertet (vgl. \parencite{liu_g-eval_2023}).
+
+Ein weiteres Problem stellt der \textit{Position-Bias} dar. Dieser beschreibt die Bevorzugung von Antworten an bestimmten Positionen in der Eingabesequenz. Der Bias ist in der Architektur der Positional Encodings von Transformer-Modellen begründet. Frühe Ansätze wie die sinusoidalen Encodings führten zu ungleichmäßiger Aufmerksamkeitsverteilung über längere Kontexte (vgl. \parencite{vaswani_attention_2017}). Spätere Verbesserungen wie Rotary Positional Encoding in Modellen wie LLaMA adressieren diese Limitation durch rotationsbasierte Encodings (vgl. \parencite{su_roformer_2021}). Dennoch tritt Long-Term-Decay auf. Die Repräsentationsqualität nimmt mit zunehmender Sequenzlänge ab. Dies manifestiert sich in Form von Primacy-Bias, Recency-Bias und Lost-in-the-Middle-Effekten. Primacy-Bias beschreibt die Bevorzugung früher Informationen. Recency-Bias bezeichnet die Bevorzugung später Informationen. Lost-in-the-Middle-Effekte bedeuten, dass mittlere Sequenzabschnitte schlechter verarbeitet werden (vgl. \parencite{liu_lost_2024}). Mitigation-Strategien umfassen Position-Randomization zur Variation der Reihenfolge der zu bewertenden Outputs sowie spezialisierte Attention-Mechanismen (vgl. \parencite{zheng_judging_2023}).
+
+Zusätzlich zeigt sich eine ausgeprägte Prompt-Sensitivität. Minimale Änderungen in der Formulierung der Evaluationsinstruktion führen zu divergierenden Bewertungen. Diese Anfälligkeit unterstreicht die Notwendigkeit einer sorgfältigen Validierung gegen menschliche Urteile sowie einer transparenten Dokumentation der verwendeten Prompts (vgl. \parencite{zheng_judging_2023,gao_llm-based_2025}).
+
+Die systematischen Verzerrungen von LLM-as-a-Judge-Ansätzen manifestieren sich unterschiedlich stark je nach bewerteter Qualitätsdimension. Evaluationsstudien dokumentieren, dass \ac{llm}-Judges oberflächliche Kriterien wie Fluenz, Relevanz und stilistische Angemessenheit zuverlässiger bewerten als tiefgreifende semantische Dimensionen wie logische Konsistenz, Faktentreue oder konzeptuelle Kohärenz (vgl. \parencite{zheng_judging_2023,gao_llm-based_2025}). Diese dimensionsspezifische Varianz in der Bewertungsqualität ist in den Trainingszielen aktueller Sprachmodelle begründet. Modelle werden primär auf Next-Token-Prediction und oberflächliche Kohärenz optimiert. Logische Inferenz oder faktische Verifikation stehen nicht im Fokus (vgl. \parencite{ji_survey_2023}).
+
+Studien zur Halluzinationserkennung dokumentieren diese Schwäche quantitativ. \ac{llm}-Judges identifizieren zwar hochwertige Outputs mit hoher Precision. Sie detektieren jedoch nur einen Bruchteil faktischer Inkonsistenzen. Bei \textit{Multi-Hop-Reasoning}-Aufgaben sinkt die Bewertungsqualität deutlich ab. Diese Aufgaben erfordern mehrschrittige logische Schlussfolgerungen (vgl. \parencite{gao_llm-based_2025}). Die Befunde deuten darauf hin, dass \ac{llm}-Judges primär oberflächliche Signale wie sprachliche Flüssigkeit und Kontextrelevanz erfassen. Tiefgreifende semantische Strukturen wie logische Widerspruchsfreiheit sind schwieriger zu bewerten.
+
+Plausibilität als Qualitätsdimension umfasst sowohl oberflächliche Aspekte wie sprachliche Flüssigkeit und Relevanz zum Kontext als auch tiefgreifende semantische Strukturen wie logische Widerspruchsfreiheit und konzeptuelle Kohärenz. Die dokumentierte Schwäche von \ac{llm}-Judges bei semantischen Tiefenstrukturen stellt eine Herausforderung für die automatisierte Plausibilitätsbewertung dar (vgl. \parencite{zheng_judging_2023,gao_llm-based_2025}).
+
+\subsubsection{G-Eval als LLM-basierte Evaluationsmetrik}
+\label{subsec:g-eval}
+\textcite{liu_g-eval_2023} stellen G-Eval auf der EMNLP 2023 vor und operationalisieren die Grundidee, große Sprachmodelle wie GPT-4 als Evaluatoren für natürlichsprachliche Generierung einzusetzen. Das zentrale Ziel besteht darin, die Korrelation zwischen automatischer Bewertung und menschlichen Qualitätsurteilen zu erhöhen, was ein Kernproblem etablierter Metriken wie BLEU oder ROUGE darstellt.
+
+G-Eval lässt sich anhand von drei zentralen Charakteristika in das in Abschnitt~\ref{subsec:klassifikation-metriken} vorgestellte Klassifikationsschema einordnen. Erstens handelt es sich um eine latent-semantische Metrik, die auf den Sprachrepräsentationen großer vortrainierter Modelle basiert und semantische Qualitätsmerkmale erfasst, die lexikalische Overlap-Metriken nicht abbilden können. Zweitens kann G-Eval sowohl referenzfrei als auch referenzbasiert eingesetzt werden, je nach Evaluationsdimension: Während Aspekte wie Kohärenz und Fluenz intrinsisch bewertet werden, nutzen Dimensionen wie Konsistenz und Relevanz Quelldokumente als Referenz. Drittens gehört G-Eval zur Kategorie der LLM-as-a-Judge-Metriken, bei denen ein leistungsstarkes Sprachmodell mehrdimensionale Qualitätsbewertungen entlang frei definierbarer Dimensionen durchführt.(vgl. \parencite{liu_g-eval_2023})
+
+
+Methodisch basiert G-Eval auf einer dreistufigen Architektur aus Evaluations-Prompt, Chain-of-Thought-Generierung und probabilistischer Score-Aggregation (vgl. \parencite{liu_g-eval_2023}). Im ersten Schritt wird ein Evaluations-Prompt formuliert, der die zu bewertende Dimension explizit definiert und eine diskrete Bewertungsskala vorgibt. Dieser Prompt enthält eine Aufgabenbeschreibung sowie eine präzise Definition des Evaluationskriteriums. 
+
+Im zweiten Schritt generiert das Sprachmodell eine \textit{Chain-of-Thought}-Sequenz, in der es Zwischenschritte und Überlegungen zur Bewertung autonom formuliert, bevor ein finaler Score vergeben wird. Anstatt detaillierte Evaluationsanweisungen vollständig manuell zu konstruieren, lässt G-Eval das Modell selbst "Evaluation Steps" entwerfen. Für Kohärenz schlägt das Modell beispielsweise vor: (1) den Quelltext lesen und Hauptthema sowie Kernpunkte identifizieren, (2) die Zusammenfassung lesen und prüfen, ob sie diese Punkte in klarer, logischer Ordnung präsentiert, (3) auf Basis dieser Kriterien einen Score auf einer Skala von 1 bis 5 vergeben. Dieser auto\textit{Chain-of-Thought}f-Thought-Prozess reduziert manuellen Aufwand bei der Erstellung aufgabenspezifischer Bewertungsrichtlinien und erhöht die Übertragbarkeit auf unterschiedliche Aufgaben.
+
+
+
+Der dritte Schritt unterscheidet G-Eval fundamental von früheren \ac{llm}-Judge-Ansätzen durch probabilistische Score-Aggregation. Direkte Ganzzahl-Scores sind nach \textcite{liu_g-eval_2023} problematisch, weil (1) in vielen Aufgaben häufig ein Wert (z.B. „3" auf einer 1–5-Skala) die Score-Verteilung dominiert, was zu geringer Varianz und potenziell niedrigerer Übereinstimmung mit menschlichen Urteilen führt, und weil (2) \ac{llm}s selbst bei Aufforderung zu Dezimalwerten meist nur Integer ausgeben, wodurch viele Gleichstände entstehen und subtile Qualitätsunterschiede nicht erfasst werden. G-Eval adressiert diese Limitation, indem für jede mögliche Score-Ausprägung \(s_i\) aus einer vordefinierten Menge \(S = \{s_1, \dots, s_n\}\) die zugehörige Wahrscheinlichkeit \(p(s_i)\) berechnet wird. Der endgültige Bewertungswert ergibt sich gemäß \textcite[3]{liu_g-eval_2023} als gewichteter Erwartungswert nach Formel \ref{eq:g-eval-score}:
+\begin{equation}
+\label{eq:g-eval-score}
+\text{score} = \sum_{i=1}^{n} p(s_i) \cdot s_i.
+\end{equation}
+\formula{eq:g-eval-score}{Probabilistische Score-Aggregation (G-Eval)}
+
+
+Zur technischen Realisierung dieser Berechnung differenzieren \textcite{liu_g-eval_2023} je nach Modellzugriff: Während bei GPT-3.5 Token-Wahrscheinlichkeiten direkt aus den Logits extrahiert werden (\texttt{temperature = 0}), erfordert GPT-4 aufgrund fehlender Logprobs eine Schätzung der Verteilung durch mehrfaches Sampling (\texttt{n = 20}, \texttt{temperature = 1}). Diese Anpassung stellt sicher, dass die probabilistische Aggregation auch für Modelle ohne direkten Zugriff auf die Ausgabewahrscheinlichkeiten anwendbar bleibt.
+
+Dieses Verfahren erzeugt kontinuierliche, feingranulare Scores und bildet Qualitätsunterschiede zwischen generierten Texten differenzierter ab als rein diskrete Ganzzahlbewertungen (vgl. \parencite{liu_g-eval_2023}).
+
+Die empirische Validierung von G-Eval erfolgt auf mehreren Meta-Evaluations-Benchmarks, darunter SummEval für Textzusammenfassungen, Topical-Chat für Dialogqualität und QAGS für Faktentreue (vgl. \parencite{liu_g-eval_2023}). Zur Bewertung der Metrik-Qualität wird Kendall's \(\tau\) verwendet (siehe Abschnitt~\ref{subsec:kendall-tau} für eine detaillierte Darstellung). Tabelle~\ref{tab:g-eval-performance} zeigt den Vergleich verschiedener Evaluationsmetriken auf dem SummEval-Benchmark.
+
+
+\begin{table}[H]
+\centering
+\caption{Kendall-Tau-Korrelation verschiedener Evaluationsmetriken mit menschlichen Urteilen auf dem SummEval-Benchmark \parencite[S.~6]{liu_g-eval_2023}}
+\label{tab:g-eval-performance}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Metrik} & \textbf{\(\tau\)} & \textbf{Konkordante Paare} \\
+\midrule
+G-Eval (GPT-4) & 0.418 & 71\% \\
+UniEval & 0.377 & 69\% \\
+G-Eval (GPT-3.5) & 0.320 & 66\% \\
+G-Eval ohne prob. Agg. & 0.317 & 66\% \\
+BERTScore & 0.175 & 59\% \\
+ROUGE-L & 0.128 & 56\% \\
+BLEU & < 0.128 & < 56\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+G-Eval mit GPT-4 übertrifft etablierte Metriken deutlich, die nur geringfügig besser als zufällige Übereinstimmung (50\%) abschneiden (vgl. \parencite{liu_g-eval_2023}). Die probabilistische Score-Aggregation trägt messbar zur Verbesserung bei. Auf Dialog- und Halluzinationsbenchmarks übertrifft G-Eval etablierte Verfahren wie UniEval oder USR (vgl. \parencite{liu_g-eval_2023}).
+
+
+
+
+\textcite{liu_g-eval_2023} dokumentieren jedoch relevante Limitationen des Verfahrens. In einem Experiment mit Daten, die sowohl von Menschen als auch von GPT-3.5 verfasste Zusammenfassungen enthalten, bewertet G-Eval \ac{llm}-generierte Texte systematisch höher, obwohl menschliche Annotatoren häufig die menschlichen Zusammenfassungen bevorzugen. Diese Tendenz wird als Self-Enhancement-Bias des \ac{llm}-Judges interpretiert, da das Evaluationsmodell Texte bevorzugt, die von Sprachmodellen ähnlicher Art generiert wurden, und damit menschliche Outputs benachteiligt (vgl. \parencite{liu_g-eval_2023}). Dies verdeutlicht, dass automatische Bewertungsmethoden sorgfältig gegen menschliche Referenzen kalibriert werden müssen. Ergänzend dokumentieren \textcite{zheng_judging_2023} weitere systematische Verzerrungen wie \textit{Position-Bias} und \textit{Prompt-Sensitivität} (siehe Abschnitt~\ref{subsec:klassifikation-metriken}), die bei praktischer Anwendung berücksichtigt werden müssen. Trotz dieser Limitationen zeigt G-Eval, dass \ac{llm}-basierte Metriken das Potenzial haben, traditionelle Evaluationsverfahren in ihrer Korrelation mit menschlichen Urteilen signifikant zu überbieten.
+
+\subsection{Rangbasierte statistische Verfahren}
+\label{subsec:rangbasierte-verfahren}
+
+Die Evaluation von \ac{llm}-Outputs basiert typischerweise auf Rangordnungen oder numerischen Scores entlang definierter Qualitätsdimensionen (vgl. \parencite{liu_g-eval_2023, zheng_judging_2023}). Zwei methodische Fragen stehen dabei im Zentrum: Wie konsistent stimmen mehrere Evaluatoren in ihren Urteilen überein? Und wie stark korrelieren zwei unterschiedliche Evaluationssysteme, etwa automatische \ac{llm}-basierte Metriken und menschliche Urteile? Rangbasierte Verfahren haben sich zur Beantwortung dieser Fragen etabliert, da sie mit ordinalen Skalen umgehen und keine Verteilungsannahmen erfordern (vgl. \parencite{kendall_problem_1939, kendall_new_1938}). Dieses Kapitel stellt zwei zentrale Maße vor: Kendall \(W\) quantifiziert die Übereinstimmung zwischen mehreren Beurteilenden, während Kendall \(\tau\) die paarweise Korrelation zwischen zwei Rangordnungen misst. Diese Verfahren bilden die methodische Grundlage für empirische Validierungsstudien in der \ac{llm}-Evaluation.
+
+\subsubsection{Konkordanzkoeffizient nach Kendall \texorpdfstring{\(W\)}{W}}
+\label{subsec:Kendall W}
+
+Der Konkordanzkoeffizient nach Kendall \(W\), auch als \textit{Kendall's coefficient of concordance} 
+bezeichnet, ist ein rangbasiertes Maß zur Quantifizierung der Übereinstimmung mehrerer 
+Beurteilender, die dasselbe Objektset anhand einer ordinalen Skala bewerten (vgl. \parencite{kendall_problem_1939}).
+\textcite{kendall_problem_1939} entwickeln \(W\) in ihrer grundlegenden Arbeit 
+``The problem of m rankings``, um zu prüfen, ob ein Satz von 
+\(m\) Rangreihen über \(n\) Objekte Evidenz für eine gemeinsame Urteilsbasis liefert.
+Der Koeffizient fasst die gemeinsame Struktur dieser Rangordnungen in einem einzigen 
+normalisierten Kennwert zusammen und eignet sich damit zur Beurteilung von 
+Übereinstimmung und Reliabilität bei Rangdaten (vgl. \parencite{kendall_problem_1939}).
+
+
+Kendall \(W\) beruht auf der Intuition, dass bei vollständiger Übereinstimmung 
+alle Beurteilenden dieselbe Rangordnung der Objekte vergeben.
+In diesem Fall erhalten die Objekte deutlich unterschiedliche aggregierte Rangwerte, 
+während bei fehlender systematischer Übereinstimmung die aggregierten Rangwerte 
+näher beieinander liegen.(vgl. \parencite{kendall_problem_1939})
+
+Formal wird für jedes Objekt \(i\) über alle \(m\) Beurteilenden hinweg die Rangsumme gebildet (vgl. \parencite{kendall_problem_1939}):
+\begin{equation}
+\label{eq:rangsumme}
+    R_i = \sum_{j=1}^{m} r_{i,j}
+\end{equation}
+\formula{eq:rangsumme}{Rangsumme für Objekt $i$}
+wobei \(r_{i,j}\) den von Beurteiler \(j\) vergebenen Rang bezeichnet.
+Aus den Rangsummen wird anschließend die Streuungsgröße bestimmt (vgl. \parencite{kendall_problem_1939}):
+\begin{equation}
+\label{eq:streuung}
+S = \sum_{i=1}^{n} (R_i - \bar{R})^2
+\end{equation}
+\formula{eq:streuung}{Streuungsgröße der Rangsummen}
+die erfasst, wie stark sich die Objekte hinsichtlich ihrer mittleren 
+Rangposition unterscheiden, wobei \(\bar{R}\) den Mittelwert der Rangsummen bezeichnet.
+Der Konkordanzkoeffizient \(W\) ergibt sich als normierte Form dieser Streuung \parencite[S.~276]{kendall_problem_1939}:
+\begin{equation}
+\label{eq:kendall-w}
+W = \frac{12S}{m^2(n^3 - n)}.
+\end{equation}
+\formula{eq:kendall-w}{Kendall's Konkordanzkoeffizient $W$}
+
+Durch diese Normierung nimmt \(W\) stets Werte im Intervall \([0.1]\) an.(vgl. \parencite{kendall_problem_1939})
+
+
+Ein Wert von \(W = 0\) steht für das Fehlen systematischer Konkordanz, während 
+\(W = 1\) perfekte Übereinstimmung aller Rangreihen anzeigt.(vgl. \parencite{kendall_problem_1939})
+Zwischenwerte lassen sich als graduelle Ausprägungen einer gemeinsamen Rangstruktur 
+interpretieren.
+Bei gebundenen Rängen werden zusätzliche Korrekturterme eingeführt, die die durch 
+Ties verringerte Streuung der Rangsummen berücksichtigen und so eine konsistente 
+Normierung sicherstellen.(vgl. \parencite{kendall_problem_1939})
+In der angewandten Literatur wird Kendall \(W\) als nichtparametrisches 
+Verfahren hervorgehoben, das keine Annahmen über die Form der zugrunde liegenden 
+Verteilung verlangt und daher für ordinal skalierte Rangdaten besonders geeignet ist.(vgl. \parencite{kendall_problem_1939})
+
+
+Für die inhaltliche Interpretation von Koeffizienten im Intervall \([0.1]\) werden 
+häufig heuristische Schwellenwerte herangezogen, die ursprünglich für 
+Korrelationskoeffizienten vorgeschlagen wurden und in der statistischen Praxis sowie 
+in der Dokumentation von Softwareumgebungen wie R verbreitet sind (vgl. \parencite{kotrlik_reporting_2011}).
+Eine weit verbreitete Einteilung geht auf \textcite{landis_measurement_1977} zurück, die 
+Interpretationsschwellen zur Beurteilung der Übereinstimmung zwischen 
+Beurteilenden vorschlagen.
+Diese Skala wurde ursprünglich für Kappa-Koeffizienten entwickelt, wird aber 
+aufgrund des identischen Wertebereichs auch für Kendall \(W\) verwendet (vgl. \parencite{landis_measurement_1977}).
+
+\begin{table}[H]
+\centering
+\caption{Interpretation von Kendall \(W\) nach \textcite[S.~165]{landis_measurement_1977}}
+\begin{tabular}{ll}
+\toprule
+Bereich von \(W\) & Interpretation nach Landis \& Koch \\
+\midrule
+\(0.00 \leq W < 0.20\) & Slight agreement \\
+\(0.20 \leq W < 0.40\) & Fair agreement \\
+\(0.40 \leq W < 0.60\) & Moderate agreement \\
+\(0.60 \leq W < 0.80\) & Substantial agreement \\
+\(W \geq 0.80\) & Almost perfect agreement \\
+\bottomrule
+\end{tabular}
+\label{tab:kendall-w-interpretation}
+\end{table}
+
+
+
+
+\subsubsection{Rangkorrelationskoeffizient nach Kendall \texorpdfstring{\(\tau\)}{tau}}
+\label{subsec:kendall-tau}
+
+Der Rangkorrelationskoeffizient nach Kendall \(\tau\) ist ein rangbasiertes Maß 
+zur Quantifizierung der Übereinstimmung zwischen zwei Rangreihen über dasselbe 
+Objektset (vgl. \parencite{kendall_new_1938}).
+Im Gegensatz zu Kendall \(W\), das die Übereinstimmung mehrerer Beurteilender 
+erfasst, fokussiert \(\tau\) auf die paarweise Assoziation zweier Rangordnungen 
+und ermöglicht damit eine direktere Interpretation der Übereinstimmung (vgl. \parencite{kendall_new_1938}).
+
+Kendall \(\tau\) beruht auf dem Vergleich aller möglichen Objektpaare und 
+der Klassifikation dieser Paare als konkordant oder diskordant.
+Ein Objektpaar \((i, j)\) wird als \textit{konkordant} bezeichnet, wenn beide 
+Beurteilenden die gleiche relative Ordnung zwischen den Objekten vergeben, 
+d.h., wenn ein Objekt von beiden Beurteilenden höher eingestuft wird als das andere (vgl. \parencite{kendall_new_1938}).
+Formal liegt Konkordanz vor, wenn \(x_i < x_j\) und \(y_i < y_j\) gilt, 
+wobei \(x\) und \(y\) die Rangwerte der beiden Beurteilenden bezeichnen.
+\textit{Diskordant} sind hingegen Paare, bei denen die Beurteilenden 
+entgegengesetzte relative Ordnungen vergeben, also \(x_i < x_j\) aber \(y_i > y_j\) (vgl. \parencite{kendall_new_1938}).
+
+Die grundlegende Definition von Kendall \(\tau\) lässt sich als Differenz der 
+Wahrscheinlichkeiten konkordanter und diskordanter Paare formulieren:
+\begin{equation}
+\label{eq:kendall-tau-def}
+\tau = P(\text{konkordant}) - P(\text{diskordant})
+\end{equation}
+\formula{eq:kendall-tau-def}{Kendall $\tau$ als Differenz der Wahrscheinlichkeiten}
+
+Bezeichnet man die Anzahl konkordanter Paare mit \(C\) und die Anzahl diskordanter 
+Paare mit \(D\), sowie die Gesamtzahl aller Paare mit \(N\), so ergibt sich nach \textcite[S.~82]{kendall_new_1938}:
+\begin{equation}
+\label{eq:kendall-tau-cd}
+\tau = \frac{C - D}{N}
+\end{equation}
+\formula{eq:kendall-tau-cd}{Kendall $\tau$ basierend auf konkordanten und diskordanten Paaren}
+
+
+Da die Gesamtzahl aller Paare sich aus konkordanten und diskordanten Paaren 
+zusammensetzt, gilt \(N = C + D\) und damit \(D = N - C\).
+Einsetzen in die obige Gleichung und Umformen führt zu:
+\begin{equation}
+\label{eq:kendall-tau-umgeformt}
+\tau = \frac{C - (N - C)}{N} = \frac{2C - N}{N} = \frac{2C}{N} - 1
+\end{equation}
+\formula{eq:kendall-tau-umgeformt}{Kendall $\tau$ umgeformt}
+
+Durch Umstellen nach der Wahrscheinlichkeit konkordanter Paare erhält man:
+\begin{equation}
+\label{eq:wahrscheinlichkeit-konkordant}
+P(\text{konkordant}) = \frac{C}{N} = \frac{\tau + 1}{2}
+\end{equation}
+\formula{eq:wahrscheinlichkeit-konkordant}{Wahrscheinlichkeit konkordanter Paare}
+
+Diese Beziehung ermöglicht eine intuitive Interpretation von \(\tau\) über die 
+Wahrscheinlichkeit konkordanter Paarvergleiche.
+Tabelle~\ref{tab:kendall-tau-interpretation} veranschaulicht die mathematische 
+Umrechnung anhand ausgewählter \(\tau\)-Werte.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccc}
+\toprule
+\(\tau\) & \(P(\text{konkordant})\) & Beschreibung \\
+\midrule
+\(-1.0\) & \(0.0\) & Vollständige Diskordanz \\
+\(-0.5\) & \(0.25\) & 25\% konkordante Paare \\
+\(0.0\) & \(0.5\) & Keine systematische Übereinstimmung \\
+\(0.5\) & \(0.75\) & 75\% konkordante Paare \\
+\(1.0\) & \(1.0\) & Perfekte Übereinstimmung \\
+\bottomrule
+\end{tabular}
+\caption{Mathematische Beziehung zwischen Kendall \(\tau\) und dem Anteil konkordanter Paare}
+\label{tab:kendall-tau-interpretation}
+\end{table}
+
+Bei \(\tau = 0\) treten konkordante und diskordante Paare gleich häufig auf, 
+was das Fehlen einer systematischen Übereinstimmung anzeigt.
+Positive Werte von \(\tau\) indizieren eine Tendenz zur Übereinstimmung, 
+während negative Werte auf systematische Diskordanz hinweisen.
+
+Kendall \(\tau\) nimmt somit Werte im Intervall \([-1, 1]\) an und erlaubt 
+im Gegensatz zu Kendall \(W\) die Erfassung negativer Assoziationen.
+Die direkte Verbindung zur Wahrscheinlichkeit konkordanter Paare macht \(\tau\) 
+besonders interpretierbar für Anwendungen, in denen die Übereinstimmung zwischen 
+zwei Beurteilenden oder Bewertungssystemen im Vordergrund steht.
+Wie Kendall \(W\) ist auch \(\tau\) ein nichtparametrisches Verfahren, das 
+keine Verteilungsannahmen erfordert und für ordinal skalierte Rangdaten 
+geeignet ist (vgl. \parencite{kendall_new_1938}).
+
+
+\section{Forschungsmethodik}
+\label{sec:forschungsmethodik}
+
+Die Untersuchung wird entlang der in Abschnitt~\ref{subsec:operationalisierung-plausibilitaet} operationalisierten Plausibilitätsdimensionen \emph{Kontextverständnis}, \emph{Kohärenz} und \emph{Angemessenheit} durchgeführt, aus denen eine \emph{gewichtete Gesamtplausibilität} abgeleitet wird. Ergänzend wird die \emph{holistische Gesamtplausibilität} (nach Zhang) als separate Validierungsdimension erhoben. Zur Hypothesenprüfung wird zunächst eine Datengrundlage aus Frage-Antwort-Paaren konstruiert und es werden \ac{llm}-Antworten generiert. Anschließend werden auf der generierten Datengrundlage eine automatische Bewertung mit G-Eval und eine menschliche Bewertung per Online-Umfrage erhoben und mittels Kendall’s \(W\) (Reliabilität) sowie Kendall’s \(\tau\) (Übereinstimmung) ausgewertet. 
+
+
+\subsection{Forschungsfrage und Hypothesen}
+\label{subsec:forschungsfrage-hypothesen}
+
+Aus dem Vergleich zwischen maschineller und menschlicher Bewertung von Plausibilität leitet sich die folgende Forschungsfrage ab:
+
+\begin{quote}
+\textbf{Welche quantitativen und qualitativen Diskrepanzen bestehen zwischen automatischen Evaluationsmetriken und der menschlichen Plausibilitätsbewertung in den Dimensionen Kontextverständnis, Kohärenz und Angemessenheit?}
+\end{quote}
+
+Zur statistischen Überprüfung wurden folgende Hypothesen aufgestellt:
+
+
+\subsubsection{Phase 1: Instrumentenvalidierung}
+
+Bevor automatische und menschliche Bewertungen verglichen werden können, muss zunächst die interne Konsistenz beider Bewertungsmethoden geprüft werden. Zur Messung dieser Konsistenz wird Kendall \(W\) herangezogen (siehe Abschnitt~\ref{subsec:Kendall W}).
+\paragraph{H1: Intra-Rater-Reliabilität der \ac{llm}-basierten Bewertungen}\mbox{}\
+\textbf{H$_0$:} Die wiederholten \ac{llm}-Bewertungen weisen keine substanzielle Konkordanz auf. Der Kendall \(W\) der aggregierten Plausibilität liegt unter 0.60.
+
+\textbf{H$_1$:} Die \ac{llm}-basierten Plausibilitätsbewertungen weisen substanzielle bis nahezu perfekte Konkordanz über wiederholte Messungen auf. Der Kendall \(W\) der aggregierten Plausibilität erreicht mindestens 0.60 (\textit{substantial agreement} gemäß Tabelle~\ref{tab:kendall-w-interpretation}).
+
+\textit{Rationale:}
+Bei einem \ac{llm}-basierten Judge bleibt im Unterschied zu menschlichen Beurteilenden der zugrunde liegende Wissens- und Regelapparat über Wiederholungen konstant (fixierter Modellzustand, identische Bewertungsrubrik und identische Eingaben). Daher wird erwartet, dass wiederholte Bewertungen desselben Antwortsets eine stabile Rangstruktur ergeben und somit eine hohe Konkordanz messbar ist.
+
+Gleichzeitig ist im verwendeten Verfahren eine Varianzquelle angelegt, da G-Eval die finalen Scores nicht als direkten Integer übernimmt, sondern mittels \textit{probabilistischer Score-Aggregation} als Erwartungswert über Score-Wahrscheinlichkeiten berechnet (Gleichung~\ref{eq:g-eval-score} in Abschnitt~\ref{subsec:g-eval}). Dadurch kann es trotz konstantem Setup zu leichten Schwankungen kommen, ohne dass die zugrunde liegende Bewertungslogik wechselt.
+
+Als Mindestkriterium für hinreichende Intra-Rater-Reliabilität wird \(W \geq 0.60\) angesetzt, was gemäß Tabelle~\ref{tab:kendall-w-interpretation} als \textit{substantial agreement} interpretiert wird (vgl. \parencite{landis_measurement_1977}). Werte unter \(W=0.60\) (Tabelle~\ref{tab:kendall-w-interpretation}) würden die Eignung der Judge-Bewertungen als reliables Evaluationsinstrument für die weiteren Analysen in Frage stellen.
+
+
+\textit{Operationalisierung:}
+\begin{itemize}
+  \item GPT-4.1 bewertet jedes der acht Frage-Antwort-Paare $N$-mal ($N$: Anzahl der Evaluationsiterationen pro Paar) anhand der definierten Evaluationskriterien.
+  \item Für jede Iteration wird die aggregierte Plausibilität als gewichteter Mittelwert über die drei Dimensionen berechnet (Abschnitt~\ref{subsec:operationalisierung-plausibilitaet}).
+  \item Aus den $N$ aggregierten Plausibilitätswerten wird Kendall's \(W\) berechnet.
+\end{itemize}
+
+
+
+\paragraph{H2: Inter-Rater-Reliabilität der menschlichen Bewertungen}\mbox{}\
+\textbf{H$_0$:} Die Übereinstimmung zwischen menschlichen Beurteilenden unterscheidet sich nicht systematisch von Zufall. Der Kendall \(W\) der aggregierten Plausibilität liegt unter 0.40.
+
+\textbf{H$_1$:} Die menschlichen Plausibilitätsbewertungen weisen messbare Konkordanz auf. Der Kendall \(W\) der aggregierten Plausibilität erreicht mindestens 0.40 (\textit{moderate agreement} gemäß Tabelle~\ref{tab:kendall-w-interpretation}).
+
+\textit{Rationale:}
+
+Im Gegensatz zu \ac{llm}-basierten Bewertungen unterliegen menschliche Urteile über Plausibilität struktureller Subjektivität, da sie aus der Wechselwirkung zwischen Text und individuellem Wissensnetz entstehen (siehe Abschnitt~\ref{subsec:pam}). Obwohl eine hohe Übereinstimmung nicht zu erwarten ist, sollte die Konkordanz mindestens \textit{moderate agreement} erreichen (\(W \geq 0.40\), vgl.~Tabelle~\ref{tab:kendall-w-interpretation}), um zu zeigen, dass die operationalisierten Dimensionen (Abschnitt~\ref{subsec:operationalisierung-plausibilitaet}) trotz individueller Interpretation ein hinreichend gemeinsames Verständnis von Plausibilität abbilden. Werte unter diesem Schwellenwert würden dagegen darauf hindeuten, dass die Dimensionen zu stark von individueller Interpretation abhängen und keine robuste Grundlage für Vergleiche mit automatischen Metriken bieten.
+
+
+
+\textit{Operationalisierung:}
+\begin{itemize}
+  \item $N$ menschliche Rater ($N$: Anzahl der Rater) bewerten die acht Frage-Antwort-Paare anhand der Bewertungskriterien.
+  \item Für jeden Rater wird die aggregierte Plausibilität als gewichteter Mittelwert über die drei Dimensionen berechnet (Abschnitt~\ref{subsec:operationalisierung-plausibilitaet}).
+  \item Aus den $N$ aggregierten Plausibilitätswerten wird Kendall's \(W\) berechnet.
+\end{itemize}
+
+
+
+\subsubsection{Phase 2: Vergleich zwischen automatischer und menschlicher Bewertung}
+
+Nach der Validierung der Inter-Rater-Reliabilität sowohl für metrikbasierte Bewertungen (H1) als auch für menschliche Bewertungen (H2) wird in Phase-2 untersucht, in welchem Ausmaß beide Bewertungsansätze übereinstimmen. Zur Quantifizierung dieser Übereinstimmung wird Kendall \(\tau\) herangezogen (siehe Abschnitt~\ref{subsec:kendall-tau}). Im Zentrum steht die Frage, ob metrikbasierte Judge-Bewertungen (G-Eval) und menschliche Beurteilende alle Dimensionen der Plausibilität gleichermaßen übereinstimmend beurteilen oder ob systematische, dimensionsspezifische Divergenzen auftreten.
+
+
+\paragraph{H3: Dimensionsspezifische Divergenzen zwischen metrikbasierten und menschlichen Urteilen}\mbox{}\
+\textbf{H$_0$:} Die Rangkorrelationen nach Kendall \(\tau\) zwischen metrikbasierten Judge-Bewertungen und menschlichen Bewertungen unterscheiden sich nicht substantiell zwischen Kontextverständnis, Kohärenz und Angemessenheit. Die Spanne der Kendall \(\tau\) Werte über die drei Dimensionen beträgt weniger als 0.50.
+
+\textbf{H$_1$:} Die Rangkorrelationen nach Kendall \(\tau\) unterscheiden sich systematisch zwischen den Dimensionen. Die Spanne der Kendall \(\tau\) Werte über die drei Dimensionen beträgt mindestens 0.50.
+
+\textit{Rationale:} Die theoretische Herleitung der erwarteten dimensionsspezifischen Divergenzen folgt aus dem Plausibility Analysis Model (PAM; Abschnitt~\ref{subsec:pam}). Die Dimensionen unterscheiden sich demnach in ihrer kognitiven Struktur und den erforderlichen Inferenzprozessen: Kontextverständnis adressiert vor allem explizite Bezüge zwischen Frage, Antwort und Kontext und ist daher vergleichsweise oberflächennah prüfbar. Kohärenz zielt auf die innere logische Stimmigkeit der Antwort und erfordert die Prüfung impliziter Zusammenhänge, was eine stärkere semantische Integration voraussetzt. Angemessenheit betrifft die Passung der Antwort zur Fragestellung (u.\,a. Umfang, Vollständigkeit und Detailtiefe) und erfordert normativ-pragmatische Urteile.
+
+Es ist daher theoretisch plausibel, dass metrikbasierte und menschliche Bewertungen bei oberflächennah operationalisierbaren Dimensionen (insbesondere Kontextverständnis) stärker übereinstimmen als bei inferenzintensiveren Dimensionen (insbesondere Kohärenz), und dass sich die Übereinstimmung systematisch zwischen den Dimensionen unterscheidet. Eine Spanne von mindestens 0.50 zwischen der höchsten und der niedrigsten Kendall \(\tau\)-Korrelation wird als Indikator für substanzielle dimensionsspezifische Divergenz interpretiert. Nach Tabelle~\ref{tab:kendall-tau-interpretation} entspricht eine Differenz von 0.50 dem Unterschied zwischen 25\% und 75\% konkordanten Paaren.
+
+
+\textit{Operationalisierung:}
+\begin{itemize}
+  \item Berechnung von Kendall \(\tau\) zwischen metrikbasierten und menschlichen Bewertungen getrennt für Kontextverständnis, Kohärenz und Angemessenheit.
+  \item Bestimmung der Spanne als Differenz zwischen dem höchsten und dem niedrigsten dieser drei Kendall \(\tau\) Werte.
+\end{itemize}
+
+\paragraph{H4: Aggregierte Übereinstimmung für die Gesamtplausibilität}\mbox{}\
+\textbf{H$_0$:} Die Rangkorrelation nach Kendall \(\tau\) zwischen dem gewichteten aggregierten metrikbasierten Score und dem gewichteten aggregierten menschlichen Score für die Gesamtplausibilität beträgt weniger als 0.40.
+
+\textbf{H$_1$:} Die Rangkorrelation nach Kendall \(\tau\) zwischen dem gewichteten aggregierten metrikbasierten Score und dem gewichteten aggregierten menschlichen Score für die Gesamtplausibilität beträgt mindestens 0.40.
+
+\textit{Rationale:} Durch die Aggregation der drei dimensionsspezifischen Bewertungen zu einem Gesamtscore können sich dimensionsspezifische Abweichungen zwischen metrikbasierten und menschlichen Bewertungen teilweise kompensieren. Die theoriegeleitete Gewichtung (Abschnitt~\ref{subsec:aggregation-gewichtung}) reflektiert die differentielle Bedeutung der Faktoren für Plausibilitätsurteile nach \textcite{connell_what_2004}. Selbst wenn metrikbasierte und menschliche Bewertungen bestimmte Facetten unterschiedlich gewichten oder interpretieren, kann ein aggregierter Gesamtscore dennoch eine moderate Übereinstimmung erreichen, sofern beide Ansätze zentrale Bewertungsprinzipien hinreichend erfassen. Nach der in Abschnitt~\ref{subsec:kendall-tau} dargestellten Beziehung entspricht Kendall \(\tau = 0.40\) einem Anteil von 70\% konkordanten Paaren. Dies wird als minimale Schwelle für eine praktisch relevante Kongruenz zwischen beiden Bewertungsansätzen interpretiert.
+
+
+\textit{Operationalisierung:}
+\begin{itemize}
+  \item Berechnung eines gewichteten aggregierten metrikbasierten Scores je Antwort ($N$ Iterationen pro Paar; vgl. Abschnitt~\ref{subsec:aggregation-gewichtung}).
+  \item Berechnung eines gewichteten aggregierten menschlichen Scores je Antwort ($N$ Rater; vgl. Abschnitt~\ref{subsec:aggregation-gewichtung}).
+  \item Berechnung von Kendall's \(\tau\) zwischen den beiden Score-Vektoren (je 8 Werte).
+\end{itemize}
+
+
+\subsubsection{Phase 3: Systematische Verzerrungen}
+
+Nach der Untersuchung der Rangübereinstimmung (Phase~2) wird in Phase~3 geprüft, ob metrikbasierte Bewertungen systematische Niveauunterschiede gegenüber menschlichen Bewertungen aufweisen.
+
+\paragraph{H5: Self-Enhancement-Bias metrikbasierter Judge-Bewertungen}\mbox{}\
+\textbf{H$_0$:} Die durchschnittlichen gewichteten Plausibilitätsbewertungen metrikbasierter Judge-Bewertungen und menschlicher Beurteilender unterscheiden sich nicht systematisch. Die Differenz der Mittelwerte beträgt weniger als 0.50 Punkte auf der 5-Punkt-Skala.
+
+\textbf{H$_1$:} Metrikbasierte Judge-Bewertungen weisen durchschnittlich systematisch höhere gewichtete Plausibilitätswerte auf als menschliche Beurteilende. Die Differenz der Mittelwerte beträgt mindestens 0.50 Punkte auf der 5-Punkt-Skala.
+
+\textit{Rationale:} Self-Enhancement-Bias bezeichnet die systematische Tendenz von \ac{llm}-basierten Judges, Texte höher zu bewerten, die von ähnlichen Modellen generiert wurden. Dieser Bias wird in Abschnitt~\ref{subsec:g-eval} ausführlich beschrieben. Eine Differenz von mindestens 0.50 Punkten auf einer 5-Punkt-Skala entspricht 10\% der Skalenbreite und wird als substanzielle systematische Verzerrung interpretiert. Die Verwendung der gewichteten Gesamtplausibilität (Abschnitt~\ref{subsec:aggregation-gewichtung}) ermöglicht eine präzise Aussage über die Gesamttendenz beider Bewertungsansätze.
+
+\textit{Operationalisierung:}
+\begin{itemize}
+  \item Berechnung der gewichteten Gesamtplausibilität für jede metrikbasierte Judge-Bewertung (vgl. Abschnitt~\ref{subsec:aggregation-gewichtung}).
+  \item Berechnung der gewichteten Gesamtplausibilität für jede menschliche Bewertung.
+  \item Bestimmung des Mittelwerts der gewichteten Gesamtplausibilität über alle Antworten für beide Bewertungsansätze.
+  \item Berechnung der Mittelwertdifferenz als Differenz zwischen metrikbasiertem und menschlichem Mittelwert.
+\end{itemize}
+
+\subsection{Datengrundlage und Korpusgenerierung}
+Die empirische Untersuchung erfordert eine methodisch fundierte Datengrundlage, 
+die sowohl für die automatische Evaluation als auch für die menschliche Bewertung 
+geeignet ist. Zunächst wird die Auswahl und Konstruktion der Frage-Antwort-Paare 
+erläutert, die als Ausgangsmaterial dienen. Anschließend wird beschrieben, wie 
+die zu bewertenden \ac{llm}-Antworten generiert wurden, einschließlich der verwendeten 
+Modelle und technischen Parameter. Zuletzt werden die konkreten Messinstrumente 
+und Items definiert, die zur Operationalisierung der drei Plausibilitätsdimensionen 
+eingesetzt werden.
+\subsubsection{Auswahl der Frage-Antwort-Paare}
+\label{subsec:auswahl-frage-antwort-paare} 
+Es wurden acht Frage-Antwort-Paare als Untersuchungsmaterial definiert. Das Kontextmaterial stammt aus dem German-RAG-LLM-HARD-BENCHMARK (vgl. \parencite{noauthor_avemiogerman-rag-llm-hard-benchmark_2025}), einem etablierten Benchmark zur Evaluierung von Sprachmodellen im deutschsprachigen Raum. Das Question-Answering Format bietet eine strukturierte und klare Bewertungsgrundlage für menschliche Rater. Diese können systematisch prüfen, ob das Modell die Frage verstanden hat, ob die Antwort kohärent strukturiert ist und ob sie die gestellte Frage angemessen adressiert. Diese Klarheit der Evaluierbarkeit reduziert subjektive Bewertungen und erhöht die Konsistenz zwischen verschiedenen Ratern.
+
+Die acht Fragen wurden eigens für diese Studie manuell konstruiert. Das Design zielt bewusst darauf ab, Fragen zu stellen, die nicht durch reine Informationsextraktion aus dem Kontext lösbar sind, sondern eine Synthese von Informationen oder implizite Schlussfolgerungen erfordern. Dieses Vorgehen ist methodisch begründet, um Deckeneffekte in der Bewertung zu vermeiden: Würden sich die Antworten trivial aus dem Text ergeben, wären durchgehend sehr hohe Bewertungen zu erwarten, was zu einer geringen Varianz in den Daten führen würde. Zudem provoziert dieses Design das Sprachmodell, bei Informationslücken auf Halluzinationen oder externes Wissen zurückzugreifen. Dies ermöglicht erst die Prüfung, ob die Evaluationsmetriken (sowohl menschlich als auch maschinell) in der Lage sind, solche subtilen Unplausibilitäten zuverlässig zu erkennen und abzustrafen.
+
+Der Kontext wurde bewusst gekürzt, um die praktische Durchführbarkeit der Umfrage zu gewährleisten. Eine zu ausführliche Kontextdarstellung führt zu kognitiver Überlastung bei den Ratern und beeinträchtigt die Qualität ihrer Bewertungen. Die gekürzte Variante bewahrt die wesentlichen Informationen zur Beantwortung der Fragen. Der vollständige Evaluierungskontext sowie die konstruierten Fragen sind in Anhang~\ref{app:material} dokumentiert.
+
+\subsubsection{Generierung der LLM-Antworten}
+\label{subsec:generierung-llm-antworten}
+
+Zur Generierung der von den Teilnehmenden zu bewertenden Antworten wurde das Large Language Model GPT-OSS-120B verwendet. 
+Die Wahl dieses Modells begründet sich durch seine starke Leistung als aktuelles Open-Weight-Modell sowie durch die gute Eignung für wissenschaftliche Nutzung aufgrund offener Modellgewichte und der damit verbundenen Reproduzierbarkeit (siehe Abschnitt~\ref{subsec:gpt-oss-120b}). Der Zugriff erfolgte über eine REST-API-Schnittstelle mit OpenAI-kompatiblen Endpunkten. Das Modell kann dabei über verschiedene Infrastrukturen bereitgestellt werden. In der vorliegenden Implementierung wurde das Modell über den \emph{adesso AI Hub} angesprochen.
+
+Für jede Frage wurde ein einheitliches Prompt-Template verwendet:
+
+\begin{verbatim}
+Kontext:
+{context}
+
+Frage:
+{question}
+
+Antworte kurz basierend auf den Informationen im obigen Kontext.
+\end{verbatim}
+
+Die Generierung erfolgte mit den Parametern \texttt{max\_tokens = 10000} und \texttt{temperature = 0.7}. Das hohe Tokenlimit stellt sicher, dass auch längere Antworten vollständig generiert werden.
+
+Für jede der acht in Abschnitt~\ref{subsec:auswahl-frage-antwort-paare} beschriebenen Fragen wurde der gekürzte Kontext (Anhang~\ref{app:material}, Kontext) und die jeweilige Frage (Anhang~\ref{app:fragen}) in dieses Template eingefügt und an das Modell übermittelt. Die resultierenden Antworten (Anhang~\ref{app:antworten}) bilden das Evaluationsmaterial für sowohl die menschliche Umfrage als auch das LLM-as-a-Judge-Setup.
+
+
+\subsubsection{Messinstrumente und Items}
+\label{subsec:messinstrumente-items}
+
+Basierend auf der theoretischen Operationalisierung (siehe Abschnitt~\ref{subsec:operationalisierung-plausibilitaet}) wurden für die drei Dimensionen spezifische Bewertungsitems definiert. Zur eindeutigen Referenzierung erhält jedes Item eine fortlaufende Nummer.
+
+\paragraph{Kontextverständnis}
+\begin{itemize}
+    \item \textbf{Item 1:} Die Antwort erfasst die relevanten Informationen aus dem Kontext.
+    \item \textbf{Item 2:} Die Antwort zeigt ein korrektes Verständnis des Kontexts.
+    \item \textbf{Item 3:} Die Antwort nutzt relevante Informationen aus dem gegebenen Kontext zur Beantwortung der Frage statt allgemeinem Wissen.
+\end{itemize}
+
+\paragraph{Kohärenz}
+\begin{itemize}
+    \item \textbf{Item 4:} Die Aussagen in der Antwort widersprechen sich nicht.
+    \item \textbf{Item 5:} Die Schlussfolgerungen in der Antwort ergeben sich logisch aus den Gründen und Prämissen.
+    \item \textbf{Item 6:} Die Gedankenführung der Antwort ist klar und gut zu folgen.
+\end{itemize}
+
+\paragraph{Angemessenheit}
+\begin{itemize}
+    \item \textbf{Item 7:} Die Detailtiefe der Antwort ist passend zur Fragestellung, nicht zu oberflächlich und nicht zu ausschweifend.
+    \item \textbf{Item 8:} Die Antwort adressiert alle wesentlichen Aspekte der Frage und es fehlen keine wichtigen Informationen.
+\end{itemize}
+
+\subsection{Automatische Evaluationsmetriken}
+Parallel zur menschlichen Bewertung durch die Umfrage werden die LLM-generierten Antworten automatisch evaluiert. Dies ermöglicht den direkten Vergleich zwischen menschlichen und automatischen Plausibilitätsbewertungen entlang derselben Dimensionen. Die folgenden Abschnitte beschreiben die Auswahl der eingesetzten Metrik, deren technische Implementierung sowie die Konfiguration der dimensionsspezifischen Bewertungskriterien.
+\subsubsection{Auswahl der Metrik}
+\label{subsec:auswahl-metrik}
+
+Zur automatisierten Bewertung der \ac{llm}-generierten Antworten wurde das G-Eval-Framework gewählt. Diese Wahl fundiert auf den theoretischen Grundlagen der Metrik-Klassifikation (Abschnitt~\ref{subsec:klassifikation-metriken}) sowie der spezifischen Funktionsweise von G-Eval (Abschnitt~\ref{subsec:g-eval}). Als latent-semantische, referenzfreie LLM-as-a-Judge-Metrik bietet G-Eval vier methodische Vorteile, die für das Forschungsdesign dieser Arbeit entscheidend sind:
+
+Erstens operiert G-Eval referenzfrei und bewertet Antworten anhand intrinsischer Qualitätskriterien wie Plausibilität und Kohärenz. Dies ist zentral für die Untersuchung, da für die generierten Antworten keine eindeutigen Referenztexte existieren und verschiedene sprachliche Formulierungen bei gleichem Informationsgehalt möglich sind. Referenzbasierte Metriken wie BLEU, ROUGE oder METEOR würden semantisch korrekte, aber lexikalisch abweichende Antworten systematisch benachteiligen.
+
+Zweitens ermöglicht G-Eval dimensionsspezifische Bewertungen entlang frei definierbarer Evaluationskriterien. Dies erlaubt es, die drei Plausibilitätsdimensionen Kontextverständnis, Kohärenz und Angemessenheit sowie die Gesamtplausibilität (Zhang) jeweils mit eigenen Evaluierungsschritten zu operationalisieren und so eine direkte Entsprechung zu den in der Umfrage erhobenen menschlichen Urteilen herzustellen.
+
+Drittens zeigt G-Eval eine deutlich höhere Korrelation mit menschlichen Qualitätsurteilen als traditionelle Metriken. Wie Tabelle~\ref{tab:g-eval-performance} zeigt, erreicht G-Eval auf dem SummEval-Benchmark eine Kendall's \(\tau\)-Korrelation von $\tau=0.418$ zu menschlichen Ratings und übertrifft damit sowohl etablierte Metriken wie BERTScore ($\tau=0.175$) oder ROUGE-L ($\tau=0.128$) als auch konkurrierende \ac{llm}-basierte Metriken wie UniEval ($\tau=0.377$) deutlich. Diese hohe Korrelation unterstreicht, dass LLM-as-a-Judge-Ansätze die menschliche Qualitätswahrnehmung zuverlässiger abbilden als traditionelle automatische Verfahren.
+
+Viertens generiert G-Eval durch probabilistische Score-Aggregation kontinuierliche Bewertungswerte statt diskreter Ganzzahlscores (siehe Gleichung~\ref{eq:g-eval-score} in Abschnitt~\ref{subsec:g-eval}). Wie dort dargestellt, wird für jede mögliche Score-Ausprägung die zugehörige Wahrscheinlichkeit berechnet und der finale Score als gewichteter Erwartungswert aggregiert. Dies ermöglicht eine feingranulare Differenzierung der Antwortqualität und reduziert das Problem niedriger Varianz und vieler Gleichstände, das bei direkten Score-Ausgaben durch \ac{llm}s typischerweise auftritt.
+
+\subsubsection{Implementierung und Berechnung}
+\label{subsec:implementierung-geval}
+
+Die Implementierung erfolgte mit der Open-Source-Bibliothek DeepEval (vgl. \parencite{ip_deepeval_2026}) und dem Modell GPT-4.1 als Evaluator. DeepEval wurde gewählt, da es eine standardisierte Umsetzung des in Abschnitt~\ref{subsec:g-eval} beschriebenen G-Eval-Frameworks bereitstellt. Die Wahl von GPT-4.1 orientiert sich an der ursprünglichen Validierung (siehe Abschnitt~\ref{subsec:g-eval}), in der GPT-4 die höchste Übereinstimmung mit menschlichen Urteilen erzielte. Da GPT-4 zum Zeitpunkt der Untersuchung nicht mehr verfügbar war, wurde das nachfolgende Modell GPT-4.1 als nächstmögliche Alternative gewählt, um eine vergleichbare Evaluationsqualität sicherzustellen.
+
+Die Konfiguration der Modellparameter folgte unmittelbar den theoretischen 
+Vorgaben des G-Eval-Frameworks sowie den technischen Eigenschaften des eingesetzten 
+Evaluationsmodells. Wie in Abschnitt~\ref{subsec:g-eval} beschrieben, basiert 
+G-Eval auf einer probabilistischen Score-Aggregation, bei der für jede mögliche 
+Score-Ausprägung eine Wahrscheinlichkeitsverteilung geschätzt und zu einem 
+gewichteten Erwartungswert zusammengeführt wird. 
+
+Für Modelle mit direktem Zugriff auf Token-Logits kann diese Verteilung unmittelbar 
+aus den Ausgabewahrscheinlichkeiten berechnet werden. Da GPT-4.1 als 
+Closed-Source-Modell jedoch keine nutzbaren Log-Wahrscheinlichkeiten über die 
+OpenAI Responses API bereitstellt (vgl. Abschnitt~\ref{subsec:gpt-4-1}), wurde die 
+in Abschnitt~\ref{subsec:g-eval} beschriebene alternative Vorgehensweise gewählt. 
+Konkret wurde die Temperatur auf \texttt{1} gesetzt, um mittels stochastischen 
+Samplings eine empirische Approximation der Score-Verteilung zu ermöglichen. 
+
+Für jede Dimension wurden Bewertungsmetriken konfiguriert, die spezifische Eingabeparameter und natürlichsprachliche Bewertungsschritte erhielten. Die Zuordnung der Eingabeparameter zu den Dimensionen wird in Tabelle \ref{tab:llm_judge_inputs} dargestellt:
+
+\begin{table}[H]
+\centering
+\caption{Eingabekontexte pro Bewertungsdimension im LLM-as-a-Judge-Setup}
+\label{tab:llm_judge_inputs}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Dimension} & \textbf{Frage (INPUT)} & \textbf{Antwort (OUTPUT)} & \textbf{Kontext (CONTEXT)} \\
+\midrule
+Kontextverständnis & \ding{51} & \ding{51} & \ding{51} \\
+Kohärenz & \ding{55} & \ding{51} & \ding{55} \\
+Angemessenheit & \ding{51} & \ding{51} & \ding{55} \\
+Gesamtplausibilität (Zhang) & \ding{51} & \ding{51} & \ding{51} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Die dimensionsspezifischen Bewertungsschritte wurden basierend auf den in Abschnitt~\ref{subsec:messinstrumente-items} definierten Items wie folgt konfiguriert:
+
+Kontextverständnis wurde mit Frage, Antwort und Kontext bewertet. Die Bewertungsschritte entsprachen den Items 1, 2 und 3 (siehe Abschnitt~\ref{subsec:messinstrumente-items}), um zu prüfen, ob die Antwort die relevanten Informationen aus dem Kontext korrekt erfasst und nutzt.
+
+Kohärenz erhielt ausschließlich die Antwort, da diese Dimension die innere Konsistenz des Textes unabhängig von Frage oder Kontext betrifft. Die Bewertung erfolgte anhand der Items 4, 5 und 6 (siehe Abschnitt~\ref{subsec:messinstrumente-items}), welche auf Widerspruchsfreiheit und logische Schlussfolgerungen fokussieren.
+
+Angemessenheit wurde mit Frage und Antwort bewertet, um das Verhältnis zwischen Fragestellung und Antwortumfang zu beurteilen. Hierfür kamen die Items 7 und 8 zum Einsatz (siehe Abschnitt~\ref{subsec:messinstrumente-items}).
+
+Die Dimension der Gesamtplausibilität (Zhang) nimmt eine Sonderrolle ein. Sie dient der Validierung des untersuchten Konstrukts und operationalisiert den in Abschnitt~\ref{subsec:oci-skala} theoretisch fundierten Ansatz der \ac{oci} nach \textcite{zhang_ordinal_2017}. 
+
+Die konkrete Umsetzung dieser Skala im LLM-as-a-Judge-Kontext wurde aus der Arbeit \textit{„Everything is Plausible"} von \textcite{palta_everything_2025} adaptiert. Diese Studie demonstriert, dass \ac{llm}-gestützte Bewertungen auf einem Plausibilitäts-Kontinuum korrelierende Ergebnisse zu menschlichen Einschätzungen liefern können, wenn die \ac{oci}-Skalendefinitionen explizit im Prompt kommuniziert werden. Das Modell erhielt entsprechend die fünfstufige Skala (siehe Abschnitt~\ref{subsec:oci-skala}) mit folgender Operationalisierung:
+
+\begin{itemize}
+\item Frage: Wie plausibel ist die Antwort, basierend auf dem gegebenen Kontext?
+\item Anweisung: Nutze folgende Skala für deine Bewertung:
+    \begin{enumerate}
+        \item \textit{Unmöglich} – Die Antwort widerspricht der Logik oder dem Kontext vollständig.
+        \item \textit{Technisch möglich} – Theoretisch denkbar, aber extrem unwahrscheinlich.
+        \item \textit{Plausibel} – Könnte zutreffen, ist aber nicht der Normalfall.
+        \item \textit{Wahrscheinlich} – Klingt vernünftig und entspricht der Erwartung.
+        \item \textit{Sehr wahrscheinlich} – Sehr überzeugend; so würde ein Experte antworten.
+    \end{enumerate}
+\end{itemize}
+
+
+Die Evaluation wurde für jedes Frage-Antwort-Paar nach dem in Abschnitt~\ref{subsec:g-eval} beschriebenen Verfahren durchgeführt. Unabhängig von der Definition der Bewertungsskala im Prompt liefert G-Eval (siehe Abschnitt~\ref{subsec:g-eval}) als Ergebnis standardmäßig einen normalisierten Score im Intervall $[0,1]$. Dies gilt auch für die Dimension der Gesamtplausibilität, deren Skalendefinitionen (vgl. Abschnitt~\ref{subsec:oci-skala}) explizit den Wertebereich 1–5 vorgeben, die durch das G-Eval-Verfahren jedoch ebenfalls zunächst auf $[0,1]$ abgebildet werden.  Um diese normalisierten Werte in den ursprünglichen Skalenbereich (1–5) zu transformieren und damit die Vergleichbarkeit mit der menschlichen Bewertung sicherzustellen, wurde für alle Dimensionen eine lineare Rücktransformation angewendet:
+
+\begin{equation}
+\label{eq:g-eval-transformation}
+s_{\text{Likert}} = 1 + 4 \cdot s_{\text{G-Eval}}
+\end{equation}
+\formula{eq:g-eval-transformation}{Lineare Transformation des G-Eval-Scores in Likert-Skala}
+
+Dieses Vorgehen entspricht der methodischen Empfehlung von \textcite{liu_g-eval_2023} zur feingranularen Auswertung von \ac{llm}-Judges, da es die diskreten Klassenentscheidungen in ein kontinuierliches Maß überführt und so nuanciertere Vergleiche ermöglicht.
+Die Werte wurden auf zwei Dezimalstellen gerundet. Um die Stabilität und Variabilität der G-Eval-Bewertungen zu quantifizieren, wurde die Evaluation für jedes Frage-Antwort-Paar insgesamt 100-mal durchgeführt. Dies ermöglichte die Berechnung von Mittelwert und Standardabweichung der automatischen Bewertungen und liefert ein Maß für die Robustheit des G-Eval-Ansatzes bei dieser Aufgabe.
+
+\subsubsection{Aggregation und Datenverarbeitung}
+\label{subsec:aggregation-datenverarbeitung}
+
+Die in Abschnitt~\ref{subsec:implementierung-geval} beschriebene Evaluation liefert für jede Iteration dimensionsspezifische Scores pro Frage-Antwort-Paar. G-Eval berechnet durch probabilistische Score-Aggregation (siehe Gleichung~\ref{eq:g-eval-score}) kontinuierliche Werte, die nach Transformation (Gleichung~\ref{eq:g-eval-transformation}) auf zwei Dezimalstellen gerundet werden und somit Werte im Intervall $[1, 5]$ annehmen.
+
+\textbf{Schritt 1: Berechnung der gewichteten Gesamtplausibilität}
+
+Für jede Iteration und Frage liegen Scores für die drei Einzeldimensionen (Kontextverständnis, Kohärenz, Angemessenheit) sowie für die Gesamtplausibilität (Zhang) vor. Aus den drei Einzeldimensionen wird für jede einzelne Messung die gewichtete Gesamtplausibilität berechnet. Dies erfolgt exakt nach der in Abschnitt~\ref{subsec:aggregation-gewichtung} hergeleiteten Gewichtungslogik (siehe Gleichung~\ref{eq:plausibilitaet_gesamt}). Der so ermittelte Wert dient im weiteren Verlauf als Vergleichsgröße zur direkt gemessenen Gesamtplausibilität nach Zhang.
+
+\textbf{Schritt 2: Deskriptive Statistik über alle Einzelmessungen}
+
+Die deskriptiven Kennwerte (Min, Max, $M$, Median, $SD$) werden pro Dimension über die Gesamtheit aller Einzelmessungen (Fragen × Iterationen) berechnet. Diese Statistiken beschreiben die Gesamtvarianz und bilden die Grundlage für die Reliabilitätsanalyse in Schritt 4.
+
+\textbf{Schritt 3: Deskriptive Statistik der Aggregation}
+
+Für den späteren Vergleich mit menschlichen Bewertungen mittels Kendall's $\tau$ werden die Dimensionsscores pro Frage über alle Iterationen gemittelt. Dies ergibt pro Dimension einen Mittelwert je Frage, der die durchschnittliche Bewertung dieser Frage durch den \ac{llm}-Judge repräsentiert. Diese Aggregation ist notwendig, da menschliche Rater jede Frage nur einmal bewerten, während der \ac{llm}-Judge mehrere wiederholte Messungen durchführt. Über diese fragenspezifischen Mittelwerte werden ebenfalls deskriptive Statistiken berechnet, um die Varianz zwischen den Fragen zu beschreiben.
+
+\textbf{Schritt 4: Reliabilitätsanalyse mit Kendall's $W$}
+
+Für die Berechnung von Kendall's $W$ wird pro Dimension eine Matrix aus den Rohwerten erstellt, wobei die Zeilen die Fragen und die Spalten die Iterationen repräsentieren. Die G-Eval-Scores werden in Ränge überführt und Kendall's $W$ gemäß der in Abschnitt~\ref{subsec:Kendall W} beschriebenen Methodik berechnet.
+
+\subsection{Menschliche Plausibilitätsbewertung}
+Die Beurteilung der Qualität automatischer Evaluationsmetriken setzt den Abgleich mit menschlichen Urteilen voraus. Um diesen Vergleich zu ermöglichen, wurde eine empirische Erhebung durchgeführt, die das Design der automatischen Evaluation auf menschliche Rater überträgt. Ziel ist die Generierung eines parallelen Datensatzes, der als Referenz dient, um Übereinstimmungen und Abweichungen zwischen der automatischen Evaluationsmetrik und der menschlichen Plausibilitätswahrnehmung statistisch untersuchen zu können.
+\subsubsection{Begründung der Skalenwahl}
+
+Die Wahl der Bewertungsskalen verfolgt zwei Ziele: Erstens die methodische Fundierung der menschlichen Urteilsbildung und zweitens die Herstellung direkter Vergleichbarkeit zur automatischen Evaluation.
+
+Für die Bewertung der Dimensionen Kontextverständnis, Kohärenz und Angemessenheit kommen fünfstufige Likert-Skalen zum Einsatz. Diese Granularität wurde gewählt, da sie einen optimalen Kompromiss darstellt: Sie ermöglicht differenzierte Urteile, ohne die kognitive Belastung der Rater durch eine zu feine Abstufung (wie bei 7- oder 10-stufigen Skalen) unnötig zu erhöhen (vgl. \parencite{jebb_review_2021}). Die explizite verbale Verankerung der Skalenpunkte (von „Trifft überhaupt nicht zu“ bis „Trifft voll und ganz zu“) minimiert zudem Interpretationsspielräume und fördert die Inter-Rater-Reliabilität (vgl. \parencite{devellis_scale_2016}).
+
+Für die Dimension der Gesamtplausibilität wird die \ac{oci} Skala verwendet. Da diese Skala bereits theoretisch als Standard etabliert ist (siehe Abschnitt~\ref{subsec:oci-skala}) und im \ac{llm}-Prompt explizit definiert wurde (siehe Abschnitt~\ref{subsec:implementierung-geval}), wird sie hier identisch übernommen. Dies stellt sicher, dass die ganzheitliche menschliche Einschätzung auf demselben theoretischen Konstrukt fußt wie die maschinelle Bewertung.
+
+\subsubsection{Fragebogenkonstruktion und Erhebungsdesign}
+\label{subsec:fragebogen-erhebung}
+
+Die Umfrage beginnt mit einer Einleitung, die den Hintergrund der Studie erläutert und die Aufgabenstellung für die Teilnehmer beschreibt. Es wird erklärt, dass KI-generierte Antworten hinsichtlich ihrer Plausibilität bewertet werden sollen, um die Übereinstimmung zwischen menschlichen und automatischen Bewertungen zu untersuchen. Die Teilnehmer werden darauf hingewiesen, dass ihre subjektive Einschätzung erwünscht ist und es keine richtigen oder falschen Antworten gibt.
+
+Der Kontext wird zu Beginn der Umfrage präsentiert und bleibt während der gesamten Erhebung jederzeit abrufbar. Dies ermöglicht den Teilnehmern, bei Bedarf auf die Referenzinformationen zurückzugreifen, ohne die Bewertung unterbrechen zu müssen.
+
+Für jedes der acht Frage-Antwort-Paare durchlaufen die Teilnehmer einen zweistufigen Bewertungsprozess. Zunächst bewerten sie die dimensionsspezifischen Items auf einer fünfstufigen Likert-Skala, anschließend erfolgt eine Bewertung der Gesamtplausibilität mit der OCI-Skala nach \textcite{zhang_ordinal_2017}. Die Bewertung erfolgt entlang derselben drei Dimensionen (Kontextverständnis, Kohärenz, Angemessenheit) und mit identischen Items wie in der automatischen Evaluation. Dies gewährleistet die methodische Vergleichbarkeit zwischen menschlichen und metrikbasierten Bewertungen. Die vollständige Auflistung und Definition aller Items findet sich in Abschnitt~\ref{subsec:messinstrumente-items}, der komplette Original-Fragebogen ist in Anhang~\ref{app:fragebogen} einsehbar.
+
+Die Erhebung findet als Online-Umfrage statt. Die Stichprobe umfasst Personen mit Hochschulzugangsberechtigung oder akademischem Abschluss sowie muttersprachlichem oder vergleichbarem Deutschniveau (mindestens C1). Diese Anforderungen stellen sicher, dass die Teilnehmenden über ausreichende Sprachkompetenz und akademisches Verständnis verfügen, um komplexe Textinhalte zu bewerten und differenzierte Urteile auf Likert-Skalen abzugeben. Die Rekrutierung erfolgt über persönliche Netzwerke, wobei die genannten Kriterien als Einschlusskriterien kommuniziert werden. Die Datenerhebung erfolgt unter Wahrung von Anonymität und Freiwilligkeit. Um eine valide Berechnung der Inter-Rater-Reliabilität zu ermöglichen, wurde jedes Frage-Antwort-Paar von allen Ratern bewertet (Fully Crossed Design).
+
+\subsubsection{Aggregation und Datenverarbeitung}
+\label{subsec:aggregation-datenverarbeitung-mensch}
+
+Die menschliche Evaluation liefert für jede Rater-Frage-Kombination dimensionsspezifische Bewertungen auf verbal verankerten Likert-Skalen (siehe Abschnitt~\ref{subsec:fragebogen-erhebung}). Die Umkodierung in numerische Werte ergibt $N_{\text{Rater}} \times 8$ Einzelmessungen, wobei $N_{\text{Rater}}$ die Anzahl der teilnehmenden Rater bezeichnet.
+
+\textbf{Schritt 0: Umkodierung verbaler Likert-Skalen}
+
+Die fünfstufigen Likert-Skalen werden wie folgt in numerische Werte überführt:
+\begin{itemize}
+\item Trifft überhaupt nicht zu = 1
+\item Trifft eher nicht zu = 2
+\item Trifft teilweise zu = 3
+\item Trifft eher zu = 4
+\item Trifft voll und ganz zu = 5
+\end{itemize}
+
+Die OCI-Skala für die Gesamtplausibilität (Zhang) wird analog umkodiert:
+\begin{itemize}
+\item Unmöglich = 1
+\item Technisch möglich = 2
+\item Plausibel = 3
+\item Wahrscheinlich = 4
+\item Sehr wahrscheinlich = 5
+\end{itemize}
+
+Antworten mit ``Nicht beantwortbar'' werden als fehlende Werte kodiert und bei allen Berechnungen ausgeschlossen.
+
+\textbf{Schritt 1: Berechnung der gewichteten Gesamtplausibilität}
+
+Für jede Einzelmessung (Rater-Frage-Kombination) liegen Scores für die drei Einzeldimensionen (Kontextverständnis, Kohärenz, Angemessenheit) sowie für die Gesamtplausibilität (Zhang) vor. Aus den drei Einzeldimensionen wird für jede einzelne Messung die gewichtete Gesamtplausibilität berechnet. Dies erfolgt exakt nach der in Abschnitt~\ref{subsec:aggregation-gewichtung} hergeleiteten Gewichtungslogik (siehe Gleichung~\ref{eq:plausibilitaet_gesamt}). Der so ermittelte Wert dient im weiteren Verlauf als Vergleichsgröße zur direkt gemessenen Gesamtplausibilität nach Zhang.
+
+\textbf{Schritt 2: Deskriptive Statistik über alle Einzelmessungen}
+
+Die deskriptiven Kennwerte (Min, Max, $M$, Median, $SD$) werden pro Dimension über die Gesamtheit aller Einzelmessungen ($N_{\text{Rater}} \times 8$ Messungen) berechnet. Diese Statistiken beschreiben die Gesamtvarianz und bilden die Grundlage für die Reliabilitätsanalyse in Schritt 4.
+
+\textbf{Schritt 3: Deskriptive Statistik der Aggregation}
+
+Für den späteren Vergleich mit LLM-Bewertungen mittels Kendall's $\tau$ werden die Dimensionsscores pro Frage über alle Rater gemittelt. Dies ergibt pro Dimension einen Mittelwert je Frage, der die durchschnittliche Bewertung dieser Frage durch die menschlichen Rater repräsentiert. Diese Aggregation ist notwendig, da der LLM-Judge pro Frage 100 Iterationen durchführt, während menschliche Rater jede Frage nur einmal bewerten. Über diese fragenspezifischen Mittelwerte werden ebenfalls deskriptive Statistiken berechnet, um die Varianz zwischen den Fragen zu beschreiben.
+
+\textbf{Schritt 4: Reliabilitätsanalyse mit Kendall's $W$}
+
+Für die Berechnung von Kendall's $W$ wird pro Dimension eine Matrix aus den Rohwerten erstellt, wobei die Zeilen die Fragen und die Spalten die Rater repräsentieren ($(8 \times N_{\text{Rater}})$-Matrix). Die umkodierten Scores werden in Ränge überführt und Kendall's $W$ gemäß der in Abschnitt~\ref{subsec:Kendall W} beschriebenen Methodik berechnet.
+
+\section{Ergebnisse}
+\label{sec:ergebnisse}
+
+Die Ergebnisse gliedern sich in drei Teile. Zunächst werden die Ergebnisse der automatischen Evaluation präsentiert, bei der G-Eval mit GPT-4.1 jedes Frage-Antwort-Paar 100-mal bewertet hat. Anschließend folgen die Ergebnisse der menschlichen Plausibilitätsbewertung durch zehn Rater. Der dritte Teil untersucht die Übereinstimmung zwischen beiden Bewertungsansätzen.
+
+\subsection{Automatische Evaluation (LLM-as-a-Judge)}
+\label{sec:results_llm}
+
+Die Implementierung und Konfiguration der Bewertungsdimensionen erfolgte wie in Abschnitt~\ref{subsec:implementierung-geval} beschrieben. Jedes der 8 Frage-Antwort-Paare wurde 100-mal bewertet. Die Datenverarbeitung und Aggregation wird in Abschnitt~\ref{subsec:aggregation-datenverarbeitung} erläutert.
+
+\subsubsection{Deskriptive Statistik}
+
+Tabelle~\ref{tab:llm_descriptive_raw} zeigt die deskriptiven Statistiken über alle 800 Einzelmessungen (8 Fragen × 100 Iterationen) pro Dimension. Diese Werte wurden nach Schritt 2 (Abschnitt~\ref{subsec:aggregation-datenverarbeitung}) berechnet und bilden die Grundlage für die Reliabilitätsanalyse mit Kendall's W. Die gewichtete Gesamtplausibilität wurde nach Schritt 1 (Abschnitt~\ref{subsec:aggregation-datenverarbeitung}) gemäß Gleichung~\ref{eq:plausibilitaet_gesamt} berechnet.
+
+\begin{table}[H]
+    \centering
+    \caption{Deskriptive Statistik der \ac{llm}-Scores (800 Einzelmessungen: 8 Fragen × 100 Iterationen).}
+    \label{tab:llm_descriptive_raw}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{lccccc}
+        \toprule
+        \textbf{Dimension} & \textbf{Min} & \textbf{Max} & \textbf{M} & \textbf{Median} & \textbf{SD} \\
+        \midrule
+        Angemessenheit           & 4.61 & 5.00 & 4.95 & 5.00 & 0.13 \\
+        Kohärenz                 & 4.97 & 5.00 & 5.00 & 5.00 & 0.01 \\
+        Kontextverständnis       & 2.21 & 5.00 & 4.56 & 4.63 & 0.49 \\
+        \midrule
+        Gewichtete Gesamtplausibilität & 4.16 & 5.00 & 4.85 & 4.88 & 0.15 \\
+        Plausibilität (Zhang)    & 2.60 & 5.00 & 3.76 & 3.45 & 0.78 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Abbildung~\ref{fig:boxplot_llm_raw} visualisiert die Verteilung aller 800 Einzelmessungen nach Dimension (Schritt 2, Abschnitt~\ref{subsec:aggregation-datenverarbeitung}).
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/boxplot_llm_raw}
+    \caption{Boxplot der \ac{llm}-Bewertungen (800 Einzelmessungen: 8 Fragen × 100 Iterationen).}
+    \label{fig:boxplot_llm_raw}
+\end{figure}
+
+Tabelle~\ref{tab:llm_descriptive_agg} präsentiert die fragenspezifischen Mittelwerte, die nach Schritt 3 (Abschnitt~\ref{subsec:aggregation-datenverarbeitung}) durch Mittelung über alle 100 Iterationen pro Frage berechnet wurden. Diese Aggregation dient dem späteren Vergleich mit menschlichen Bewertungen auf Frage-Ebene mittels Kendall's $\tau$ (Abschnitt~\ref{sec:results_comparison}).
+
+\begin{table}[H]
+    \centering
+    \caption{Deskriptive Statistik der \ac{llm}-Scores (pro Frage über 100 Iterationen gemittelt).}
+    \label{tab:llm_descriptive_agg}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{lccccc}
+        \toprule
+        \textbf{Dimension} & \textbf{Min} & \textbf{Max} & \textbf{M} & \textbf{Median} & \textbf{SD} \\
+        \midrule
+        Angemessenheit           & 4.61 & 5.00 & 4.95 & 5.00 & 0.14 \\
+        Kohärenz                 & 4.98 & 5.00 & 5.00 & 5.00 & 0.01 \\
+        Kontextverständnis       & 3.35 & 5.00 & 4.56 & 4.67 & 0.51 \\
+        \midrule
+        Gewichtete Gesamtplausibilität & 4.50 & 5.00 & 4.85 & 4.90 & 0.15 \\
+        Plausibilität (Zhang)    & 2.98 & 4.97 & 3.76 & 3.64 & 0.72 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Abbildung~\ref{fig:boxplot_llm_agg} zeigt die Verteilung der fragenspezifischen Mittelwerte aus Schritt 3 (Abschnitt~\ref{subsec:aggregation-datenverarbeitung}).
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/boxplot_llm_agg}
+    \caption{Boxplot der \ac{llm}-Bewertungen (pro Frage über 100 Iterationen gemittelt).}
+    \label{fig:boxplot_llm_agg}
+\end{figure}
+
+Während die Abbildungen~\ref{fig:boxplot_llm_raw} und 
+\ref{fig:boxplot_llm_agg} die Verteilungen über alle bzw.\ pro Frage zeigen, 
+findet sich eine detaillierte Aufschlüsselung für jedes einzelne 
+Frage-Antwort-Paar in Anhang~\ref{app:violin_plots_llm}, wo die Ergebnisse in 
+Form von Violinplots dargestellt sind.
+
+
+\subsubsection{Intra-Rater-Reliabilität}
+
+Die Intra-Rater-Reliabilität des \ac{llm}-Judges wurde mittels Kendall's $W$ nach Schritt 4 (Abschnitt~\ref{subsec:aggregation-datenverarbeitung}) berechnet (Tabelle~\ref{tab:llm_reliability}). Die Berechnung basiert auf einer $(8 \times 100)$-Matrix pro Dimension, wobei die gewichtete Gesamtplausibilität nach Schritt 1 (Abschnitt~\ref{subsec:aggregation-datenverarbeitung}) gemäß Gleichung~\ref{eq:plausibilitaet_gesamt} ermittelt wurde.
+
+\begin{table}[H]
+    \centering
+    \caption{Intra-Rater-Reliabilität des \ac{llm}-Judges nach Dimension (Kendall's $W$).}
+    \label{tab:llm_reliability}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{lc}
+        \toprule
+        \textbf{Dimension} & \textbf{$W$} \\
+        \midrule
+        Angemessenheit           & 0.333 \\
+        Kohärenz                 & 0.320 \\
+        Kontextverständnis       & 0.698 \\
+        \midrule
+        Gewichtete Gesamtplausibilität & 0.810 \\
+        Plausibilität (Zhang)    & 0.696 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\subsection{Menschliche Evaluation}
+\label{sec:results_human}
+
+Die menschliche Evaluation erfolgte gemäß Abschnitt~\ref{subsec:fragebogen-erhebung}. Jedes der 8 Frage-Antwort-Paare wurde von 10 Ratern bewertet. Die Umkodierung der verbalen Likert-Skalen und die Datenverarbeitung erfolgte nach Abschnitt~\ref{subsec:aggregation-datenverarbeitung-mensch}.
+
+\subsubsection{Deskriptive Statistik}
+
+Tabelle~\ref{tab:human_descriptive_raw} zeigt die deskriptiven Statistiken über alle 80 Einzelmessungen (10 Rater × 8 Fragen) pro Dimension. Diese Werte wurden nach Schritt 2 (Abschnitt~\ref{subsec:aggregation-datenverarbeitung-mensch}) berechnet und bilden die Grundlage für die Reliabilitätsanalyse mit Kendall's $W$. Die gewichtete Gesamtplausibilität wurde nach Schritt 1 (Abschnitt~\ref{subsec:aggregation-datenverarbeitung-mensch}) gemäß Gleichung~\ref{eq:plausibilitaet_gesamt} berechnet.
+
+\begin{table}[H]
+    \centering
+    \caption{Deskriptive Statistik der menschlichen Bewertungen (80 Einzelmessungen: 10 Rater × 8 Fragen).}
+    \label{tab:human_descriptive_raw}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{lccccc}
+        \toprule
+        \textbf{Dimension} & \textbf{Min} & \textbf{Max} & \textbf{M} & \textbf{Median} & \textbf{SD} \\
+        \midrule
+        Angemessenheit           & 1.00 & 5.00 & 3.87 & 4.00 & 0.98 \\
+        Kohärenz                 & 1.67 & 5.00 & 3.84 & 4.00 & 1.03 \\
+        Kontextverständnis       & 1.50 & 5.00 & 3.68 & 3.83 & 0.95 \\
+        \midrule
+        Gewichtete Gesamtplausibilität & 1.00 & 5.00 & 3.41 & 4.00 & 0.96 \\
+        Plausibilität (Zhang)    & 1.57 & 5.00 & 3.80 & 3.78 & 0.80 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Abbildung~\ref{fig:boxplot_human_raw} visualisiert die Verteilung aller 80 Einzelmessungen nach Dimension (Schritt 2, Abschnitt~\ref{subsec:aggregation-datenverarbeitung-mensch}).
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/boxplot_human_raw}
+    \caption{Boxplot der menschlichen Bewertungen (80 Einzelmessungen: 10 Rater × 8 Fragen).}
+    \label{fig:boxplot_human_raw}
+\end{figure}
+
+Tabelle~\ref{tab:human_descriptive_agg} präsentiert die fragenspezifischen Mittelwerte, die nach Schritt 3 (Abschnitt~\ref{subsec:aggregation-datenverarbeitung-mensch}) durch Mittelung über alle 10 Rater pro Frage berechnet wurden. Diese Aggregation dient dem Vergleich mit LLM-Bewertungen auf Frage-Ebene mittels Kendall's $\tau$ (Abschnitt~\ref{sec:results_comparison}).
+
+\begin{table}[H]
+    \centering
+    \caption{Deskriptive Statistik der menschlichen Bewertungen (pro Frage über 10 Rater gemittelt).}
+    \label{tab:human_descriptive_agg}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{lccccc}
+        \toprule
+        \textbf{Dimension} & \textbf{Min} & \textbf{Max} & \textbf{M} & \textbf{Median} & \textbf{SD} \\
+        \midrule
+        Angemessenheit           & 2.85 & 4.20 & 3.87 & 3.98 & 0.44 \\
+        Kohärenz                 & 2.80 & 4.60 & 3.84 & 3.98 & 0.55 \\
+        Kontextverständnis       & 3.32 & 4.02 & 3.68 & 3.62 & 0.29 \\
+        \midrule
+        Gewichtete Gesamtplausibilität & 3.04 & 4.08 & 3.80 & 3.95 & 0.35 \\
+        Plausibilität (Zhang)    & 2.80 & 4.00 & 3.41 & 3.45 & 0.42 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+Abbildung~\ref{fig:boxplot_human_agg} zeigt die Verteilung der fragenspezifischen Mittelwerte aus Schritt 3 (Abschnitt~\ref{subsec:aggregation-datenverarbeitung-mensch}). Diese Darstellung isoliert die Varianz zwischen den 8 Fragen.
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/boxplot_human_agg}
+    \caption{Boxplot der menschlichen Bewertungen (pro Frage über 10 Rater gemittelt).}
+    \label{fig:boxplot_human_agg}
+\end{figure}
+
+Während die Abbildungen~\ref{fig:boxplot_human_raw} und 
+\ref{fig:boxplot_human_agg} die Verteilungen über alle bzw.\ pro Frage zeigen, 
+findet sich eine detaillierte Aufschlüsselung für jedes einzelne 
+Frage-Antwort-Paar in Anhang~\ref{app:violin_plots_menschlich}, wo die Ergebnisse 
+in Form von Violinplots dargestellt sind.
+
+
+\subsubsection{Inter-Rater-Reliabilität}
+
+Die Inter-Rater-Reliabilität der menschlichen Rater wurde mittels Kendall's $W$ nach Schritt 4 (Abschnitt~\ref{subsec:aggregation-datenverarbeitung-mensch}) berechnet (Tabelle~\ref{tab:human_reliability}). Die Berechnung basiert auf einer $(8 \times 10)$-Matrix pro Dimension, wobei die gewichtete Gesamtplausibilität nach Schritt 1 (Abschnitt~\ref{subsec:aggregation-datenverarbeitung-mensch}) gemäß Gleichung~\ref{eq:plausibilitaet_gesamt} ermittelt wurde.
+
+\begin{table}[H]
+    \centering
+    \caption{Inter-Rater-Reliabilität der menschlichen Bewertungen nach Dimension (Kendall's $W$).}
+    \label{tab:human_reliability}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{lc}
+        \toprule
+        \textbf{Dimension} & \textbf{$W$} \\
+        \midrule
+        Angemessenheit           & 0.17 \\
+        Kohärenz                 & 0.26 \\
+        Kontextverständnis       & 0.11 \\
+        \midrule
+        Gewichtete Gesamtplausibilität & 0.16 \\
+        Plausibilität (Zhang)    & 0.15 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Komparative Analyse: Mensch vs. Maschine}
+\label{sec:results_comparison}
+
+Zur Untersuchung der Übereinstimmung zwischen menschlichen Ratern und \ac{llm}-Judge auf Frage-Ebene werden die aggregierten Mittelwerte verglichen. Für die \ac{llm}-Bewertungen erfolgt die Aggregation pro Frage über alle Iterationen (Schritt 3, Abschnitt~\ref{subsec:aggregation-datenverarbeitung}), für die menschlichen Bewertungen pro Frage über alle Rater (Schritt 3, Abschnitt~\ref{subsec:aggregation-datenverarbeitung-mensch}). Dies ergibt jeweils $N=8$ Datenpunkte pro Dimension, die mit Kendall's $\tau$ korreliert werden. Kendall $\tau$ quantifiziert nach Abschnitt~\ref{subsec:kendall-tau} die Differenz zwischen der Wahrscheinlichkeit konkordanter und diskordanter Rangpaare.
+
+\begin{table}[H]
+    \centering
+    \caption{Korrelation zwischen menschlicher Bewertung und \ac{llm}-Judge auf Frage-Ebene (Kendall's \(\tau\), $N=8$).}
+    \label{tab:correlation_dimensions}
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{lc}
+        \toprule
+        \textbf{Dimension} & \textbf{\(\tau\)} \\
+        \midrule
+        Angemessenheit           & 0.509 \\
+        Kohärenz                 & -0.214 \\
+        Kontextverständnis       & 0.400 \\
+        \midrule
+        Plausibilität (Gewichtet) & 0.286 \\
+        Plausibilität (Zhang)    & 0.786 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+
+\section{Diskussion}
+\label{sec:diskussion}
+Die empirischen Befunde werden zunächst entlang der fünf Hypothesen systematisch interpretiert und theoretisch eingeordnet. Die Analyse gliedert sich dabei in drei Phasen: die Validierung der Messinstrumente, den Vergleich zwischen automatischen und menschlichen Bewertungsansätzen sowie die Untersuchung systematischer Verzerrungen. Anschließend werden methodische Limitationen der Studie kritisch reflektiert und konkrete Implikationen für zukünftige Forschung abgeleitet.
+
+
+\subsection{Beantwortung der Hypothesen}
+\label{subsec:beantwortung_hypothesen}
+Die fünf formulierten Hypothesen werden nachfolgend entlang der drei Untersuchungsphasen systematisch geprüft. Für jede Hypothese werden die empirischen Befunde zunächst dargestellt, anschließend vor dem theoretischen Hintergrund interpretiert und hinsichtlich ihrer methodischen Implikationen eingeordnet.
+
+
+\subsubsection{Phase 1: Instrumentenvalidierung}
+\label{subsubsec:phase1_instrumentenvalidierung}
+
+Bevor automatische und menschliche Bewertungen verglichen werden können, 
+muss zunächst die interne Konsistenz beider Bewertungsmethoden geprüft werden.
+
+\paragraph{H1 – Intra-Rater-Reliabilität des \ac{llm}-Judges}\mbox{}
+Die Hypothese wird bestätigt: Die aggregierte Gesamtplausibilität erreicht 
+W = 0.810 und entspricht damit einer \textit{almost perfect agreement} (vgl.~Tabelle~\ref{tab:kendall-w-interpretation}). Der Schwellenwert von W > 0.60 wird deutlich übertroffen.
+
+Dieser hohe Wert erfordert jedoch eine kritische Interpretation im Kontext 
+der zugrunde liegenden Varianz. Der Konkordanzkoeffizient Kendall \(W\) 
+quantifiziert die Konsistenz von Rangordnungen durch die Streuung der 
+Rangsummen (Gleichung~\ref{subsec:Kendall W}). Eine hohe Konkordanz bedeutet, 
+dass die Items über wiederholte Messungen hinweg konsistent unterschiedliche 
+Rangpositionen erhalten. Dies setzt voraus, dass tatsächlich Varianz zwischen 
+Items existiert.
+
+Die drei Operationalisierungsdimensionen zeigen jedoch ein uneinheitliches Bild. 
+Angemessenheit und Kohärenz weisen minimale Varianz auf (Angemessenheit: 
+M = 4.95, SD = 0.13; Kohärenz: M = 5.00, SD = 0.01; Tabelle~\ref{tab:llm_descriptive_raw}). Die nahezu konstanten 
+Bewertungen bedeuten, dass diese Dimensionen kaum zwischen unterschiedlichen 
+Qualitätsniveaus differenzieren. Der Konkordanzkoeffizient misst hier nicht 
+die Zuverlässigkeit einer substanziellen Unterscheidung zwischen Items, sondern 
+die perfekte Reproduktion nahezu identischer Bewertungen. Die minimale Varianz 
+zwischen Items führt bei perfekter Reproduktion zu gebundenen Rängen, die 
+zwar formal eine Rangordnung ermöglichen, jedoch keine inhaltlich bedeutsame 
+Differenzierung darstellen.
+
+Kontextverständnis (W = 0.698, M = 4.56, SD = 0.49) zeigt dagegen substanzielle 
+Varianz und differenziert zwischen Items zuverlässig. Die Validierungsdimension 
+Plausibilität nach Zhang erreicht vergleichbare Werte (W = 0.696, M = 3.76, SD = 0.78) 
+und zeigt die stärkste Varianz aller \ac{llm}-Bewertungen 
+(Tabelle~\ref{tab:llm_reliability}, Tabelle~\ref{tab:llm_descriptive_raw}).
+
+Die aggregierte Reliabilität W = 0.810 wird primär durch Kontextverständnis 
+getragen, während die Operationalisierungsdimensionen 
+Kohärenz und Angemessenheit durch minimale Varianz nur eingeschränkte Differenzierung ermöglichen. 
+
+\paragraph{H2 – Inter-Rater-Reliabilität der menschlichen Bewertungen}\mbox{}
+Die Hypothese wird nicht bestätigt: Die aggregierte Gesamtplausibilität 
+erreicht Kendall \(W\) = 0.16 und verfehlt damit deutlich den Schwellenwert 
+von \(W\) > 0.40 (Tabelle~\ref{tab:human_reliability}). Keine Operationalisierungsdimension 
+erreicht die Schwelle: Kohärenz (\(W\) = 0.26), Angemessenheit (\(W\) = 0.17), 
+Kontextverständnis (\(W\) = 0.11) und Plausibilität nach Zhang (\(W\) = 0.15) 
+liegen alle unter \(W\) > 0.40.
+
+Die niedrigen \(W\)-Werte zeigen fehlende Konsistenz in den Rangordnungen 
+der Rater. Der Konkordanzkoeffizient Kendall \(W\) quantifiziert die 
+Übereinstimmung von Rangordnungen durch die Streuung der Rangsummen 
+(Abschnitt~\ref{subsec:Kendall W}). Eine hohe Konkordanz bedeutet, dass die 
+Items über verschiedene Rater hinweg konsistent unterschiedliche Rangpositionen 
+erhalten. Die beobachteten Werte nahe null indizieren, dass die zehn Rater 
+die acht Frage-Antwort-Paare fundamental unterschiedlich ordnen. Es besteht 
+keine gemeinsame Rangfolge bezüglich der Plausibilität der Items.
+
+\subsubsection{Phase 2: Vergleich zwischen automatischer und menschlicher Bewertung}
+\label{subsubsec:phase2_vergleich}
+
+Nach der Validierung der Reliabilität beider Bewertungsmethoden wird in dieser 
+Phase untersucht, in welchem Ausmaß automatische und menschliche Bewertungen 
+übereinstimmen. Dabei muss beachtet werden, dass die menschlichen Bewertungen 
+niedrige Konkordanzwerte aufweisen (H2: Kendall \(W\) zwischen 0.11 und 0.26 
+für alle Dimensionen), was darauf hindeutet, dass die menschliche Referenzmessung 
+selbst einen hohen Rauschanteil aufweist. Zusätzlich zeigen zwei 
+Operationalisierungsdimensionen des \ac{llm}-Judges Deckeneffekte ohne signifikante Varianz 
+(H1: Angemessenheit SD = 0.13; Kohärenz SD = 0.01). 
+
+Unter diesen Bedingungen sind Vergleiche zwischen \ac{llm} und Menschen mit 
+erheblicher Unsicherheit behaftet. Die folgenden Ergebnisse dokumentieren 
+beobachtete Divergenzen, sollten aber vorsichtig interpretiert werden, da 
+beide Messsysteme Qualitätsprobleme aufweisen.
+
+\paragraph{H3 – Dimensionsspezifische Divergenzen zwischen automatischen und 
+menschlichen Bewertungen}\mbox{}
+Die Hypothese wird bestätigt. Die Rangkorrelationen nach Kendall \(\tau\) 
+variieren erheblich zwischen den drei Operationalisierungsdimensionen 
+(Tabelle~\ref{tab:correlation_dimensions}). Die Spanne beträgt 0.723 und 
+übertrifft damit deutlich den Schwellenwert von 0.50.
+
+Angemessenheit zeigt mit Kendall \(\tau\) = 0.509 (75\% Konkordanz) eine moderate 
+bis starke Übereinstimmung zwischen \ac{llm} und Menschen. Dies deutet darauf hin, 
+dass beide Systeme bei der Bewertung formaler Kriterien wie Detailtiefe, 
+Textlänge und thematischer Abdeckung ähnliche Urteile treffen. Diese Korrelation 
+ist jedoch von eingeschränkter Aussagekraft. Der \ac{llm}-Judge zeigt bei dieser 
+Dimension nahezu vollständige Varianzlosigkeit (H1, Tabelle~\ref{tab:llm_reliability}, 
+SD = 0.14). Die hohe Korrelation basiert daher auf einem stark eingeengten 
+Messbereich des \ac{llm}-Judges. Zudem weisen die menschlichen Bewertungen 
+niedrige Konkordanz auf (H2, Tabelle~\ref{tab:human_reliability}, Kendall \(W\) = 0.17), 
+was auf hohe subjektive Unterschiede zwischen Ratern hindeutet. Die beobachtete 
+Übereinstimmung ist daher mit erheblicher Unsicherheit behaftet.
+
+Kontextverständnis erreicht Kendall \(\tau\) = 0.400 (70\% Konkordanz) und 
+zeigt eine schwächere, aber noch moderate Übereinstimmung. \ac{llm} und Menschen 
+divergieren teilweise bei der Bewertung impliziter Kontextbezüge. Im Gegensatz 
+zu Angemessenheit zeigt der \ac{llm}-Judge bei dieser Dimension ausreichende Varianz 
+(H1, Tabelle~\ref{tab:llm_reliability}, W = 0.698). Die menschlichen Bewertungen 
+weisen jedoch mit Kendall \(W\) = 0.11 (H2, Tabelle~\ref{tab:human_reliability}) 
+die niedrigste Konkordanz aller Dimensionen auf. Dies bedeutet, dass die 
+Referenzmessung durch Menschen bei dieser Dimension besonders verrauscht ist.
+
+Kohärenz offenbart mit Kendall \(\tau\) = –0.214 (39\% Konkordanz) eine 
+systematische Divergenz. Mit nur 39\% Konkordanz liegt die Übereinstimmung 
+unterhalb der Zufallsrate. Dies bedeutet, dass Items, die der \ac{llm}-Judge 
+als kohärent bewertet, von Menschen eher als inkohärent eingestuft werden 
+und umgekehrt. Diese negative Korrelation ist allerdings von stark eingeschränkter 
+Aussagekraft. Der \ac{llm}-Judge zeigt bei dieser Dimension nahezu vollständige 
+Varianzlosigkeit (H1, Tabelle~\ref{tab:llm_reliability}, SD = 0.01), während 
+die menschlichen Bewertungen mit Kendall \(W\) = 0.26 (H2, Tabelle~\ref{tab:human_reliability}) 
+nur schwache Konkordanz aufweisen. Die negative Korrelation könnte daher ein 
+Artefakt der extremen Deckeneffekte des \ac{llm}-Judges sein, die aus einer 
+problematischen Operationalisierung dieser Dimension resultieren.
+
+Plausibilität nach Zhang erreicht mit Kendall \(\tau\) = 0.786 (89\% Konkordanz) 
+die höchste Übereinstimmung aller betrachteten Dimensionen. Dies deutet auf 
+eine starke Konvergenz zwischen \ac{llm} und menschlichen Urteilen bei dieser 
+Validierungsdimension hin. Der \ac{llm}-Judge zeigt bei dieser Dimension sowohl 
+ausreichende Varianz (H1, Tabelle~\ref{tab:llm_reliability}, W = 0.696, SD = 0.78) 
+als auch konsistente Rangordnungen über Iterationen hinweg. Die Interpretation 
+dieser hohen Korrelation erfordert jedoch Vorsicht. Die menschlichen Bewertungen 
+weisen mit Kendall \(W\) = 0.15 (H2, Tabelle~\ref{tab:human_reliability}) 
+eine sehr niedrige Inter-Rater-Konkordanz auf. Die fehlende Übereinstimmung 
+zwischen den menschlichen Ratern bedeutet, dass die Referenzmessung keine 
+stabile Rangordnung der Items etabliert. Die beobachtete hohe Korrelation 
+zwischen \ac{llm} und gemittelten menschlichen Urteilen ist daher mit erheblicher 
+Unsicherheit behaftet.
+
+\paragraph{H4 – Aggregierte Übereinstimmung für die Gesamtplausibilität}\mbox{}\
+Die Hypothese wird nicht bestätigt. Die Rangkorrelation nach Kendall \(\tau\) 
+zwischen dem gewichteten aggregierten \ac{llm}-Score und dem gewichteten aggregierten 
+menschlichen Score beträgt Kendall \(\tau\) = 0.286 (Tabelle~\ref{tab:correlation_dimensions}). 
+Dies verfehlt deutlich den Schwellenwert von Kendall \(\tau\) > 0.40. Nach 
+Tabelle~\ref{tab:kendall-tau-interpretation} entspricht Kendall \(\tau\) = 0.286 
+nur etwa 64\% konkordanten Paaren, was unterhalb der angestrebten praktisch 
+relevanten Kongruenz liegt.
+
+Die Aggregation der drei Operationalisierungsdimensionen führt nicht zu einer 
+Verbesserung der Übereinstimmung zwischen \ac{llm} und Menschen. Im Gegenteil: Die 
+einzelnen Dimensionen zeigen Kendall \(\tau\)-Werte von 0.509 (Angemessenheit), 
+0.400 (Kontextverständnis) und –0.214 (Kohärenz). Der aggregierte Wert von 
+0.286 liegt deutlich unter den beiden besseren Einzeldimensionen und wird durch 
+die negative Korrelation bei Kohärenz stark belastet.
+
+Dieses Befundmuster lässt sich auf die Qualitätsprobleme beider Messsysteme 
+zurückführen. Der \ac{llm}-Judge zeigt bei zwei Operationalisierungsdimensionen 
+(Angemessenheit und Kohärenz) nahezu vollständige Varianzlosigkeit (H1), wodurch 
+die theoretische Gewichtung nicht sinnvoll angewendet werden kann. Bei der 
+menschlichen Messung weisen alle Dimensionen niedrige Konkordanzwerte auf 
+(H2, Kendall \(W\) zwischen 0.11 und 0.26), was auf hohe Messunsicherheit 
+hindeutet. Die Aggregation zweier hochgradig unsicherer Messsysteme kann daher 
+nicht zu einer verlässlichen Gesamtbewertung führen.
+
+Zusätzlich zeigt sich ein strukturelles Problem der additiven Aggregation. Die 
+stark divergierenden dimensionsspezifischen Korrelationen deuten darauf hin, 
+dass \ac{llm} und Menschen diese Facetten von Plausibilität nach unterschiedlichen 
+Kriterien bewerten. Eine mechanische Aggregation kann solche gegensätzlichen 
+Bewertungsmuster nicht kompensieren, sondern führt zu einer Verwässerung der 
+Aussagekraft.
+
+
+
+\subsubsection{Phase 3: Systematische Verzerrungen}
+\label{subsubsec:phase3_verzerrungen}
+
+Nach der Untersuchung der Rangübereinstimmung wird in dieser Phase geprüft, 
+ob metrikbasierte Bewertungen systematische Niveauunterschiede gegenüber 
+menschlichen Bewertungen aufweisen.
+
+\paragraph{H5 – Self-Enhancement-Bias metrikbasierter Judge-Bewertungen}\mbox{}
+Die Hypothese wird bestätigt. Der \ac{llm}-Judge vergibt systematisch höhere 
+gewichtete Gesamtplausibilitätswerte als menschliche Rater. Die Mittelwerte 
+betragen für den \ac{llm}-Judge $M = 4.85$ und für die menschlichen Rater $M = 3.80$. 
+Die Differenz beträgt $1.05$ Punkte und übertrifft damit deutlich den Schwellenwert 
+von $0.50$ Punkten auf der 5-Punkt-Skala (Tabelle~\ref{tab:llm_descriptive_raw} und 
+\ref{tab:human_descriptive_raw}).
+
+Diese Differenz von $1.05$ Punkten entspricht $21\%$ der Skalenbreite und stellt 
+eine substanzielle systematische Überbewertung dar. Der \ac{llm}-Judge vergibt im 
+Durchschnitt Bewertungen, die mehr als einen halben Skalenpunkt höher liegen 
+als die menschlichen Urteile.
+
+Dimensionsspezifisch zeigt sich dieses Muster konsistent über alle Operationalisierungsdimensionen. 
+Die Differenzen betragen bei Kontextverständnis $0.88$ Punkte, bei Angemessenheit 
+$1.08$ Punkte und bei Kohärenz $1.16$ Punkte (Tabelle~\ref{tab:llm_descriptive_raw} und 
+\ref{tab:human_descriptive_raw}). Besonders ausgeprägt ist die Überbewertung bei 
+Kohärenz, wo der \ac{llm}-Judge fast ausschließlich Maximalbewertungen vergibt 
+($M = 5.00$, $SD = 0.01$), während die menschlichen Rater deutlich kritischer 
+urteilen ($M = 3.84$, $SD = 1.03$).
+
+Diese systematische Überbewertung durch den \ac{llm}-Judge korrespondiert mit dem 
+in der Literatur beschriebenen Self-Enhancement-Bias (Abschnitt~\ref{subsec:limitationen-llm-judge}). 
+\ac{llm}-basierte Judges zeigen die Tendenz, von ähnlichen Sprachmodellen generierte 
+Texte höher zu bewerten als menschliche Rater.
+
+\subsection{Analyse der Messmethoden}
+\label{subsec:analyse_messmethoden}
+
+Die Hypothesenprüfung hat gezeigt, dass beide Messsysteme erhebliche Qualitätsprobleme 
+aufweisen. Der \ac{llm}-Judge verfügt über substanzielle Intra-Rater-Reliabilität (H1), 
+zeigt aber bei zwei Operationalisierungsdimensionen Deckeneffekte. Die menschliche 
+Messung weist niedrige Inter-Rater-Reliabilität auf (H2). Der Vergleich zwischen 
+beiden Messmethoden offenbart dimensionsspezifische Divergenzen (H3) und zeigt, 
+dass die aggregierte Übereinstimmung deutlich unterhalb der angestrebten Schwelle 
+liegt (H4).
+
+Im Folgenden wird analysiert, welche internen Probleme jede Messmethode 
+charakterisieren und wie diese Probleme die beobachteten Diskrepanzen erklären. 
+Die Analyse unterscheidet zwischen der Messgüte jedes Systems einzeln und den 
+konzeptionellen Unterschieden, die erklären, warum sie nicht zusammenpassen.
+
+
+\subsubsection{Analyse der LLM-as-a-Judge-Messung}
+\label{subsubsec:analyse_llm_messung}
+
+Der aggregierte Kendall $W$ Wert von 0.810 suggeriert zunächst hohe Zuverlässigkeit. Diese Interpretation erweist sich jedoch als problematisch. Nach Abschnitt~\ref{subsec:Kendall W} basiert der Konkordanzkoeffizient auf Rangordnungen zwischen Items. Dimensionen ohne Varianz tragen nicht zur Rangordnung bei und werden statistisch nicht sanktioniert. Die Gesamtreliabilität wird dadurch von jenen Dimensionen dominiert, die Varianz aufweisen. Der aggregierte Wert wird in diesem Fall von Kontextverständnis getragen, während die Varianzlosigkeit bei Angemessenheit und Kohärenz unterschwellig bleibt. Die aggregierte Messung ist damit künstlich erhöht und verdeckt, dass zwei von drei geplanten G-Eval-Dimensionen wenig differenzieren.
+
+Angemessenheit zeigt konstant $M = 4.95$ ($SD = 0.13$), Kohärenz sogar $M = 5.00$ ($SD = 0.01$) über alle 800 Einzelmessungen. Diese Varianzlosigkeit steht im direkten Widerspruch zur probabilistischen Score-Aggregation von G-Eval (Abschnitt~\ref{subsec:g-eval}): Das Verfahren wurde explizit entwickelt, um durch gewichtete Wahrscheinlichkeitsverteilungen kontinuierliche Scores zu erzeugen und diskrete Ganzzahlbewertungen zu vermeiden. Dass dennoch nahezu vollständige Konstanz entsteht, bedeutet, dass die Wahrscheinlichkeitsmasse für diese Dimensionen extrem stark auf den Maximalwert konzentriert ist. Ein Mechanismus, der konzeptionell Varianz erzeugen soll, kollabiert hier zu nahezu konstanten Maximalwerten.
+
+Kontextverständnis erreicht $M = 4.56$ ($SD = 0.49$) und Kendall $W = 0.698$. Im Gegensatz zu Angemessenheit und Kohärenz zeigt diese Dimension keinen Deckeneffekt, sondern nutzt einen großen Teil des Skalenbereichs (Min: 2.21, Max: 5.00). Die beobachtete Streuung deutet darauf hin, dass das LLM hier differenziertere Urteile fällt als bei den stark deckenlimitierten Dimensionen. Dieser Unterschied könnte auf die technische Struktur der Dimension zurückgehen. Während Kohärenz und Angemessenheit holistische Qualitätsurteile erfordern, die das Modell durch komplexe \textit{Chain-of-Thought-Reasoning} synthetisieren muss, könnte Kontextverständnis operationell einfacher zu erfassen sein. Die Dimension erfordert primär den Abgleich, ob relevante Informationen aus dem Input im Output adressiert wurden. Diese Aufgabe ist strukturell weniger abstrakt als die Bewertung narrativer Kohärenz oder situativer Angemessenheit. Diese Operationalisierung könnte daher geringere Anfälligkeit für die genannten Bias-Mechanismen aufweisen. Dies würde jedoch nicht für bessere konzeptionelle Eignung dieser Dimension sprechen, sondern eher für einen technischen Operationalisierungsvorteil. Die Dimension differenziert folglich besser, ist aber weiterhin anfällig für Deckeneffekte.
+
+Zwei mögliche Erklärungsansätze bieten sich an. Erstens könnte die Prompt-Operationalisierung problematisch sein. Nach Abschnitt~\ref{subsec:limitationen-llm-judge} bezeichnet \textit{Prompt-Sensitivität} die starke Abhängigkeit automatischer Bewertungen von der genauen Formulierung der Evaluationsinstruktion, wobei minimale Änderungen zu divergierenden Bewertungen führen können. Es lässt sich vermuten, dass die Prompt-Formulierung das Modell konsistent zu Maximalwerten leitet. Die \textit{Chain-of-Thought}-Generierung (Abschnitt~\ref{subsec:g-eval}) könnte diesen Effekt verstärken: Das Modell konstruiert Argumente, warum ein Output kohärent ist, ohne die Bewertung tatsächlich zu differenzieren. Die \textit{Reasoning}-Kette wird dadurch zum selbstbestätigenden Artefakt statt zum diskriminierenden Mechanismus.
+
+Zweitens liegt ein alternativer Erklärungsansatz im \textit{Modell-Bias}. Nach Abschnitt~\ref{subsec:klassifikation-metriken} entsteht dieser Bias, weil das Evaluationsmodell während des Trainings auf \textit{Reasoning}-Pfaden optimiert wurde, die seiner eigenen Generierungslogik ähneln, wodurch Outputs mit alternativen \textit{Reasoning}-Strukturen höhere Entropie in der Log-Likelihood-Verteilung aufweisen und systematisch niedriger bewertet werden. Beide hier verwendeten Modelle (GPT-OSS 120B und GPT-4.1) entstammen dem gleichen Unternehmen und teilen fundamentale Architektur-Merkmale sowie Trainingsprinzipien. Die konsistent hohen Bewertungen bei Kohärenz und Angemessenheit könnten darauf zurückzuführen sein, dass der Evaluator in den generierten Outputs Muster erkennt, die seiner erlernten Qualitätsdefinition entsprechen. Dies würde nicht auf objektiv hohe Qualität hindeuten, sondern auf systematische Affirmation ähnlicher Generierungsmuster. Das Modell bewertet folglich seine eigene „Handschrift" positiv. Ohne systematische Variation der Prompts oder Tests mit alternativen Evaluationsmodellen lässt sich nicht eindeutig bestimmen, welcher Faktor zu den beobachteten Deckeneffekten führt. Dies stellt eine Limitation der vorliegenden Analyse dar.
+
+Ein grundsätzliches Spannungsverhältnis offenbart sich. Nach Abschnitt~\ref{subsec:klassifikation-metriken} zeichnen sich automatische Verfahren durch hohe Konsistenz und deterministisches Verhalten aus. Dies stellt einen Vorteil gegenüber menschlichen Evaluatoren mit ihrer inhärenten Variabilität dar. Gleichzeitig bedeutet diese Konsistenz, dass Fehler in der Prompt-Formulierung oder Bias-Mechanismen konsistent repliziert werden, ohne dass Korrektivmechanismen wie subjektive Heterogenität eingreifen. Die beobachteten Deckeneffekte sind daher keine episodischen Fehler, sondern robuste, systematische Artefakte der Prompt-Operationalisierung und des Modell-Bias. Das Modell würde diese Bewertungsmuster in jeder zukünftigen Anwendung mit identischem Prompt und identischer Modellkombination konsistent reproduzieren. Dies stellt das Gegenteil von Robustheit dar. Es handelt sich um strukturelle Fragilität, die durch Konsistenz maskiert wird.
+
+\subsubsection{Analyse der menschlichen Plausibilitätsmessung}
+\label{subsubsec:analyse_menschliche_messung}
+Die niedrige Inter-Rater-Reliabilität ist nicht ausschließlich als methodische Schwäche zu interpretieren. Wie in Abschnitt~\ref{subsec:pam} dargelegt, postuliert das Plausibility Analysis Model, dass Plausibilität aus der Passung zwischen präsentierter Information und individuellem Vorwissen entsteht. Unterschiedliches Vorwissen, unterschiedliche Fähigkeiten zur mentalen Simulation und unterschiedliche Toleranzen für Spekulation führen bei identischen Antworten zwangsläufig zu divergierenden Urteilen. Diese theoretische Grundlage lässt eine gewisse Variabilität erwarten, erklärt jedoch nicht vollständig die beobachteten Werte nahe dem Zufallsniveau. Wie in Abschnitt~\ref{subsec:Prozess Plausibilitätsbeurteilung} beschrieben, werden Plausibilitätslücken individuell unterschiedlich wahrgenommen: Ein Experte entdeckt aufgrund seines detaillierten Weltwissens Inkonsistenzen, die ein Laie gar nicht wahrnimmt.
+
+Mehrere methodische Faktoren könnten die konstruktbedingte Subjektivität zusätzlich verstärkt haben. Die Stichprobengröße von 10 Ratern bei 8 Fragen liegt deutlich unter den in der Literatur empfohlenen Größenordnungen. Bei kleinen Stichproben sind Konfidenzintervalle für Kendall's $W$ sehr breit, was die Aussagekraft der konkreten Werte einschränkt. Die Rater erhielten schriftliche Anweisungen (siehe Abschnitt~\ref{subsec:fragebogen-erhebung}), jedoch kein systematisches Training durch Kalibrierung anhand von Referenzantworten. Die Formulierung der Items könnte zu interpretationsoffen gewesen sein. Begriffe wie „relevant"oder „logisch konsistent" wurden nicht durch konkrete Beispiele operationalisiert, sodass jeder Rater eigene Interpretationen entwickeln konnte.
+
+Mehrere methodische Faktoren könnten die konstruktbedingte 
+Subjektivität zusätzlich verstärkt haben. Die Stichprobengröße von 10 Ratern 
+bei 8 Fragen ist insgesamt gering und schränkt die Aussagekraft der 
+Ergebnisse ein. Wie im Theorieabschnitt zu Kendall’s $W$ (Abschnitt~\ref{subsec:Kendall W}) 
+ausgeführt, gehen kleine Stichproben mit breiten Konfidenzintervallen einher, 
+was die Präzision der geschätzten Werte von Kendall’s $W$ reduziert. Die 
+Rater erhielten schriftliche Anweisungen (siehe Abschnitt~\ref{subsec:fragebogen-erhebung}), 
+jedoch kein systematisches Training durch Kalibrierung anhand von 
+Referenzantworten. Die Formulierung der Items könnte zu interpretationsoffen 
+gewesen sein. Begriffe wie „relevant“ oder „logisch konsistent“ wurden nicht 
+durch konkrete Beispiele operationalisiert, sodass jeder Rater eigene 
+Interpretationen entwickeln konnte.
+
+Die beobachteten $W$-Werte zwischen 0.11 und 0.26 liegen so nahe am Zufallsniveau, dass bei dieser Datenlage keine sichere Trennung zwischen konstruktbedingter Subjektivität und methodischem Rauschen möglich ist. Die niedrige Inter-Rater-Reliabilität dokumentiert, dass mit dem entwickelten Instrumentarium in der aktuellen Form kein quantifizierbarer Konsens erreicht wurde. Dies hat fundamentale Konsequenzen für die Validierung automatischer Metriken: Wenn kein konsistenter Ground Truth für Plausibilität existiert, ist unklar, gegen welche Referenz diese validiert werden sollen.
+
+\subsubsection{Gegenüberstellung der Messmethoden}
+\label{subsubsec:gegenueberstellung_messmethoden}
+
+Die Rangkorrelationen nach Kendall's $\tau$ zwischen \ac{llm}-Judge und menschlichen Ratern variieren erheblich über die drei Dimensionen (siehe Tabelle~\ref{tab:correlation_dimensions}): Angemessenheit ($\tau = 0.509$), Kontextverständnis ($\tau = 0.400$) und Kohärenz ($\tau = -0.214$). Diese Variation könnte auf unterschiedliche Erfassbarkeit der Dimensionen hindeuten, ist jedoch aufgrund der methodischen Probleme beider Messsysteme nur eingeschränkt interpretierbar.
+
+Bei Angemessenheit zeigt sich die höchste Korrelation, allerdings weist der \ac{llm}-Judge bei dieser Dimension nur minimale Varianz auf ($SD = 0.13$, siehe Tabelle~\ref{tab:llm_descriptive_raw}). Die beobachtete Korrelation basiert somit auf einem stark eingeengten Messbereich. Kontextverständnis ist die einzige Dimension, bei der der \ac{llm}-Judge ausreichende Varianz zeigt ($SD = 0.49$, $W = 0.698$). Gleichzeitig weisen die menschlichen Rater hier die niedrigste Übereinstimmung auf ($W = 0.11$, siehe Tabelle~\ref{tab:human_reliability}), was bedeutet, dass die Referenzmessung besonders verrauscht ist. Bei Kohärenz ist die negative Korrelation von $\tau = -0.214$ vor dem Hintergrund der extremen Deckeneffekte des \ac{llm}-Judges ($M = 5.00$, $SD = 0.01$) und dessen niedriger Stabilität ($W = 0.320$) nicht robust interpretierbar. Nach Abschnitt~\ref{subsec:kendall-tau} entspricht $\tau = -0.214$ einer Konkordanz von etwa 39\\,\%, was unterhalb der Zufallsrate liegt. Bei derart geringer Varianz bestimmt Rauschen die Rangfolge.
+
+Über alle Dimensionen hinweg zeigt sich eine systematische Überbewertung durch den \ac{llm}-Judge. Die Mittelwertdifferenzen betragen bei Kontextverständnis 0.88 Punkte ($M_{LLM} = 4.56$ vs. $M_{Mensch} = 3.68$), bei Kohärenz 1.16 Punkte ($M_{LLM} = 5.00$ vs. $M_{Mensch} = 3.84$) und bei Angemessenheit 1.08 Punkte ($M_{LLM} = 4.95$ vs. $M_{Mensch} = 3.87$) (Tabellen~\ref{tab:llm_descriptive_raw} und \ref{tab:human_descriptive_raw}). Diese konsistente Aufwärtsverzerrung von über einem Skalenpunkt deutet darauf hin, dass der \ac{llm}-Judge die von einem anderen Sprachmodell generierten Antworten systematisch positiver bewertet als menschliche Rater.
+
+Die gewichtete Aggregation der drei Dimensionen führt nicht zu einer verbesserten Übereinstimmung, sondern verschlechtert diese. Der gewichtete Gesamtscore erreicht lediglich $\tau = 0.286$, während die beste Einzeldimension Angemessenheit $\tau = 0.509$ erzielt (siehe Tabelle~\ref{tab:correlation_dimensions}). Dies dokumentiert die Gefahr zufälliger Kompensation: Die mechanische Kombination einer partiell übereinstimmenden Dimension mit zwei problematischen Dimensionen verwässert die Aussagekraft, anstatt sie zu erhöhen. Die stark divergierenden dimensionsspezifischen Korrelationen machen eine Zusammenfassung zu einer einzelnen Metrik methodisch fragwürdig.
+
+Die Validierungsdimension Plausibilität nach Zhang zeigt ein paradoxes Muster. Beim \ac{llm}-Judge erreicht sie substanzielle Reliabilität (W = 0.696) und die stärkste Varianz aller Dimensionen (SD = 0.78, Spannweite: 2.60–5.00; Tabelle~\ref{tab:llm_descriptive_raw}). Dies deutet darauf hin, dass holistische Plausibilitätsbewertung nach der \ac{oci}-Skala beim \ac{llm} zu breiterer Qualitätsdifferenzierung führt als die operationalisierten Dimensionen Angemessenheit und Kohärenz. Bei menschlichen Ratern zeigt die Zhang-Dimension jedoch mit W = 0.15 die gleiche niedrige Konkordanz wie alle anderen Dimensionen (Tabelle~\ref{tab:human_reliability}). Trotz etablierter theoretischer Fundierung (Abschnitt~\ref{subsec:oci-skala}) führt auch die holistische Plausibilitätsbewertung nicht zu konsistenteren menschlichen Urteilen. Die substanzielle Streuung zwischen Ratern (SD = 0.80, Spannweite: 1.57–5.00; Tabelle~\ref{tab:human_descriptive_raw}) bestätigt die in Abschnitt~\ref{subsec:pam} dargelegte theoretische Annahme, dass Plausibilität ein subjektives, kontextabhängiges Konstrukt ist. Der \ac{llm}-Judge kann bei dieser Dimension zwar konsistent differenzieren, erfasst dabei jedoch möglicherweise andere Qualitätsaspekte als menschliche Rater, die stark divergierende individuelle Bewertungskriterien anwenden.
+
+Die beobachteten Muster lassen vorsichtige Vermutungen zu, die sich theoretisch einordnen lassen. Wie in Abschnitt~\ref{subsec:pam} beschrieben, unterscheiden Connell und Keane zwischen \textit{Word-Coherence} (statistische Geläufigkeit von Wortkombinationen) und \textit{Concept-Coherence} (semantische Passung mit Weltwissen). Menschliche Plausibilitätsurteile basieren primär auf \textit{Concept-Coherence}, während der \ac{llm}-Judge möglicherweise primär \textit{Word-Coherence} erfasst. Bei Angemessenheit konvergieren beide Modi funktionell ($\tau = 0.509$), da formale Kriterien wie Textlänge sowohl semantisch als auch statistisch ähnlich operationalisierbar sind. Bei Kohärenz manifestiert sich der Gegensatz am deutlichsten: Menschen prüfen logische Konsistenz und vergeben differenzierte Bewertungen ($M = 3.84$, $SD = 1.03$), während der \ac{llm}-Judge nahezu ausschließlich Maximalwerte vergibt ($M = 5.00$, $SD = 0.01$). Die Deckeneffekte deuten darauf hin, dass der \ac{llm}-Judge sprachliche Flüssigkeit mit logischer Konsistenz verwechselt. 
+
+
+
+Was sich sicher feststellen lässt, ist die extreme dimensionsspezifische Divergenz, die systematische Überbewertung und dass das entwickelte Instrumentarium keine robusten Vergleiche ermöglicht.
+
+\subsection{Beantwortung der Forschungsfrage}
+\label{subsec:beantwortung_forschungsfrage}
+
+Die Forschungsfrage zielte darauf ab, quantitative und qualitative Diskrepanzen zwischen automatischen Evaluationsmetriken und menschlicher Plausibilitätsbewertung in den Dimensionen Kontextverständnis, Kohärenz und Angemessenheit zu identifizieren. Die empirischen Befunde dokumentieren ausgeprägte Divergenzen auf beiden Ebenen.
+
+\subsubsection{Quantitative Diskrepanzen}
+
+Die Rangübereinstimmung variiert stark zwischen den Dimensionen (Abschnitt~\ref{subsubsec:phase2_vergleich}). Die dimensionsspezifischen Korrelationen reichen von \(\tau = -0.214\) (Kohärenz) über \(\tau = 0.400\) (Kontextverständnis) bis \(\tau = 0.509\) (Angemessenheit). Diese Spannweite von 0.723 bestätigt ausgeprägte dimensionsspezifische Unterschiede (H3). Die gewichtete Aggregation verschlechtert die Übereinstimmung auf \(\tau = 0.286\) (H4), was die Gefahr zufälliger Kompensation bei mechanischer Kombination divergierender Dimensionen dokumentiert.
+
+Systematische Niveauunterschiede manifestieren sich konsistent über alle Dimensionen (Abschnitt~\ref{subsubsec:phase3_verzerrungen}). Der \ac{llm}-Judge vergibt durchgängig um 0.88 bis 1.16 Skalenpunkte höhere Bewertungen als menschliche Rater (H5). Diese substanzielle Aufwärtsverzerrung entspricht dem in der Literatur beschriebenen Self-Enhancement-Bias.
+
+\subsubsection{Qualitative Diskrepanzen}
+
+Die qualitativen Unterschiede manifestieren sich in den fundamentalen Eigenschaften beider Messsysteme. Der \ac{llm}-Judge zeigt hohe Intra-Rater-Reliabilität (H1, \(W = 0.810\)), jedoch extreme Deckeneffekte bei zwei von drei Dimensionen (Abschnitt~\ref{subsubsec:analyse_llm_messung}). Die Varianzlosigkeit bei Angemessenheit und Kohärenz resultiert aus der Kombination von \textit{Prompt-Sensitivität} und \textit{Modell-Bias}, wobei die \textit{Chain-of-Thought}-Generierung zum selbstbestätigenden Artefakt wird. Die hohe Konsistenz maskiert strukturelle Fragilität, da Operationalisierungsfehler konsistent repliziert werden.
+
+Die menschliche Messung weist niedrige Inter-Rater-Reliabilität auf (H2, \(W\) zwischen 0.11 und 0.26), die nahe am Zufallsniveau liegt (Abschnitt~\ref{subsubsec:analyse_menschliche_messung}). Bei dieser Datenlage lässt sich nicht eindeutig trennen, inwieweit die Variabilität konstruktbedingte Subjektivität nach dem Plausibility Analysis Model oder methodisches Rauschen durch kleine Stichprobengröße und fehlende Rater-Kalibrierung darstellt. Dies führt zu einem fundamentalen Validierungsproblem, da kein konsistenter Ground Truth existiert.
+
+Ein möglicher Erklärungsansatz für die beobachteten Divergenzen liegt in der Differenzierung zwischen \textit{Word-Coherence} und \textit{Concept-Coherence} nach Connell und Keane (Abschnitt~\ref{subsubsec:gegenueberstellung_messmethoden}). Während menschliche Urteile primär auf semantischer Passung mit Weltwissen basieren, könnte der \ac{llm}-Judge primär statistische Geläufigkeit erfassen. Bei Kohärenz manifestiert sich dieser potenzielle Unterschied am deutlichsten, wo Menschen logische Konsistenz differenziert bewerten, während der \ac{llm}-Judge pauschal Maximalwerte vergibt. Diese Interpretation bleibt jedoch spekulativ, da die methodischen Probleme beider Messsysteme keine sichere Zuordnung erlauben.
+
+\section{Ausblick}
+\label{sec:ausblick}
+
+Die empirischen Ergebnisse offenbaren systematische Limitationen in allen drei Kernbereichen: Der \ac{llm}-Judge erreicht hohe Intra-Rater-Reliabilität (\(W = 0.810\)), zeigt jedoch extreme Deckeneffekte bei Angemessenheit (\(M = 4.95\), \(SD = 0.13\)) und Kohärenz (\(M = 5.00\), \(SD = 0.01\)). Die menschliche Referenzmessung weist niedrige Inter-Rater-Reliabilität auf (\(W = 0.16\), Spanne 0.11–0.26). Dimensionsspezifische Korrelationen divergieren stark (\(\tau = -0.214\) bis \(0.509\), Spanne 0.723). Folgend werden gezielte Verbesserungsansätze für jeden Bereich detailliert skizziert.
+\subsection{Verbesserung des LLM-Judges}
+
+Die in Abschnitt~\ref{subsubsec:analyse_llm_messung} analysierten Deckeneffekte bei Angemessenheit (\(M = 4.95\), \(SD = 0.13\)) und Kohärenz (\(M = 5.00\), \(SD = 0.01\)) deuten auf fundamentale Probleme in der Prompt-Formulierung hin. Die Analyse konnte nicht eindeutig trennen, ob die Varianzlosigkeit aus der konkreten Prompt-Operationalisierung oder aus \textit{Modell-Bias} der eingesetzten Modellkombination resultiert. Beide Erklärungsansätze wurden in Abschnitt~\ref{subsubsec:analyse_llm_messung} diskutiert und erfordern unterschiedliche Lösungsstrategien.
+
+Die beiden besonders betroffenen Dimensionen Angemessenheit (Kendall \(W = 0.333\)) und Kohärenz (Kendall \(W = 0.320\)) könnten von ausgeprägter \textit{Prompt-Sensitivität} betroffen sein (vgl. Abschnitt~\ref{subsec:limitationen-llm-judge}), bei der minimale Formulierungsänderungen zu divergierenden Bewertungen führen. Um diese Hypothese zu testen, sollten alternative Formulierungen der Bewertungsinstruktionen systematisch variiert werden. Konkret könnten für Kohärenz explizite Instruktionen zur Identifikation logischer Widersprüche vor der Punktevergabe implementiert werden, während bei Angemessenheit mehrstufige Rubrics mit konkreten Ankerbeispielen für jede Skalenstufe möglicherweise die Differenzierung erhöhen. \textit{Chain-of-Thought-Prompting} sollte kontrolliert eingesetzt werden, um zu prüfen, ob die Verbalisierung von Zwischenschritten zur Differenzierung beiträgt oder der beobachtete selbstbestätigende Effekt prompt-invariant ist. Das Ziel dieser Maßnahmen wäre, die Intra-Rater-Reliabilität aller Dimensionen auf Kendall \(W > 0.80\) zu steigern und somit eine substanzielle Erhöhung der Standardabweichung bei gleichzeitig konsistenten Rangordnungen zu erreichen.
+
+Die konsistent hohen Bewertungen könnten alternativ auf \textit{Modell-Bias} der Kombination GPT-OSS 120B als Generator und GPT-4.1 als Judge zurückzuführen sein (vgl. Abschnitt~\ref{subsubsec:analyse_llm_messung}). Beide Modelle entstammen demselben Unternehmen und teilen vermutlich fundamentale Architektur-Merkmale sowie Trainingsprinzipien, wodurch das Evaluationsmodell während des Trainings erlernte eigene Generierungsmuster systematisch positiv bewertet (vgl. Abschnitt~\ref{subsec:klassifikation-metriken}). Um diese modellspezifischen Effekte zu isolieren, sollten Evaluationsmodelle anderer Hersteller wie Claude oder Gemini systematisch verglichen werden. Besonders \textit{reasoning-optimierte} Modelle könnten weniger anfällig für die in Abschnitt~\ref{subsubsec:phase2_vergleich} dokumentierten Deckeneffekte bei abstrakten Dimensionen wie Kohärenz sein. Ein Ensemble-Ansatz mit mehreren heterogenen Modellen könnte die identifizierten modellspezifischen Verzerrungen kompensieren und durch Aggregation unterschiedlicher Bewertungsmuster zu höheren Kendall \(W\)-Werten führen (vgl.\parencite{gu_survey_2024}).
+
+Unabhängig von der Ursache der Deckeneffekte könnte die Integration von \texttt{top\_logprobs} bei Open-Source-Modellen wie Llama 3.1, Mistral Large oder Mixtral eine technische Lösung bieten (vgl.\parencite{noauthor_top_2026}). Da GPT-4.1 über die OpenAI Responses API keine nutzbaren Log-Wahrscheinlichkeiten bereitstellt (vgl. Abschnitt~\ref{subsec:implementierung-geval}), musste eine empirische Approximation mittels Temperatur-Sampling (\texttt{temperature=1}) eingesetzt werden. Dieser Workaround verfälscht jedoch die probabilistische Score-Aggregation von G-Eval (Abschnitt~\ref{subsec:g-eval}), da die kollabierende Wahrscheinlichkeitsmasse auf Maximalwerte nicht präzise quantifiziert wird. Modelle mit \texttt{top\_logprobs}-Support ermöglichen eine präzise Normalisierung der G-Eval-Wahrscheinlichkeitsverteilungen durch direkte Quantifizierung der Token-Entropie. Dies könnte die in Abschnitt~\ref{subsubsec:analyse_llm_messung} beschriebene problematische Konzentration der Wahrscheinlichkeitsmasse auf Maximalwerte systematisch auflösen und unabhängig von Prompt-Formulierung oder Modell-Bias zu einer Erhöhung der Standardabweichung führen.
+
+\subsection{Verbesserung der menschlichen Messung}
+
+Die in Abschnitt~\ref{subsubsec:analyse_menschliche_messung} analysierte niedrige Inter-Rater-Reliabilität (Kendall \(W = 0.16\), Spanne 0.11–0.26) zeigt, dass die menschliche Referenzmessung in ihrer aktuellen Form keinen stabilen Konsens erzeugt. Wie in Abschnitt~\ref{subsubsec:analyse_menschliche_messung} dargelegt, lässt sich nicht eindeutig trennen, ob die beobachteten \(W\)-Werte primär auf konstruktbedingte Subjektivität nach dem Plausibility Analysis Model (Abschnitt~\ref{subsec:pam}) oder auf methodische Faktoren zurückzuführen sind. Die geringe Stichprobengröße (10 Rater, 8 Fragen), fehlendes systematisches Rater-Training und interpretationsoffene Itemformulierungen (siehe Abschnitt~\ref{subsec:fragebogen-erhebung}) könnten die inhärente Subjektivität zusätzlich verstärkt haben.
+
+Um diese Unsicherheit zu klären und die Messgüte zu erhöhen, sind gezielte methodische Verbesserungen in drei Bereichen erforderlich: Professionalisierung der Erhebung, Optimierung der Itemformulierungen und theoriegeleitete Weiterentwicklung der Dimensionen. Das Ziel wäre, die Inter-Rater-Reliabilität aller Dimensionen auf Kendall \(W > 0.40\) zu steigern, was gemäß Tabelle~\ref{tab:kendall-w-interpretation} als Mindestkriterium für moderate Übereinstimmung gilt.
+
+\subsubsection{Professionalisierung der Erhebungsmethodik}
+
+Gezieltes Rater-Training mit Kalibrierungsbeispielen sollte implementiert werden, wie es in Abschnitt~\ref{subsubsec:analyse_menschliche_messung} als zentrales Defizit identifiziert wurde. Dies würde ein geteiltes Verständnis der Bewertungsdimensionen fördern, ohne legitime subjektive Varianz zu eliminieren. Die Stichprobengröße sollte auf mindestens 30–50 Rater und 50–100 Frage-Antwort-Paare erweitert werden, um robustere Schätzungen und Subgruppenanalysen zu ermöglichen (vgl. Abschnitt~\ref{subsubsec:analyse_menschliche_messung}). Größere Stichproben liefern zudem präzisere Konfidenzintervalle für Kendall \(W\) und erhöhen die statistische Power (siehe Abschnitt~\ref{subsec:Kendall W}).
+
+Die Itemformulierungen müssen überarbeitet werden, um Begriffe wie „relevant“ oder „logisch konsistent“ durch konkrete Beispiele zu operationalisieren (vgl. Abschnitt~\ref{subsec:fragebogen-erhebung}). Bewertungsanweisungen sollten explizit festlegen, welche Aspekte zu bewerten sind. Alternative Formate wie paarweise Forced-Choice-Vergleiche (vgl. Abschnitt~\ref{subsubsec:gegenueberstellung_messmethoden}) könnten die Reliabilität steigern, da sie nachweislich konsistentere Urteile liefern als absolute Ratings auf Likert-Skalen.
+
+Bereits jetzt erfolgt die menschliche Bewertung entlang klar definierter Dimensionen (vgl. Abschnitt~\ref{subsec:operationalisierung-plausibilitaet}). Um die Qualität und Verständlichkeit der Items weiter zu stärken, sollten gezielte Umfragen und Pretests mit potenziellen Ratern durchgeführt werden. Das Feedback aus diesen Umfragen kann genutzt werden, um die Formulierungen zu schärfen, Missverständnisse zu identifizieren und die Instruktionen iterativ zu verbessern. So wird sichergestellt, dass die Bewertungsdimensionen nicht nur theoretisch fundiert, sondern auch praktisch verständlich und anwendbar sind.
+
+Schließlich sollte die menschliche Bewertung stärker theoriegeleitet operationalisiert werden. Das Plausibility Analysis Model (Abschnitt~\ref{subsec:pam}) bietet mit den Parametern \textit{Corroboration}, \textit{Complexity} und \textit{Conjecture} einen Rahmen, der gezielt in die Bewertungsanweisungen integriert werden kann. Eine solche Granularisierung würde ermöglichen, dimensionsspezifische Divergenzen zwischen menschlicher und automatischer Bewertung systematisch zu analysieren (vgl. Abschnitt~\ref{subsubsec:gegenueberstellung_messmethoden}).
+
+\subsection{Theoriegeleitete Weiterentwicklung der Messdimensionen}
+
+Die gemessenen dimensionsspezifischen Korrelationen zwischen \(\tau = -0.214\) (Kohärenz) und \(\tau = 0.509\) (Angemessenheit) zeigen, dass die drei gewählten Dimensionen unterschiedliche Aspekte erfassen. Die negative Korrelation bei Kohärenz deutet darauf hin, dass diese Dimension in der gewählten Operationalisierung möglicherweise zu breit definiert ist. Eine Unterteilung in lokale Kohärenz (Satzübergänge, pronominale Referenzen) und globale Kohärenz (logische Widerspruchsfreiheit über den gesamten Text) könnte präzisere Bewertungen ermöglichen. \ac{llm}s könnten erstere durch oberflächliche sprachliche Muster erfassen, während letztere tieferes logisches \textit{Reasoning} erfordert. Eine granularere Definition würde isolieren, an welchem Punkt die maschinelle Bewertung im verwendeten Setup scheitert.
+
+Analog könnte Angemessenheit in formale Kriterien (Textlänge, Detailtiefe) und konzeptionelle Passung (thematische Relevanz, Adressatenbezug) getrennt werden. Dies würde klären, ob die beobachtete moderate Übereinstimmung (\(\tau = 0.509\)) primär auf leicht erfassbare Oberflächenmerkmale zurückzuführen ist oder tatsächlich semantische Angemessenheit bewertet wird. Die Operationalisierung sollte durch konkrete Rubrics präzisiert werden, die für jede Bewertungsstufe klare Ankerbeispiele bereitstellen.
+
+Das Plausibility Analysis Model nach \textcite{connell_model_2006} bietet einen theoretisch fundierten Rahmen, der im Experiment nur indirekt operationalisiert wurde. Eine direkte Implementierung der PAM-Parameter würde Rater instruieren, explizit zu bewerten, wie stark die Antwort durch den Kontext gestützt wird (\textit{Corroboration}), wie komplex die kausale Erklärung ist (\textit{Complexity}) und wie viele spekulative Zusatzannahmen erforderlich sind (\textit{Conjecture}). Diese granulare Erfassung könnte klären, ob die beobachteten Divergenzen zwischen \ac{llm}s und Menschen primär bei spezifischen PAM-Parametern auftreten. Die in Abschnitt~\ref{subsubsec:gegenueberstellung_messmethoden} diskutiert\textit{Word-Coherence} (statistische Geläufigkeit) und \textit{Concept-Coherence}keit) und Concept-Coherence (semantische Passung mit Weltwissen) bietet einen vielversprechenden Erklärungsansatz für die beobachteten Divergenzen, müsste jedoch durch gezielte experimentelle Designs überprüft werden.
+
+
+
+
+% Literaturverzeichnis
+\newpage
+
+% Gesamtes Literaturverzeichnis (Untergliederung erfolgt automatisch nach Publikationstypen)
+\printbibliography[heading=bibintoc,title={Literaturverzeichnis}]
+
+% Eidesstattliche Versicherung (Richtlinie 4.8 - Pflichtangabe)
+\newpage
+
+\section*{Eidesstattliche Versicherung}
+
+Hiermit versichere ich an Eides statt, dass ich die vorliegende Arbeit selbstständig und ohne Benutzung anderer als der in den Fußnoten und im Literaturverzeichnis angegebenen Quellen angefertigt habe.
+
+\vspace{2cm}
+
+\noindent
+\begin{tabular}{ll}
+Ort, Datum: & \hspace{5cm} \\[1cm]
+& \\
+Unterschrift: & \\
+\end{tabular}
+
+\newpage
+
+%Anhang
+\appendix
+
+\section{Evaluationsmaterial}\label{app:material}
+\subsection{Kontext}
+\label{app:Kontext}
+Der Kaffernbüffel bewohnt große Teile des östlichen und südlichen Afrikas und kommt von Äthiopien und Somalia über Ostafrika bis nach Südafrika, Namibia und Botswana vor. Er besiedelt vor allem gut durchfeuchtete Savannen, Sümpfe und Überflutungsebenen, kann aber auch in trockeneren Savannen und Auwäldern leben, sofern Wasser verfügbar ist. Selbst montane Waldgebiete werden genutzt, mit Vorkommen bis auf Höhen von 3000 Metern und in Extremfällen sogar darüber hinaus. In besonders günstigen Gebieten erreicht der Kaffernbüffel hohe Dichten, während sie in trockeneren Landschaften deutlich niedriger ausfallen.
+Das Sozialsystem ist komplex: Typisch sind Herden aus verwandten Weibchen und ihren Jungtieren; Bullen verschiedenen Alters können sich anschließen, sind aber nicht in das innere Sozialgefüge eingebunden. Herden variieren in ihrer Größe von wenigen Dutzend bis hin zu vielen Tausend Tieren, wobei extrem große Verbände meist nur temporär bestehen und keine innere Hierarchie aufweisen. Herden spalten sich regelmäßig und formieren sich neu, abhängig von Jahreszeit, Nahrungs- und Wasserangebot sowie der Herdengröße und sozialen Struktur. Innerhalb der Hierarchie führen dominante Kühe die Herde an; ihnen folgen Weibchen mit sehr jungen Kälbern und Jungtiere, während Tiere mit untergeordnetem Status den Abschluss bilden. Die Stellung eines Tieres spiegelt sich in seiner Position in der Herde und beeinflusst die Qualität der Nahrung und die körperliche Kondition; die Geburt eines Kalbes kann die soziale Stellung einer Kuh erhöhen. Weibliche Tiere bleiben meist langfristig in ihrer Herde, obwohl gelegentliche Wechsel vorkommen und dabei große Distanzen zurückgelegt werden können. Bullen leben allein oder in zeitlich begrenzten Junggesellengruppen und wechseln mitunter kurzfristig zwischen diesen Gruppen und den Herden.
+
+\subsection{Fragen}
+\label{app:fragen}
+\paragraph{Frage 1:} Welche Vorteile könnte der Kaffernbüffel aus Lebensräumen in großer Höhe ziehen?
+
+\paragraph{Frage 2:} Warum kann der Kaffernbüffel auch in relativ trockenen Gegenden überleben?
+
+\paragraph{Frage 3:} Wie verändert sich das Verhalten des Kaffernbüffels in sehr trockenen Savannen im Vergleich zu feuchten Gebieten?
+
+\paragraph{Frage 4:} Weshalb sind Bullen nicht Teil des inneren Sozialgefüges und wie könnte das die Herde beeinflussen?
+
+\paragraph{Frage 5:} Welche Rolle spielt die Position eines Tieres innerhalb der Herde für dessen Lebensbedingungen?
+
+\paragraph{Frage 6:} Aus welchen Gründen könnten weibliche Kaffernbüffel ihre Herde gelegentlich wechseln?
+
+\paragraph{Frage 7:} Welche Auswirkungen kann die Stellung eines Tieres auf dessen Gesundheit und Nachwuchs haben?
+
+\paragraph{Frage 8:} Weshalb sind große Herden in bestimmten Jahreszeiten vorteilhaft, aber langfristig nicht stabil?
+
+%Fragebogen 
+\newpage
+\subsection{LLM-generierte Antworten}
+\label{app:antworten}
+
+\textbf{Antwort zu Frage 1 (GPT-OSS-120B):}
+
+In großer Höhe profitiert der Kaffernbüffel von:
+
+\begin{itemize}
+\item Weniger Konkurrenz -- dort gibt es seltener andere große Huftiere, sodass Nahrung und Wasser leichter zugänglich sind.
+\item Kühleres Klima -- senkt den Wärme- und Wasserstress, besonders in heißen Trockenzeiten.
+\item Reduziertes Parasiten- und Krankheitsrisiko -- viele Insekten und Parasiten kommen in höheren, kühleren Lagen seltener vor.
+\item Saisonale Nahrungsquellen -- alpine Gräser und Kräuter sprießen nach Regenfällen und bieten nährstoffreiche Futtermöglichkeiten, die in tieferen Savannen nicht verfügbar sind.
+\item Geringere Raubtierdichte -- große Raubtiere sind in höheren, abgelegenen Regionen seltener, was das Risiko für Kälber und erwachsene Tiere verringert.
+\end{itemize}
+
+Diese Faktoren unterstützen das Überleben, die Fortpflanzung und die körperliche Kondition der Büffelherden in hochgelegenen Habitaten.
+
+\textbf{Antwort zu Frage 2 (GPT-OSS-120B):}
+
+Der Kaffernbüffel kann auch in relativ trockenen Gegenden überleben, weil er dort bei ausreichender Wasserverfügbarkeit -- etwa an permanenten Wasserstellen, Sümpfen oder in feuchten Auwäldern -- Nahrung findet und seine Wasser- und Nahrungsbedürfnisse decken kann. Diese Fähigkeit, sich an verfügbare Wasserquellen anzupassen, ermöglicht ihm das Leben außerhalb dauerhaft feuchter Savannen.
+
+\textbf{Antwort zu Frage 3 (GPT-OSS-120B):}
+
+In sehr trockenen Savannen bilden Kaffernbüffel kleinere, lockerer strukturierte Herden, wandern länger und häufiger zu den wenigen verfügbaren Wasserstellen und fressen weniger nährstoffreiche Pflanzen -- dadurch sind sie insgesamt weniger dicht besiedelt und stehen körperlich oft unter schlechteren Bedingungen. In feuchten Gebieten dagegen können sie große, dichte Herden bilden, bleiben länger an einem Platz, haben leichteren Zugang zu Wasser und hochwertiger Nahrung und zeigen ein stabileres Sozialverhalten.
+
+\textbf{Antwort zu Frage 4 (GPT-OSS-120B):}
+
+Bullen bleiben außerhalb des inneren Sozialgefüges, weil ihre Fortpflanzungs- und Überlebensstrategien eher auf solitäres Leben bzw. kurzzeitige Junggesellengruppen ausgerichtet sind. Sie konkurrieren nicht um Rangplätze innerhalb der weiblichen Herde, sondern um Zugänge zu fruchtbaren Kühen, wenn sich die Herde spaltet oder neue Weibchen anzieht.
+
+Mögliche Auswirkungen auf die Herde:
+
+\begin{itemize}
+\item Flexibilität: Da Bullen nicht in die feste Rangordnung eingebunden sind, können sie leicht zwischen Herden wechseln oder sich an neu entstehende Teilherden anhängen, was die Umstrukturierung und Neu-Formierung von Herden erleichtert.
+\item Vermeidung von interner Konkurrenz: Das Fehlen von Bullen in der inneren Hierarchie reduziert Konkurrenz um Futter- und Platzressourcen innerhalb der weiblichen Gruppe, wodurch die Nahrungs- und Wasserqualität für die ranghohen Kühe erhalten bleibt.
+\item Reproduktiver Impuls: Anwesenheit von Bullen kann das Geburtsverhalten der Weibchen stimulieren (z.\,B. durch Anwesenheit beim Kalben), wodurch die soziale Stellung einzelner Kühe steigen kann.
+\end{itemize}
+
+Kurz: Bullen sind außenstehend, weil sie primär als Fortpflanzungspartner und nicht als Herdenmitglieder fungieren; diese Trennung erhöht die strukturelle Flexibilität und reduziert interne Konkurrenz in der Herde.
+
+\textbf{Antwort zu Frage 5 (GPT-OSS-120B):}
+
+Die Position eines Tieres innerhalb der Herde bestimmt seine soziale Stellung und hat direkte Auswirkungen auf seine Lebensbedingungen:
+
+\begin{itemize}
+\item Nahrungsqualität: Tiere an vorderer Position (dominante Kühe) erhalten zuerst die besten Futtermengen, während Tiere am Rand oder hinten weniger nährstoffreiche Nahrung bekommen.
+\item Körperliche Kondition: Durch den besseren Zugang zu Nahrung bleiben ranghohe Tiere kräftiger und gesünder; rangniedrige Tiere laufen Gefahr, schwächer zu werden.
+\item Wasser- und Schutzzugang: Höher gestellte Tiere haben meist besseren Zugang zu Wasserstellen und sind besser vor Raubtieren oder Stresssituationen geschützt.
+\end{itemize}
+
+Damit spiegelt die Platzierung in der Herde sowohl den sozialen Rang als auch die damit verbundenen Ressourcen- und Gesundheitsvorteile wider.
+
+\textbf{Antwort zu Frage 6 (GPT-OSS-120B):}
+
+Weibliche Kaffernbüffel können ihre Herde wechseln, um
+
+\begin{itemize}
+\item Zugang zu besseren Nahrungs- oder Wasserquellen zu finden, wenn das aktuelle Gebiet knapp wird,
+\item ihre soziale Stellung zu verbessern -- z.\,B. nach der Geburt eines Kalbes, das ihren Rang erhöhen kann,
+\item Konkurrenz oder Überfüllung in einer zu großen Herde zu entkommen,
+\item von einer herdinternen Aufspaltung zu profitieren und zu einer neu formierten, besser strukturierten Gruppe zu wechseln,
+\item gelegentlich mit Verwandten oder bekannten Partnern (z.\,B. Bullen) zu migrieren, wenn diese Gruppen für die Kalbenerziehung oder Sicherheit attraktiver sind.
+\end{itemize}
+
+\textbf{Antwort zu Frage 7 (GPT-OSS-120B):}
+
+Die Rangposition bestimmt, wie gut ein Tier an Nahrung und Wasser kommt.
+
+\begin{itemize}
+\item Dominante Kühe stehen vorn in der Herde, erhalten zuerst die qualitativ besten Gräser und trinken zuerst. Das führt zu besserer körperlicher Kondition, höherer Immunität und einer höheren Fruchtbarkeitsrate; ihre Kälber haben dank besserer Milch- und Schutzversorgung eine höhere Überlebenswahrscheinlichkeit.
+\item Weibchen mit jungen Kälbern genießen ebenfalls vorrangigen Zugang, weil die Herde sie schützend voranstellt. Auch sie profitieren von guter Ernährung und sichern damit das Wachstum ihrer Nachkommen.
+\item Tiere niedrigerer Stellung gelangen erst später an Futter, erhalten oft weniger nährstoffreiche Pflanzen und trinken seltener. Das schwächt ihr Immunsystem, erhöht das Risiko von Krankheiten und verringert die Wahrscheinlichkeit einer erfolgreichen Trächtigkeit; ihre Kälber sind anfälliger für Unterernährung und Mortalität.
+\end{itemize}
+
+Ein neugeborenes Kalb kann die Stellung seiner Mutter erhöhen, weil sie dadurch in der Herde weiter nach vorne rückt und künftig besseren Zugang zu Ressourcen erhält. Somit wirkt die soziale Position direkt auf Gesundheit und Fortpflanzungserfolg.
+
+\textbf{Antwort zu Frage 8 (GPT-OSS-120B):}
+
+Große Herden sind in den Regen- bzw. Nahrungs- und wasserreichen Jahreszeiten vorteilhaft, weil sie:
+
+\begin{itemize}
+\item Schutz vor Raubtieren bieten (Massenflucht, Abschreckung)
+\item Gemeinsam bessere Zugänge zu den begrenzten, aber reichlich vorhandenen Futtermengen und Wasserstellen finden
+\end{itemize}
+
+Langfristig jedoch wird die Ressourcenkapazität der jeweiligen Fläche überlastet: Konkurrenz um Futter und Trinkwasser steigt, die körperliche Kondition der niedrigeren Rangtiere sinkt und die soziale Hierarchie zerbricht. Deshalb spalten sich die Herden wieder, um kleinere, besser versorgbare Einheiten zu bilden, die sich an wechselnde Umweltbedingungen anpassen können.
+\section{Original-Fragebogen}
+\label{app:fragebogen}
+\includepdf[pages=-, scale=0.9, pagecommand={\thispagestyle{plain}}]{Anhang/Fragebogen.pdf}
+
+\newpage
+\section{Zusätzliche Diagramme und Ergebnisse}
+\label{app:diagramme_ergebnisse}
+
+\subsection{LLM-as-a-Judge Evaluation}
+\label{app:violin_plots_llm}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_llm_frage1.tex} 
+    \caption[]{Violinplot der \ac{llm}-Bewertungen für Frage 1}
+    \label{fig:violin_llm_frage1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_llm_frage2.tex}
+    \caption[]{Violinplot der \ac{llm}-Bewertungen für Frage 2}
+    \label{fig:violin_llm_frage2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_llm_frage3.tex}
+    \caption[]{Violinplot der \ac{llm}-Bewertungen für Frage 3}
+    \label{fig:violin_llm_frage3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_llm_frage4.tex}
+    \caption[]{Violinplot der \ac{llm}-Bewertungen für Frage 4}
+    \label{fig:violin_llm_frage4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_llm_frage5.tex}
+    \caption[]{Violinplot der \ac{llm}-Bewertungen für Frage 5}
+    \label{fig:violin_llm_frage5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_llm_frage6.tex}
+    \caption[]{Violinplot der \ac{llm}-Bewertungen für Frage 6}
+    \label{fig:violin_llm_frage6}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_llm_frage7.tex}
+    \caption[]{Violinplot der \ac{llm}-Bewertungen für Frage 7}
+    \label{fig:violin_llm_frage7}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_llm_frage8.tex}
+    \caption[]{Violinplot der \ac{llm}-Bewertungen für Frage 8}
+    \label{fig:violin_llm_frage8}
+\end{figure}
+
+\subsection{Menschliche Evaluation (Umfrage)}
+\label{app:violin_plots_menschlich}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_menschlich_frage1.tex} 
+    \caption[]{Violinplot der menschlichen Bewertungen für Frage 1}
+    \label{fig:violin_menschlich_frage1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_menschlich_frage2.tex}
+    \caption[]{Violinplot der menschlichen Bewertungen für Frage 2}
+    \label{fig:violin_menschlich_frage2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_menschlich_frage3.tex}
+    \caption[]{Violinplot der menschlichen Bewertungen für Frage 3}
+    \label{fig:violin_menschlich_frage3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_menschlich_frage4.tex}
+    \caption[]{Violinplot der menschlichen Bewertungen für Frage 4}
+    \label{fig:violin_menschlich_frage4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_menschlich_frage5.tex}
+    \caption[]{Violinplot der menschlichen Bewertungen für Frage 5}
+    \label{fig:violin_menschlich_frage5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_menschlich_frage6.tex}
+    \caption[]{Violinplot der menschlichen Bewertungen für Frage 6}
+    \label{fig:violin_menschlich_frage6}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_menschlich_frage7.tex}
+    \caption[]{Violinplot der menschlichen Bewertungen für Frage 7}
+    \label{fig:violin_menschlich_frage7}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{Diagramme/violinplot_menschlich_frage8.tex}
+    \caption[]{Violinplot der menschlichen Bewertungen für Frage 8}
+    \label{fig:violin_menschlich_frage8}
+\end{figure}
+
+
+
+
+
+\end{document}
